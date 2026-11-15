@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "mode": "unavailable",
+  "status": "not_run_missing_api_key",
+  "message": "尚未执行真实模型分类。配置本地 OPENAI_API_KEY 后运行 scripts/classify_notes.py；成功并通过校验后，此文件才会替换为真实结果。"
+}

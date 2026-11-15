@@ -1,0 +1,89 @@
+{
+  "version": "0.7",
+  "classificationInput": "Text only: id, title, description, tags. No originalAlbum, groups, reason, savedAt or cover.",
+  "offlineNotice": "All memberships in classifications.offline.json are hand-authored demonstration fixtures, not model outputs.",
+  "realStatus": "not_run_missing_api_key",
+  "cases": [
+    {
+      "case": "A",
+      "noteId": "case-a",
+      "input": {
+        "id": "case-a",
+        "title": "这次终于像一家店了",
+        "description": "街角小店的招牌、外带杯和菜单以前各用一套样式。我把它们改为同一组字形和两种主色，菜单按字级安排价格与说明，再扩大段落间的留白，远看近看都更统一。",
+        "tags": [
+          "街角小店",
+          "改造记录",
+          "阅读顺序"
+        ]
+      },
+      "humanExpectation": [
+        "design"
+      ],
+      "realStatus": "not_run_missing_api_key",
+      "realOutput": null,
+      "observedRealMemberships": null,
+      "passed": null
+    },
+    {
+      "case": "B",
+      "noteId": "case-b",
+      "input": {
+        "id": "case-b",
+        "title": "求职作品集排版技巧",
+        "description": "下周要投递产品体验岗位，项目册需要在短时间内讲清我的职责与成果。我用统一网格对齐正文和配图，调整标题字级与页边距，同时把最相关的两个项目移到前面，方便招聘方快速阅读。",
+        "tags": [
+          "岗位投递",
+          "项目册",
+          "网格与字级"
+        ]
+      },
+      "humanExpectation": [
+        "career",
+        "design"
+      ],
+      "realStatus": "not_run_missing_api_key",
+      "realOutput": null,
+      "observedRealMemberships": null,
+      "passed": null
+    }
+  ],
+  "manualCorrection": {
+    "case": "C",
+    "status": "passed_browser_persistence",
+    "noteId": "d1",
+    "groupId": "design",
+    "expected": "用户手动排除关系在刷新或加载新AI分类结果后仍优先保留；撤销仅移除该排除关系。",
+    "inputSource": "synthetic_browser_fixture_not_a_real_model_run",
+    "initiallyPresent": true,
+    "afterManualRemoval": false,
+    "afterReloadSameResult": false,
+    "afterReloadUpdatedResult": false,
+    "originalAlbumStillContainsNote": true
+  },
+  "realExecution": {
+    "status": "not_run_missing_api_key",
+    "checkedAt": "2026-11-15T15:56:29.296768Z",
+    "command": "python3 scripts/classify_notes.py",
+    "exitCode": 2,
+    "apiRequestsMade": 0,
+    "realFileUnchanged": true,
+    "message": "Classification failed: OPENAI_API_KEY is missing; no model request was made and no real result was generated. Set it locally or securely in environment settings, never in browser code or Git."
+  },
+  "testSummary": {
+    "pipelineUnitTests": {
+      "passed": 24,
+      "source": "mocked transport and validation, no real provider call"
+    },
+    "aiBrowserIntegrationTests": {
+      "passed": 8,
+      "source": "synthetic static JSON fixtures, no real provider call"
+    },
+    "existingUIRegressionTests": {
+      "passed": 10,
+      "source": "local Chromium"
+    },
+    "stylesCssChanged": false,
+    "realModelCasesPassed": null
+  }
+}

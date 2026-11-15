@@ -23,18 +23,22 @@
       <article class="feature-card"><h2><span>04</span>智能创建</h2><p>新建专辑时提示已有相似专辑，减少重复创建。</p></article>
     </div>
     <p class="design-principle">不改变原有收藏结构，不自动删除内容。AI 负责理解和组织，用户保留最终控制权。</p>
-    <footer class="brief-footer">Concept Prototype · 模拟数据与分类逻辑，非正式上线产品</footer>
+    <footer class="brief-footer">Concept Prototype · 原创模拟笔记，非正式上线产品<span id="classificationSource"></span></footer>
     <div class="brief-actions"><button id="resetDemo" type="button">恢复初始体验</button></div>
   </aside>
   <section class="phone" aria-label="小红书收藏智能合集交互模拟手机">
     <div class="status"><span>9:41</span><span class="signal" id="statusIcons" aria-label="蜂窝网络、无线网络、电池电量充足"></span></div>
-    <main class="viewport" id="appScreen"></main>
+    <main class="viewport" id="appScreen"><div class="no-results">正在加载收藏…</div></main>
     <nav class="tabbar"><button data-action="notice" data-value="本次只演示收藏页，首页未实现">首页</button><button data-action="notice" data-value="本次只演示收藏页，市集未实现">市集</button><button class="plus" data-action="notice" data-value="本次只演示收藏页，发布未实现" aria-label="发布"><span id="publishIcon"></span></button><button data-action="notice" data-value="本次只演示收藏页，消息未实现">消息</button><button class="current" data-action="home">我</button></nav>
     <div class="modalLayer" id="modalLayer"></div><div id="toastLayer"></div>
   </section>
 </div>
+<script src="data/offline-bundle.js"></script>
+<script src="classification-store.js"></script>
 <script>
 'use strict';
+(async function bootstrap() {
+const AI=await REClassification.createStore(globalThis.RE_BOOTSTRAP,{forceOffline:new URLSearchParams(location.search).get('classification')==='offline'});
 const iconPaths={
 'back':'<path d="m15 18-6-6 6-6"/>','search':'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>','more':'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>','spark':'<path d="m12 2 1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9Z"/><path d="m19 17 .8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8Z"/>','folder':'<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v11H3Z"/>','folder-add':'<path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v11H3Z"/><path d="M12 11v6m-3-3h6"/>','chevron':'<path d="m9 18 6-6-6-6"/>','down':'<path d="m6 9 6 6 6-6"/>','check':'<path d="m4 12 5 5L20 6"/>','pin':'<path d="m14 3 7 7-4 1-4 4-2-2-7 7 7-7-2-2 4-4Z"/>','eye-off':'<path d="m3 3 18 18"/><path d="M10.5 10.5a2 2 0 0 0 3 3"/><path d="M9 5a10 10 0 0 1 12 7c-1 2-3 4-5 5M6 7c-2 1-3 3-4 5 4 7 16 9 20 0"/>','undo':'<path d="M3 7v6h6"/><path d="M4 13a8 8 0 1 1 3 6"/>','bookmark':'<path d="M5 3h14v18l-7-5-7 5V3Z"/>','close':'<path d="M18 6 6 18M6 6l12 12"/>','settings':'<circle cx="12" cy="12" r="3"/><path d="m19 13 2-1-2-1m-7-8v2m0 14v2m-9-9h2m14 0h2M5 5l2 2m10 10 2 2M19 5l-2 2M7 17l-2 2"/>','refresh':'<path d="M20 11a8 8 0 0 0-15-4L3 9V3M4 13a8 8 0 0 0 15 4l2-2v6"/>','help':'<circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 1 1 5 3l-2 2m0 3v.5"/>'};
 
@@ -60,45 +64,9 @@ const E=id=>document.getElementById(id);
 E('statusIcons').innerHTML=ico('signal')+ico('wifi')+ico('battery','battery-icon');
 E('publishIcon').innerHTML=ico('plus');
 E('resetDemo').innerHTML=ico('refresh','small')+'恢复初始体验';
-const GROUPS=[
- {id:'design',name:'设计与创作',desc:'视觉、动态、交互与设计参考',cover:'design_type',stamp:190},
- {id:'travel',name:'旅行与探索',desc:'目的地、路线和出行灵感',cover:'travel_cph',stamp:180},
- {id:'career',name:'求职准备',desc:'作品集、笔试与面试经验',cover:'career_resume',stamp:170},
- {id:'food',name:'美食与探店',desc:'食谱、餐厅和周末味道',cover:'photo_food',stamp:160},
- {id:'home',name:'家居灵感',desc:'布置、软装和生活空间',cover:'home_room',stamp:150},
- {id:'life',name:'穿搭与生活',desc:'穿搭、美妆与生活方式',cover:'life_fashion',stamp:140}
-];
-const BASE_NOTES=[
- ['d1','实验字体与海报排版','design_type',['design'],'视觉设计灵感',190,'笔记里的字体构成与视觉排版元素'],
- ['d2','让人想反复看的动态视觉','design_motion',['design'],'视觉设计灵感',150,'包含动态视觉、创意表现相关内容'],
- ['d3','好看的品牌视觉系统','design_brand',['design'],'平面设计',120,'品牌设计和视觉系统参考'],
- ['d4','平面设计的网格排版方法','design_packaging',['design'],'平面设计',110,'涉及网格、印刷和版式'],
- ['d5','柔软的三维图形灵感','design_blender',['design'],'Blender学习',90,'三维造型和材质设计'],
- ['d6','喜欢的交互网页合集','design_website',['design'],'交互设计',85,'交互网页和创意编程案例'],
- ['d7','作品集封面参考','design_grid',['design','career'],'作品集参考',88,'既是视觉排版，也与求职作品集有关'],
- ['d8','UI 元素与信息层级','design_ui',['design'],'UI设计',76,'界面组件和信息层级'],
- ['t1','哥本哈根城市漫步','travel_cph',['travel'],'北欧旅行',180,'城市旅行与地点信息'],
- ['t2','首尔值得去的街区','photo_korea',['travel'],'韩国',140,'韩国旅行路线与地点'],
- ['t3','新西兰南岛徒步记录','travel_nz',['travel'],'新西兰旅行',120,'徒步路线与出行参考'],
- ['t4','英国周末小旅行','travel_uk',['travel'],'英国旅行',100,'英国旅行地点与交通'],
- ['t5','第一次去意大利的路线','travel_italy',['travel'],'欧洲旅行',88,'旅行目的地与行程安排'],
- ['c1','设计岗位作品集怎么准备','career_resume',['career'],'求职准备',170,'适用于设计岗位求职'],
- ['c2','设计师面试问题整理','career_interview',['career'],'秋招面试',135,'包含面试准备与提问'],
- ['c3','校招投递时间线','career_jobs',['career'],'求职准备',105,'求职流程与时间安排'],
- ['c4','怎样讲清楚自己的项目','career_case',['career'],'作品集参考',85,'项目叙事与作品呈现'],
- ['c5','AI Coding 笔试作品思路','career_ai',['career','design'],'秋招面试',70,'求职笔试与设计技术的交叉内容'],
- ['f1','周末想吃的家常菜','photo_food',['food'],'美食',160,'食谱和美食收藏'],
- ['f2','这家咖啡馆好舒服','food_cafe',['food'],'美食',105,'餐厅与咖啡馆内容'],
- ['f3','烘焙也可以很简单','food_bakery',['food'],'美食',76,'甜品与食谱内容'],
- ['f4','简单好吃的一人食','photo_food2',['food'],'美食',40,'家庭料理参考'],
- ['h1','小房间也可以很温暖','home_room',['home'],'家居',150,'室内布置与家具搭配'],
- ['h2','复古台灯和阅读角','home_lamp',['home','design'],'家居',110,'家居布置和色彩参考'],
- ['h3','小户型空间整理灵感','home_small',['home'],'生活灵感',70,'空间收纳和居住布置'],
- ['h4','自然色系卧室搭配','home_color',['home'],'生活灵感',45,'配色与室内装饰'],
- ['l1','秋冬简约穿搭灵感','life_fashion',['life'],'穿搭',140,'日常穿搭'],
- ['l2','自然妆容参考','life_skincare',['life'],'美妆',92,'妆容与护肤'],
- ['l3','可爱宠物日常','life_pet',['life'],'生活灵感',55,'日常生活记录']
-].map(([id,title,cover,groups,original,stamp,reason])=>({id,title,cover,groups,original,stamp,reason}));
+const GROUPS=AI.groups.map(g=>({...g,desc:g.description}));
+const noteForUI=n=>({...n,original:n.originalAlbum,stamp:Date.parse(n.savedAt)});
+const BASE_NOTES=AI.notes.filter(n=>n.availability==='initial').map(noteForUI);
 const ALBUMS=[
  {id:'美食',name:'美食',count:93,shared:3,locked:true,covers:['photo_food','photo_food2','food_noodle','food_bakery']},
  {id:'韩国',name:'韩国',count:36,shared:2,locked:true,covers:['photo_korea','travel_korea','travel_cph','travel_uk']},
@@ -109,19 +77,17 @@ const ALBUMS=[
  {id:'家居',name:'家居',count:28,locked:true,covers:['home_room','home_lamp','home_small','home_color']},
  {id:'字体排版',name:'字体排版',count:32,locked:true,covers:['design_grid','design_type','design_packaging','design_ui']}
 ];
-const NEW_NOTES=[
- {id:'new1',title:'租房小卧室也能拥有松弛感',cover:'new_room',groups:['home'],original:'未归类',reason:'识别到小户型居住布置和家具搭配'},
- {id:'new2',title:'实验字体制作过程',cover:'new_type',groups:['design'],original:'未归类',reason:'识别到字体排版与视觉创作'},
- {id:'new3',title:'首尔的周末散步路线',cover:'new_korea',groups:['travel'],original:'未归类',reason:'识别到韩国地点与出行路线'}
-];
+const NEW_NOTES=AI.notes.filter(n=>n.availability==='simulated').map(noteForUI);
 const KEY='refold-v05-experience-data';
 function stored(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(_){return {}}}
 const persisted=stored();
-const S={page:'home',selectedGroup:null,selectedAlbum:null,selectedNote:null,createTitle:'',createDesc:'',createPublic:true,createShared:false,smartOn:persisted.smartOn!==false,hidden:persisted.hidden||[],pins:persisted.pins||[],exclude:persisted.exclude||{},savedNew:persisted.savedNew||[],extraAlbums:persisted.extraAlbums||[],saveClock:persisted.saveClock||400,toastUndo:null};
-function commit(){try{localStorage.setItem(KEY,JSON.stringify({smartOn:S.smartOn,hidden:S.hidden,pins:S.pins,exclude:S.exclude,savedNew:S.savedNew,extraAlbums:S.extraAlbums,saveClock:S.saveClock}))}catch(_){}}
+const S={page:'home',selectedGroup:null,selectedAlbum:null,selectedNote:null,createTitle:'',createDesc:'',createPublic:true,createShared:false,smartOn:persisted.smartOn!==false,hidden:persisted.hidden||[],pins:persisted.pins||[],exclude:persisted.exclude||{},savedNew:persisted.savedNew||[],savedTimes:persisted.savedTimes||{},extraAlbums:persisted.extraAlbums||[],saveClock:persisted.saveClock||400,toastUndo:null};
+function commit(){try{localStorage.setItem(KEY,JSON.stringify({smartOn:S.smartOn,hidden:S.hidden,pins:S.pins,exclude:S.exclude,savedNew:S.savedNew,savedTimes:S.savedTimes,extraAlbums:S.extraAlbums,saveClock:S.saveClock}))}catch(_){}}
 const asset=cover=>`assets/${cover}.webp`;
-const allNotes=()=>[...BASE_NOTES,...NEW_NOTES.filter(n=>S.savedNew.includes(n.id)).map((n,i)=>({...n,stamp:400+S.savedNew.indexOf(n.id)}))];
-const inGroup=(n,id)=>n.groups.includes(id)&&!(S.exclude[id]||[]).includes(n.id);
+const legacySaveBase=Math.max(...AI.notes.map(n=>Date.parse(n.savedAt)))+1000;
+const allNotes=()=>[...BASE_NOTES,...NEW_NOTES.filter(n=>S.savedNew.includes(n.id)).map(n=>{const stamp=S.savedTimes[n.id]?Date.parse(S.savedTimes[n.id]):legacySaveBase+S.savedNew.indexOf(n.id)*1000;return {...n,savedAt:new Date(stamp).toISOString(),stamp}})];
+// Manual exclusions are independent of AI files and always take precedence.
+const inGroup=(n,id)=>AI.memberships(n.id).some(m=>m.groupId===id)&&!(S.exclude[id]||[]).includes(n.id);
 const groupNotes=id=>allNotes().filter(n=>inGroup(n,id)).sort((a,b)=>b.stamp-a.stamp);
 const visibleGroups=()=>GROUPS.filter(g=>S.smartOn&&!S.hidden.includes(g.id)&&groupNotes(g.id).length).sort((a,b)=>{const ap=S.pins.includes(a.id),bp=S.pins.includes(b.id);if(ap!==bp)return ap?-1:1;const t=id=>Math.max(0,...groupNotes(id).map(n=>n.stamp));return t(b.id)-t(a.id)});
 function renderProfile(){return `<div class="coverbar"><div class="profile-actions"><button aria-label="菜单" data-action="notice" data-value="本次只呈现个人收藏体验">${ico('menu')}</button><div class="right"><button class="edit" data-action="notice" data-value="个人资料为概念示意">${ico('edit','small')}编辑主页</button><button aria-label="扫一扫" data-action="notice" data-value="此入口不在本次演示范围">${ico('scan')}</button><button aria-label="分享主页" data-action="notice" data-value="分享功能不在本次演示范围">${ico('share')}</button></div></div></div>
@@ -129,7 +95,7 @@ function renderProfile(){return `<div class="coverbar"><div class="profile-actio
 <div class="primary-tabs"><button data-action="notice" data-value="笔记标签非本次演示范围">笔记</button><button data-action="notice" data-value="评论标签非本次演示范围">${ico('lock','tiny')}评论</button><button class="active" aria-current="page" data-action="notice" data-value="当前为收藏页">${ico('lock','tiny')}收藏</button><button data-action="notice" data-value="赞过标签非本次演示范围">${ico('lock','tiny')}赞过</button><button aria-label="搜索收藏" data-action="notice" data-value="原生收藏搜索不在本次改版范围">${ico('search')}</button></div><div class="secondary-tabs"><button data-action="notice" data-value="笔记标签非本次演示范围">笔记 3900</button><button class="active" aria-current="page" data-action="notice" data-value="当前为专辑页">专辑 132</button>${['合集 1','话题 2','地点 39','音乐 1'].map(t=>`<button data-action="notice" data-value="此标签不在本次演示范围">${t}</button>`).join('')}</div>`}
 function smartTile(g){const arr=groupNotes(g.id);return `<button class="smart-tile" data-action="group" data-id="${g.id}" aria-label="打开智能合集 ${esc(g.name)}"><span class="tile-image"><img src="${asset(arr[0]?.cover||g.cover)}" alt="${esc(arr[0]?.title||g.name)}"></span>${S.pins.includes(g.id)?`<span class="pinmark" aria-label="已固定">${ico('pin','tiny')}</span>`:''}<span class="tile-name">${esc(g.name)}</span></button>`}
 function albumCard(a){return `<div class="album"><button class="albumbutton" data-action="album" data-id="${esc(a.id)}"><div class="albumhead"><span>${esc(a.name)}</span>${a.locked?`<span class="tiny-lock" aria-label="私密专辑">${ico('lock','small')}</span>`:''}</div><div class="albummeta"><span>笔记 · ${a.count}</span>${a.shared?`<span>共享人 · ${a.shared}</span><span class="shared-avatars" aria-hidden="true">${Array.from({length:Math.min(a.shared,3)},(_,i)=>`<img src="${i===2?'assets/avatar.svg':asset(['design_brand','life_fashion'][i])}" alt="">`).join('')}</span>`:''}</div><div class="albumthumbs">${a.covers.slice(0,4).map(c=>`<span class="albumthumb"><img src="${asset(c)}" alt="${esc(a.name)} 专辑封面"></span>`).join('')}</div></button></div>`}
-function renderHome(){const gs=visibleGroups();return `${renderProfile()}<div class="entryrow"><button data-action="create"><span class="entryico">${ico('album-add')}</span>创建新专辑<span class="chevron">${ico('chevron','small')}</span></button></div>${S.smartOn?`<section aria-label="为你整理"><div class="section-head"><strong>为你整理</strong><button data-action="settings" aria-label="智能合集设置">${ico('more','small')}</button></div>${gs.length?`<div class="shelf" id="smartShelf">${gs.map(smartTile).join('')}</div>`:'<div class="shelf"><div class="shelf-empty">暂无显示的智能合集，可在设置中恢复。</div></div>'}</section>`:`<div class="smart-disabled"><span>智能合集已关闭</span><button data-action="settings" aria-label="智能合集设置">${ico('more','small')}</button></div>`}<div class="section-head albums-label"><strong>我的专辑</strong></div><div class="collection-list">${[...ALBUMS,...S.extraAlbums].map(albumCard).join('')}</div><div class="footer-mock">体验设计原型 · 模拟数据与 AI 结果<br>3900 / 132 为情境数字，当前展示 8 个原有专辑</div>`}
+function renderHome(){const gs=visibleGroups();return `${renderProfile()}<div class="entryrow"><button data-action="create"><span class="entryico">${ico('album-add')}</span>创建新专辑<span class="chevron">${ico('chevron','small')}</span></button></div>${S.smartOn?`<section aria-label="为你整理"><div class="section-head"><strong>为你整理</strong><button data-action="settings" aria-label="智能合集设置">${ico('more','small')}</button></div>${gs.length?`<div class="shelf" id="smartShelf">${gs.map(smartTile).join('')}</div>`:'<div class="shelf"><div class="shelf-empty">暂无显示的智能合集，可在设置中恢复。</div></div>'}</section>`:`<div class="smart-disabled"><span>智能合集已关闭</span><button data-action="settings" aria-label="智能合集设置">${ico('more','small')}</button></div>`}<div class="section-head albums-label"><strong>我的专辑</strong></div><div class="collection-list">${[...ALBUMS,...S.extraAlbums].map(albumCard).join('')}</div><div class="footer-mock" data-classification-mode="${AI.mode}" data-classification-source="${AI.source}">${esc(AI.label())}<br>35 篇初始模拟笔记 · 3900 / 132 为情境数字</div>`}
 function noteCard(n){return `<button class="notecard" data-action="note" data-id="${n.id}"><span class="note-image"><img src="${asset(n.cover)}" alt="${esc(n.title)}"></span><span class="note-caption"><strong>${esc(n.title)}</strong><small>${esc(n.original)}</small></span></button>`}
 function noteFlow(notes){return `<div class="masonry">${[0,1].map(col=>`<div class="note-column">${notes.filter((_,i)=>i%2===col).map(noteCard).join('')}</div>`).join('')}</div>`}
 function header(title,right=''){return `<div class="pagehead"><button aria-label="返回" data-action="home">${ico('back','big')}</button><strong>${esc(title)}</strong>${right||'<span></span>'}</div>`}
@@ -144,9 +110,9 @@ function closeModal(){const layer=E('modalLayer');if(!layer.firstChild)return;la
 function sheet(inner){if(!E('modalLayer').firstChild)S.modalOpener=document.activeElement;E('modalLayer').innerHTML=`<div class="scrim" id="backdrop"><div class="sheet" role="dialog" aria-modal="true" aria-label="${S.selectedNote?'笔记与收藏操作':'收藏操作'}" tabindex="-1"><div class="handle"></div>${inner}<button class="close" data-action="close">关闭</button></div></div>`;document.querySelector('.phone').classList.add('modal-open');E('appScreen').inert=true;document.querySelector('.tabbar').inert=true;E('modalLayer').querySelector('.sheet').focus({preventScroll:true})}
 function toast(msg,undo=null){const t=E('toastLayer');t.innerHTML=`<div class="toast" role="status"><span>${esc(msg)}</span>${undo?'<button data-action="undo">撤销</button>':''}</div>`;S.toastUndo=undo;clearTimeout(S.toastTimer);S.toastTimer=setTimeout(()=>{t.innerHTML='';S.toastUndo=null},4400)}
 function groupMenu(){const g=GROUPS.find(x=>x.id===S.selectedGroup);if(!g)return;const pinned=S.pins.includes(g.id);sheet(`<h3>${ico('spark')} ${esc(g.name)}</h3><p>仅调整自己的智能合集展示，不修改原有专辑。</p><button class="choice" data-action="pin" data-id="${g.id}">${ico('pin')}<span><strong>${pinned?'取消固定':'固定在最前'}</strong><small>${pinned?'重新按最近收藏排序':'固定后不受新收藏排序影响'}</small></span><span class="arrow">${ico('chevron','small')}</span></button><button class="choice" data-action="hide" data-id="${g.id}">${ico('eye-off')}<span><strong>不显示这个智能合集</strong><small>隐藏只是个人视图操作，不取消任何收藏</small></span><span class="arrow">${ico('chevron','small')}</span></button><div class="hint">提示：想调整某篇笔记的分类，请直接打开该笔记。</div>`)}
-function noteSheet(noteId){const n=allNotes().find(n=>n.id===noteId);if(!n)return;S.selectedNote=n.id;const g=GROUPS.find(g=>g.id===S.selectedGroup);const currentlyInGroup=S.page==='group'&&g&&inGroup(n,g.id);sheet(`<img class="note-large" src="${asset(n.cover)}" alt="${esc(n.title)}"><h3>${esc(n.title)}</h3><div class="note-source"><span>原收藏专辑</span><strong>${esc(n.original)}</strong></div><details class="classification"><summary>${ico('chevron','tiny')}查看归类依据（模拟）</summary><p>${esc(n.reason)}</p></details>${currentlyInGroup?`<button class="choice" data-action="exclude" data-id="${n.id}" data-group="${g.id}">${ico('close','small')}<span><strong>不属于这个智能合集</strong></span></button>`:''}`)}
-function simulateSheet(){sheet(`<h3>模拟收藏一篇新笔记</h3><p>选择一篇新内容，观察「为你整理」的智能合集如何自动收纳、按最近收藏调整顺序。</p>${NEW_NOTES.map(n=>`<button class="choice" data-action="save-note" data-id="${n.id}" ${S.savedNew.includes(n.id)?'disabled':''}><img src="${asset(n.cover)}" alt=""/><span><strong>${esc(n.title)}</strong><small>${S.savedNew.includes(n.id)?'已在模拟收藏中':'点击模拟收藏 · 自动进入智能合集'}</small></span><span class="arrow">${ico(S.savedNew.includes(n.id)?'check':'plus','small')}</span></button>`).join('')}<div class="hint">默认依照关联合集最近一次新增笔记的时间排序。已经收藏的内容不会重复加入。</div>`)}
-function settingsSheet(){sheet(`<h3>${ico('spark')} 为你整理 · 设置</h3><p>AI 智能合集将所有收藏笔记按内容建立虚拟关联。只在此处展示，不改变你的原有专辑。</p><button class="choice" data-action="smart-toggle"><span><strong>${S.smartOn?'关闭智能合集展示':'开启智能合集展示'}</strong><small>可随时恢复显示</small></span><span class="arrow">${S.smartOn?'关闭':'开启'}</span></button>${S.hidden.length?`<div class="hint">已隐藏的智能合集</div>${S.hidden.map(id=>{const g=GROUPS.find(g=>g.id===id);return g?`<button class="choice" data-action="restore" data-id="${id}"><span><strong>${esc(g.name)}</strong><small>点击恢复展示</small></span><span class="arrow">${ico('chevron','small')}</span></button>`:''}).join('')}`:''}<button class="choice" data-action="simulate">${ico('bookmark')}<span><strong>模拟收藏一篇新笔记</strong><small>验证自动更新与排序</small></span><span class="arrow">${ico('chevron','small')}</span></button><div class="hint">当前仅展示规则驱动的模拟 AI 结果。真实上线需明确授权、保护私密和共享专辑数据，并允许用户退出。</div>`)}
+function noteSheet(noteId){const n=allNotes().find(n=>n.id===noteId);if(!n)return;S.selectedNote=n.id;const g=GROUPS.find(g=>g.id===S.selectedGroup);const currentlyInGroup=S.page==='group'&&g&&inGroup(n,g.id);sheet(`<img class="note-large" src="${asset(n.cover)}" alt="${esc(n.title)}"><h3>${esc(n.title)}</h3><div class="note-source"><span>原收藏专辑</span><strong>${esc(n.original)}</strong></div><details class="classification"><summary>${ico('chevron','tiny')}查看归类依据（${AI.mode==='real'?'文本模型':'离线模拟'}）</summary><p>${esc(AI.reason(n.id,S.page==='group'?S.selectedGroup:null))}</p></details>${currentlyInGroup?`<button class="choice" data-action="exclude" data-id="${n.id}" data-group="${g.id}">${ico('close','small')}<span><strong>不属于这个智能合集</strong></span></button>`:''}`)}
+function simulateSheet(){sheet(`<h3>模拟收藏一篇新笔记</h3><p>选择一篇预备好的模拟笔记，使用当前分类文件更新合集与排序。此操作不会发起 AI 请求。</p>${NEW_NOTES.map(n=>`<button class="choice" data-action="save-note" data-id="${n.id}" ${S.savedNew.includes(n.id)?'disabled':''}><img src="${asset(n.cover)}" alt=""/><span><strong>${esc(n.title)}</strong><small>${S.savedNew.includes(n.id)?'已在模拟收藏中':'点击模拟收藏 · 载入已有归类'}</small></span><span class="arrow">${ico(S.savedNew.includes(n.id)?'check':'plus','small')}</span></button>`).join('')}<div class="hint">默认依照关联合集最近一次新增笔记的时间排序。已经收藏的内容不会重复加入。</div>`)}
+function settingsSheet(){sheet(`<h3>${ico('spark')} 为你整理 · 设置</h3><p>AI 智能合集将所有收藏笔记按内容建立虚拟关联。只在此处展示，不改变你的原有专辑。</p><button class="choice" data-action="smart-toggle"><span><strong>${S.smartOn?'关闭智能合集展示':'开启智能合集展示'}</strong><small>可随时恢复显示</small></span><span class="arrow">${S.smartOn?'关闭':'开启'}</span></button>${S.hidden.length?`<div class="hint">已隐藏的智能合集</div>${S.hidden.map(id=>{const g=GROUPS.find(g=>g.id===id);return g?`<button class="choice" data-action="restore" data-id="${id}"><span><strong>${esc(g.name)}</strong><small>点击恢复展示</small></span><span class="arrow">${ico('chevron','small')}</span></button>`:''}).join('')}`:''}<button class="choice" data-action="simulate">${ico('bookmark')}<span><strong>模拟收藏一篇新笔记</strong><small>验证自动更新与排序</small></span><span class="arrow">${ico('chevron','small')}</span></button><div class="hint">${esc(AI.label())}。${AI.mode==='real'?'结果于 '+esc(AI.result.generatedAt)+' 预先生成，仅基于标题、描述与标签；未分析图片。':'当前没有可用的真实模型结果，显示手工离线示例。'}用户手动纠错始终优先于分类文件。</div>`)}
 function similarSheet(){const sims=similarAlbums(S.createTitle);sheet(`<h3>已有的相似专辑</h3><p>AI 根据输入的标题识别相关主题。这些结果仅供参考，不会阻止你创建新的专辑。</p>${sims.map(a=>`<button class="choice" data-action="album" data-id="${esc(a.id)}"><img src="${asset(a.covers[0])}" alt=""/><span><strong>${esc(a.name)}</strong><small>${a.count} 篇收藏 · 原有专辑</small></span><span class="arrow">${ico('chevron','small')}</span></button>`).join('')}`)}
 function saveAlbum(){const name=S.createTitle.trim();if(!name){toast('请填写专辑名称');return}const id='user-'+Date.now();const x={id,name,count:0,locked:!S.createPublic,shared:S.createShared?1:0,covers:['design_grid','design_brand','travel_uk','food_cafe']};S.extraAlbums.unshift(x);commit();S.createTitle='';S.createDesc='';S.createPublic=true;S.createShared=false;go('home');toast(`「${name}」已创建，原有专辑保持不变`,()=>{S.extraAlbums=S.extraAlbums.filter(a=>a.id!==id);commit();render()})}
 function onAction(a,id,node){switch(a){
@@ -169,7 +135,7 @@ function onAction(a,id,node){switch(a){
  case 'hide':{S.hidden=[...new Set([...S.hidden,id])];commit();closeModal();go('home');toast('已隐藏智能合集，可在「管理」中恢复',()=>{S.hidden=S.hidden.filter(x=>x!==id);commit();render()});break}
  case 'restore':{S.hidden=S.hidden.filter(x=>x!==id);commit();closeModal();render();toast('已恢复显示智能合集');break}
  case 'exclude':{const group=node.dataset.group;S.exclude[group]=[...new Set([...(S.exclude[group]||[]),id])];commit();closeModal();render();toast('已从智能合集移除 · 原收藏未变',()=>{S.exclude[group]=S.exclude[group].filter(x=>x!==id);commit();render()});break}
- case 'save-note':{if(S.savedNew.includes(id)){toast('这篇笔记已经收藏过了');return}const n=NEW_NOTES.find(x=>x.id===id);if(!n)return;S.savedNew.push(id);commit();closeModal();go('home');const rail=E('smartShelf');if(rail)rail.scrollLeft=0;S.shelfScroll=0;toast(`已收藏，AI 自动加入「${GROUPS.find(g=>g.id===n.groups[0])?.name}」`,()=>{S.savedNew=S.savedNew.filter(x=>x!==id);commit();render()});break}
+ case 'save-note':{if(S.savedNew.includes(id)){toast('这篇笔记已经收藏过了');return}const n=NEW_NOTES.find(x=>x.id===id);if(!n)return;S.savedNew.push(id);S.savedTimes[id]=new Date().toISOString();commit();closeModal();go('home');const rail=E('smartShelf');if(rail)rail.scrollLeft=0;S.shelfScroll=0;toast(AI.memberships(id).length?`已收藏，已显示于「${GROUPS.find(g=>g.id===AI.memberships(id)[0].groupId)?.name}」`:'已收藏，暂无确定的智能归类',()=>{S.savedNew=S.savedNew.filter(x=>x!==id);delete S.savedTimes[id];commit();render()});break}
  case 'undo':{if(S.toastUndo){const fn=S.toastUndo;S.toastUndo=null;fn();E('toastLayer').innerHTML=''}break}
  default:break
 }}
@@ -177,7 +143,11 @@ document.addEventListener('click',ev=>{const target=ev.target.closest('[data-act
 E('appScreen').addEventListener('input',ev=>{if(ev.target.id==='albumTitle'){S.createTitle=ev.target.value;E('matchWrap').innerHTML=matchHtml();const btn=E('appScreen').querySelector('[data-action="save-album"]');if(btn)btn.disabled=!S.createTitle.trim()}if(ev.target.id==='albumDesc')S.createDesc=ev.target.value});
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeModal();if(ev.key==='Tab'&&E('modalLayer').firstChild){const controls=[...E('modalLayer').querySelectorAll('button:not(:disabled),summary')];const first=controls[0],last=controls.at(-1);if(ev.shiftKey&&(document.activeElement===first||document.activeElement.classList.contains('sheet'))){ev.preventDefault();last?.focus()}else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first?.focus()}}});
 document.querySelectorAll('[data-demo]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.demo;if(k==='shelf'){go('home');setTimeout(()=>E('smartShelf')?.scrollIntoView({behavior:'smooth',block:'center'}),70)}else if(k==='detail')go('group','design');else if(k==='save')simulateSheet();else if(k==='create')go('create')}));
-E('resetDemo').addEventListener('click',()=>{try{localStorage.removeItem(KEY)}catch(_){}S.hidden=[];S.pins=[];S.exclude={};S.savedNew=[];S.extraAlbums=[];S.smartOn=true;S.createTitle='';S.createDesc='';S.homeScroll=0;S.shelfScroll=0;go('home');E('appScreen').scrollTop=0;toast('已重置为初始模拟数据')});
+E('resetDemo').addEventListener('click',()=>{try{localStorage.removeItem(KEY)}catch(_){}S.hidden=[];S.pins=[];S.exclude={};S.savedNew=[];S.savedTimes={};S.extraAlbums=[];S.smartOn=true;S.createTitle='';S.createDesc='';S.homeScroll=0;S.shelfScroll=0;go('home');E('appScreen').scrollTop=0;toast('已重置为初始模拟数据')});
 render();
+const updateSource=()=>{E('classificationSource').textContent=' · '+AI.label()};
+updateSource();
+if(await AI.refresh()){updateSource();if(S.page!=='create')render()}
+})().catch(()=>{document.getElementById('appScreen').innerHTML='<div class="no-results">收藏数据校验失败，请检查数据文件并重新生成离线数据包。</div>'});
 </script>
 </body></html>

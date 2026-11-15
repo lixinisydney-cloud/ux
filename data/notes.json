@@ -1,0 +1,532 @@
+[
+  {
+    "id": "d1",
+    "title": "实验字体与海报排版",
+    "description": "把手写的几个字拆成弧线和直角，再放回海报网格里。记录了字距从紧到松的三版对照，也试了只用两种字重安排阅读顺序。",
+    "tags": [
+      "字形实验",
+      "海报练习",
+      "字距"
+    ],
+    "originalAlbum": "视觉设计灵感",
+    "savedAt": "2026-11-01T03:10:00Z",
+    "cover": "design_type",
+    "availability": "initial"
+  },
+  {
+    "id": "d2",
+    "title": "让人想反复看的动态视觉",
+    "description": "最近做了一段六秒循环：圆点先聚拢成字母，再沿着节拍散开。把关键帧曲线和首尾衔接方式记下来，下次做开屏动画可以参考。",
+    "tags": [
+      "循环动画",
+      "关键帧",
+      "节奏"
+    ],
+    "originalAlbum": "视觉设计灵感",
+    "savedAt": "2026-11-01T02:30:00Z",
+    "cover": "design_motion",
+    "availability": "initial"
+  },
+  {
+    "id": "d3",
+    "title": "好看的品牌视觉系统",
+    "description": "给一间面包店整理了招牌、纸袋和菜单的应用规范。主色统一后，重点比较了粗体标题与细体说明如何在不同尺寸上保持辨识度。",
+    "tags": [
+      "门店招牌",
+      "包装",
+      "视觉规范"
+    ],
+    "originalAlbum": "平面设计",
+    "savedAt": "2026-11-01T02:00:00Z",
+    "cover": "design_brand",
+    "availability": "initial"
+  },
+  {
+    "id": "d4",
+    "title": "平面设计的网格排版方法",
+    "description": "一页信息很多的展览海报，先按四栏拆开，再让日期、地点和正文各自对齐。对比了八毫米与十二毫米页边距，印出来以后大留白那版更易读。",
+    "tags": [
+      "网格",
+      "印刷",
+      "页边距"
+    ],
+    "originalAlbum": "平面设计",
+    "savedAt": "2026-11-01T01:50:00Z",
+    "cover": "design_packaging",
+    "availability": "initial"
+  },
+  {
+    "id": "d5",
+    "title": "柔软的三维图形灵感",
+    "description": "用 Blender 把普通圆环做成像软糖一样的形状。低粗糙度会太塑料，调高后再加一盏大面积柔光，阴影边缘终于柔和下来。",
+    "tags": [
+      "Blender",
+      "材质测试",
+      "柔光"
+    ],
+    "originalAlbum": "Blender学习",
+    "savedAt": "2026-11-01T01:30:00Z",
+    "cover": "design_blender",
+    "availability": "initial"
+  },
+  {
+    "id": "d6",
+    "title": "喜欢的交互网页合集",
+    "description": "收藏了三个滚动时会回应鼠标的网页片段。最喜欢的一页把目录固定在左侧，滚动正文时只高亮当前段落，减少了找位置的负担。",
+    "tags": [
+      "网页交互",
+      "滚动反馈",
+      "目录"
+    ],
+    "originalAlbum": "交互设计",
+    "savedAt": "2026-11-01T01:25:00Z",
+    "cover": "design_website",
+    "availability": "initial"
+  },
+  {
+    "id": "d7",
+    "title": "作品集封面参考",
+    "description": "准备投递时重新排了项目册封面：把岗位方向放在第一行，用一张主图建立视觉中心。附上封面与简历一起发出时的缩略图对照。",
+    "tags": [
+      "项目册",
+      "投递准备",
+      "封面"
+    ],
+    "originalAlbum": "作品集参考",
+    "savedAt": "2026-11-01T01:28:00Z",
+    "cover": "design_grid",
+    "availability": "initial"
+  },
+  {
+    "id": "d8",
+    "title": "UI 元素与信息层级",
+    "description": "把一个订单页面的信息重新分成状态、商品、金额三层。只给待付款按钮用强调色，次要操作改成文字，顺便比较了两种卡片间距。",
+    "tags": [
+      "信息层级",
+      "按钮",
+      "界面练习"
+    ],
+    "originalAlbum": "UI设计",
+    "savedAt": "2026-11-01T01:16:00Z",
+    "cover": "design_ui",
+    "availability": "initial"
+  },
+  {
+    "id": "t1",
+    "title": "哥本哈根城市漫步",
+    "description": "从中央车站走到港边的一天，不赶景点，只标了沿途可以停下来的公园和码头。附步行耗时、公共交通票和下雨时的替代路线。",
+    "tags": [
+      "城市散步",
+      "哥本哈根",
+      "交通"
+    ],
+    "originalAlbum": "北欧旅行",
+    "savedAt": "2026-11-01T03:00:00Z",
+    "cover": "travel_cph",
+    "availability": "initial"
+  },
+  {
+    "id": "t2",
+    "title": "首尔值得去的街区",
+    "description": "首尔周末慢慢逛的两条街，记录地铁出口、店铺营业时间和可以避开人流的小巷。下午下雨就把第二段改成室内书店。",
+    "tags": [
+      "首尔",
+      "街区路线",
+      "周末"
+    ],
+    "originalAlbum": "韩国",
+    "savedAt": "2026-11-01T02:20:00Z",
+    "cover": "photo_korea",
+    "availability": "initial"
+  },
+  {
+    "id": "t3",
+    "title": "新西兰南岛徒步记录",
+    "description": "南岛步道当天风特别大，走到第二个观景点就折返了。整理停车位置、补水点、装备层次和天气不稳定时的退出方案。",
+    "tags": [
+      "徒步",
+      "南岛",
+      "行前准备"
+    ],
+    "originalAlbum": "新西兰旅行",
+    "savedAt": "2026-11-01T02:00:00Z",
+    "cover": "travel_nz",
+    "availability": "initial"
+  },
+  {
+    "id": "t4",
+    "title": "英国周末小旅行",
+    "description": "周六从伦敦坐火车去海边，买错站点后才发现周末班次少。把往返时间、公交接驳和半天能走完的路线重新列了一遍。",
+    "tags": [
+      "英国",
+      "火车",
+      "短途路线"
+    ],
+    "originalAlbum": "英国旅行",
+    "savedAt": "2026-11-01T01:40:00Z",
+    "cover": "travel_uk",
+    "availability": "initial"
+  },
+  {
+    "id": "t5",
+    "title": "第一次去意大利的路线",
+    "description": "第一次去意大利不想每天换住处，最后用两个城市作为落脚点。记下高铁预订、博物馆预约和行李寄存的时间顺序。",
+    "tags": [
+      "意大利",
+      "行程安排",
+      "预约"
+    ],
+    "originalAlbum": "欧洲旅行",
+    "savedAt": "2026-11-01T01:28:00Z",
+    "cover": "travel_italy",
+    "availability": "initial"
+  },
+  {
+    "id": "c1",
+    "title": "设计岗位作品集怎么准备",
+    "description": "拿三个完成度不同的项目去问了在职前辈：招聘方先想知道你解决了什么，再看过程细节。整理投递前的项目筛选清单和讲述顺序。",
+    "tags": [
+      "岗位投递",
+      "项目筛选",
+      "求职准备"
+    ],
+    "originalAlbum": "求职准备",
+    "savedAt": "2026-11-01T02:50:00Z",
+    "cover": "career_resume",
+    "availability": "initial"
+  },
+  {
+    "id": "c2",
+    "title": "设计师面试问题整理",
+    "description": "把上周面试被问到的问题逐条复盘：为什么选这个方案、怎么处理合作分歧、结果如何衡量。每题写了两分钟与五分钟两个回答版本。",
+    "tags": [
+      "面试复盘",
+      "项目表达",
+      "回答练习"
+    ],
+    "originalAlbum": "秋招面试",
+    "savedAt": "2026-11-01T02:15:00Z",
+    "cover": "career_interview",
+    "availability": "initial"
+  },
+  {
+    "id": "c3",
+    "title": "校招投递时间线",
+    "description": "今年校招的简历截止时间比想象早，做了一张按周推进的清单。除了投递，还给笔试、面试练习和回访邮件预留了时间。",
+    "tags": [
+      "校招",
+      "投递日程",
+      "笔试"
+    ],
+    "originalAlbum": "求职准备",
+    "savedAt": "2026-11-01T01:45:00Z",
+    "cover": "career_jobs",
+    "availability": "initial"
+  },
+  {
+    "id": "c4",
+    "title": "怎样讲清楚自己的项目",
+    "description": "以前讲项目总是从流程图开始，对方很快就走神。这次按问题、我的决定、结果三段来讲，保留一处失败尝试，录音后发现清楚了很多。",
+    "tags": [
+      "项目讲述",
+      "面试练习",
+      "复盘"
+    ],
+    "originalAlbum": "作品集参考",
+    "savedAt": "2026-11-01T01:25:00Z",
+    "cover": "career_case",
+    "availability": "initial"
+  },
+  {
+    "id": "c5",
+    "title": "AI Coding 笔试作品思路",
+    "description": "笔试要求把一个交互想法做成可运行网页。我用 AI 辅助写代码，但先自己画状态表，最后录屏检查空状态、返回和错误提示，并记录了实现边界。",
+    "tags": [
+      "笔试作品",
+      "交互原型",
+      "AI编程"
+    ],
+    "originalAlbum": "秋招面试",
+    "savedAt": "2026-11-01T01:10:00Z",
+    "cover": "career_ai",
+    "availability": "initial"
+  },
+  {
+    "id": "f1",
+    "title": "周末想吃的家常菜",
+    "description": "周末做了蒸蛋和番茄炒虾仁，蒸蛋按一份蛋液配一份半温水。盖盘子后小火蒸八分钟，调味汁最后淋，口感比上次嫩。",
+    "tags": [
+      "家常菜",
+      "蒸蛋",
+      "下厨记录"
+    ],
+    "originalAlbum": "美食",
+    "savedAt": "2026-11-01T02:40:00Z",
+    "cover": "photo_food",
+    "availability": "initial"
+  },
+  {
+    "id": "f2",
+    "title": "这家咖啡馆好舒服",
+    "description": "巷子里的咖啡店有一款带柑橘香气的手冲，酸度不尖。记下豆子产地、冲煮温度、甜点搭配和靠窗座位适合停留的时段。",
+    "tags": [
+      "手冲咖啡",
+      "甜点",
+      "探店记录"
+    ],
+    "originalAlbum": "美食",
+    "savedAt": "2026-11-01T01:45:00Z",
+    "cover": "food_cafe",
+    "availability": "initial"
+  },
+  {
+    "id": "f3",
+    "title": "烘焙也可以很简单",
+    "description": "第一次做司康没用模具，面团只折了三次就切块。黄油保持冷藏状态，烤箱预热后十八分钟出炉，记录了面粉与牛奶的用量。",
+    "tags": [
+      "司康",
+      "烘焙记录",
+      "配方"
+    ],
+    "originalAlbum": "美食",
+    "savedAt": "2026-11-01T01:16:00Z",
+    "cover": "food_bakery",
+    "availability": "initial"
+  },
+  {
+    "id": "f4",
+    "title": "简单好吃的一人食",
+    "description": "一个人吃饭不想洗太多锅，把米饭、鸡腿肉和蔬菜放在一口锅里完成。附备菜顺序、火候变化和第二天带饭的保存方法。",
+    "tags": [
+      "一人食",
+      "带饭",
+      "一锅出"
+    ],
+    "originalAlbum": "美食",
+    "savedAt": "2026-11-01T00:40:00Z",
+    "cover": "photo_food2",
+    "availability": "initial"
+  },
+  {
+    "id": "h1",
+    "title": "小房间也可以很温暖",
+    "description": "卧室只有九平方米，先把床转向让出窗边，再用窄层架替换床头柜。暖色布灯罩和素色床品搭在一起，晚上看起来安静了很多。",
+    "tags": [
+      "小卧室",
+      "家具摆放",
+      "照明"
+    ],
+    "originalAlbum": "家居",
+    "savedAt": "2026-11-01T02:30:00Z",
+    "cover": "home_room",
+    "availability": "initial"
+  },
+  {
+    "id": "h2",
+    "title": "复古台灯和阅读角",
+    "description": "给阅读角挑了一盏旧台灯，试了三种灯罩和墙面颜色。暖白灯光下，木色书架与低饱和绿色更协调，记录了光源高度和色彩对照。",
+    "tags": [
+      "阅读角",
+      "台灯",
+      "配色对照"
+    ],
+    "originalAlbum": "家居",
+    "savedAt": "2026-11-01T01:50:00Z",
+    "cover": "home_lamp",
+    "availability": "initial"
+  },
+  {
+    "id": "h3",
+    "title": "小户型空间整理灵感",
+    "description": "玄关很窄，东西越收越找不到。这次先按出门顺序分成钥匙、包和鞋三层，再用可移动挂钩补位置，租房也不用打孔。",
+    "tags": [
+      "玄关收纳",
+      "租房",
+      "动线"
+    ],
+    "originalAlbum": "生活灵感",
+    "savedAt": "2026-11-01T01:10:00Z",
+    "cover": "home_small",
+    "availability": "initial"
+  },
+  {
+    "id": "h4",
+    "title": "自然色系卧室搭配",
+    "description": "把卧室里零散的鲜艳小物收起来，换成米白床品、浅木色柜子和一小块橄榄绿。附自然光与夜间灯光下的颜色变化。",
+    "tags": [
+      "卧室搭配",
+      "自然色系",
+      "软装"
+    ],
+    "originalAlbum": "生活灵感",
+    "savedAt": "2026-11-01T00:45:00Z",
+    "cover": "home_color",
+    "availability": "initial"
+  },
+  {
+    "id": "l1",
+    "title": "秋冬简约穿搭灵感",
+    "description": "最近通勤想少想一点，选了三件针织衫、两条直筒裤轮换。比较了同一套衣服搭运动鞋和短靴的效果，也记了降温时怎么叠穿。",
+    "tags": [
+      "通勤穿搭",
+      "针织衫",
+      "叠穿"
+    ],
+    "originalAlbum": "穿搭",
+    "savedAt": "2026-11-01T02:20:00Z",
+    "cover": "life_fashion",
+    "availability": "initial"
+  },
+  {
+    "id": "l2",
+    "title": "自然妆容参考",
+    "description": "试了一周更轻的底妆：只在鼻翼和下巴局部遮瑕，脸颊保留原本的纹理。记录了妆前保湿、上妆工具和下午出油后的补妆方法。",
+    "tags": [
+      "底妆",
+      "局部遮瑕",
+      "日常妆容"
+    ],
+    "originalAlbum": "美妆",
+    "savedAt": "2026-11-01T01:32:00Z",
+    "cover": "life_skincare",
+    "availability": "initial"
+  },
+  {
+    "id": "l3",
+    "title": "可爱宠物日常",
+    "description": "猫最近很喜欢趴在洗衣篮里，给它换了一个旧毛巾垫子。今天只记录了几段睡醒伸懒腰和等饭的小视频，没有特别的安排。",
+    "tags": [
+      "猫咪日常",
+      "生活记录",
+      "陪伴"
+    ],
+    "originalAlbum": "生活灵感",
+    "savedAt": "2026-11-01T00:55:00Z",
+    "cover": "life_pet",
+    "availability": "initial"
+  },
+  {
+    "id": "case-a",
+    "title": "这次终于像一家店了",
+    "description": "街角小店的招牌、外带杯和菜单以前各用一套样式。我把它们改为同一组字形和两种主色，菜单按字级安排价格与说明，再扩大段落间的留白，远看近看都更统一。",
+    "tags": [
+      "街角小店",
+      "改造记录",
+      "阅读顺序"
+    ],
+    "originalAlbum": "视觉设计灵感",
+    "savedAt": "2026-11-01T00:30:00Z",
+    "cover": "design_brand",
+    "availability": "initial"
+  },
+  {
+    "id": "case-b",
+    "title": "求职作品集排版技巧",
+    "description": "下周要投递产品体验岗位，项目册需要在短时间内讲清我的职责与成果。我用统一网格对齐正文和配图，调整标题字级与页边距，同时把最相关的两个项目移到前面，方便招聘方快速阅读。",
+    "tags": [
+      "岗位投递",
+      "项目册",
+      "网格与字级"
+    ],
+    "originalAlbum": "作品集参考",
+    "savedAt": "2026-11-01T00:28:00Z",
+    "cover": "career_resume",
+    "availability": "initial"
+  },
+  {
+    "id": "cross-1",
+    "title": "赶路前的一杯热咖啡",
+    "description": "在首尔转车有四小时空档，按地铁换乘时间安排了一小段路线。途中咖啡店的拿铁有坚果香，三明治现做，记下营业时间、价格和回车站所需步行分钟数。",
+    "tags": [
+      "转车空档",
+      "首尔",
+      "拿铁与三明治"
+    ],
+    "originalAlbum": "韩国",
+    "savedAt": "2026-11-01T00:26:00Z",
+    "cover": "food_cafe",
+    "availability": "initial"
+  },
+  {
+    "id": "room-1",
+    "title": "桌子挪了半米以后",
+    "description": "把书桌从门后挪到窗边后，椅子终于不用每次都收进去。量了插座到桌边的距离，用夹式灯和走线盒收好电源，留下能通往衣柜的过道。",
+    "tags": [
+      "房间调整",
+      "桌面收纳",
+      "过道尺寸"
+    ],
+    "originalAlbum": "家居",
+    "savedAt": "2026-11-01T00:24:00Z",
+    "cover": "home_small",
+    "availability": "initial"
+  },
+  {
+    "id": "recipe-1",
+    "title": "晚饭留一半给明天",
+    "description": "下班后用豆腐、香菇和青菜煮了一锅汤，再把米饭分成两盒。记录冷藏前多久放凉、第二天加热多久，以及怎样让青菜不变黄。",
+    "tags": [
+      "晚饭",
+      "便当",
+      "食物保存"
+    ],
+    "originalAlbum": "美食",
+    "savedAt": "2026-11-01T00:22:00Z",
+    "cover": "food_home",
+    "availability": "initial"
+  },
+  {
+    "id": "ambiguous-1",
+    "title": "今天先记在这里",
+    "description": "手机备忘录里只有一句“下次再认真看”，没有具体对象、地点或活动。暂时没有补充更多内容。",
+    "tags": [
+      "随手记录"
+    ],
+    "originalAlbum": "生活灵感",
+    "savedAt": "2026-11-01T00:20:00Z",
+    "cover": "life_pet",
+    "availability": "initial"
+  },
+  {
+    "id": "new1",
+    "title": "租房小卧室也能拥有松弛感",
+    "description": "租来的小卧室不能刷墙，先把冷白顶灯换成暖光落地灯，再加一层浅色窗帘。附床边窄柜的尺寸和不到两百元的布置清单。",
+    "tags": [
+      "租房布置",
+      "暖光",
+      "小空间"
+    ],
+    "originalAlbum": "未归类",
+    "savedAt": "2026-11-01T06:40:00Z",
+    "cover": "new_room",
+    "availability": "simulated"
+  },
+  {
+    "id": "new2",
+    "title": "实验字体制作过程",
+    "description": "把一张旧车票上的字母拆成笔画，尝试做成一组新的标题字。记录从纸上草图到矢量轮廓的步骤，以及字距调整前后的对照。",
+    "tags": [
+      "字体练习",
+      "矢量轮廓",
+      "制作过程"
+    ],
+    "originalAlbum": "未归类",
+    "savedAt": "2026-11-01T06:41:00Z",
+    "cover": "new_type",
+    "availability": "simulated"
+  },
+  {
+    "id": "new3",
+    "title": "首尔的周末散步路线",
+    "description": "周末打算在首尔沿河走走，整理两小时步行路线、地铁往返和途中可休息的地方。天气不好时就把最后一段换成附近的室内展馆。",
+    "tags": [
+      "首尔散步",
+      "步行路线",
+      "雨天备选"
+    ],
+    "originalAlbum": "未归类",
+    "savedAt": "2026-11-01T06:42:00Z",
+    "cover": "new_korea",
+    "availability": "simulated"
+  }
+]

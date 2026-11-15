@@ -1,6 +1,10 @@
-# RE｜AI 智能合集 v0.6
+# RE｜AI 智能合集 v0.7：文本分类验证
 
-基于交接包 v0.5 继续进行 UI 精修，无需安装前端依赖、无需构建。
+沿用已定稿的 v0.6 HTML/CSS/JavaScript UI，不切换框架，无需安装前端依赖或构建。
+
+当前本地环境缺少 `OPENAI_API_KEY`，**真实模型尚未调用**。页面明确显示离线模拟分类；A/B 案例未判通过。分类管线、校验、缓存和前端联动已完成，详见 [AI 配置与运行说明](docs/AI_CLASSIFICATION.md) 和 [本轮验证记录](reports/v07-validation.md)。
+
+Windows 用户从 `main` 下载后，请优先阅读 [Windows 快速上手](docs/WINDOWS_QUICKSTART.md)。Python 3.10+ 使用 `py scripts\classify_notes.py --ask-key` 即可运行分类，不需要安装额外的 Python 包。
 
 ## 本地预览
 
@@ -61,7 +65,7 @@ python3 tests/capture_screenshots.py --base-url http://127.0.0.1:4173
 
 ## 数据边界
 
-用户资料为模拟，未接入真实 AI、小红书账号或收费 API。3900/132 为情境数字；实际为 29 条初始笔记、6 个智能合集、8 个原有专辑和 3 条可模拟的新收藏。
+用户资料和笔记均为原创模拟数据，不连接小红书账号。3900/132 为情境数字；实际为 35 条初始笔记、6 个智能合集、8 个原有专辑和 3 条可模拟的新收藏。真实 AI 只通过本地 Python 脚本预计算文本分类，页面不持有密钥，也不会调用 AI API。当前结果仍为离线示例。
 
 沿用 `refold-v05-experience-data` 存储键，兼容已有状态。纠错只改变合集关联，不取消收藏、不移动笔记、不改变原专辑或权限。桌面说明区可恢复初始体验。
 
@@ -72,3 +76,5 @@ python3 tests/capture_screenshots.py --base-url http://127.0.0.1:4173
 发布仓库为 `lixinisydney-cloud/ux`，来源为 `main` 分支根目录 `/`，入口为 `index.html`。目标地址为 `https://lixinisydney-cloud.github.io/ux/`。`.nojekyll` 使站点直接提供静态文件，无需构建工具。页面不依赖后端或 API Key。
 
 之后的 UI 修改在完成浏览器测试后继续提交并推送到 `main`，更新同一网站。发布是否完成应以 Pages 部署状态和线上实际访问结果为准。
+
+v0.7 源码、Windows 说明与离线 Demo 统一使用原 `main` 根目录。尚未生成真实结果时，GitHub Pages 继续显示离线 Demo，不请求 AI API。你在本机生成的真实分类 JSON 不会自动上传；完成评估后可单独发布已校验的静态结果，继续使用同一个 Pages 地址，不需要付费后端。

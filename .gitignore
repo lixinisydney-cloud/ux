@@ -1,0 +1,10 @@
+references/
+assets/photo_typography.webp
+assets/photo_poster.webp
+README_先看这里.md
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+.DS_Store

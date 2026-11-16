@@ -1,0 +1,20 @@
+UTC: 2026-11-16T15:06:39Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 tests/test_v091.py --base-url http://127.0.0.1:4183 --chromium /usr/bin/chromium
+
+test_01_copy_snapshots_whole_current_group_without_later_sync (__main__.FinalReduction.test_01_copy_snapshots_whole_current_group_without_later_sync) ... ok
+test_02_snapshot_respects_manual_preferences_and_global_unsaves (__main__.FinalReduction.test_02_snapshot_respects_manual_preferences_and_global_unsaves) ... ok
+test_03_channels_handoff_directly_and_friends_only_record_locally (__main__.FinalReduction.test_03_channels_handoff_directly_and_friends_only_record_locally) ... ok
+test_04_empty_group_disables_share_and_cannot_create_empty_copy (__main__.FinalReduction.test_04_empty_group_disables_share_and_cannot_create_empty_copy) ... ok
+test_05_friends_done_creates_current_snapshot_and_preserves_legacy_copy (__main__.FinalReduction.test_05_friends_done_creates_current_snapshot_and_preserves_legacy_copy) ... ok
+test_06_cancel_off_and_undo_preserve_personal_and_historical_state (__main__.FinalReduction.test_06_cancel_off_and_undo_preserve_personal_and_historical_state) ... ok
+test_07_home_sheet_has_only_three_actions_and_cancel_without_handle (__main__.FinalReduction.test_07_home_sheet_has_only_three_actions_and_cancel_without_handle) ... ok
+test_08_restore_default_and_desktop_demo_are_outside_app_menu (__main__.FinalReduction.test_08_restore_default_and_desktop_demo_are_outside_app_menu) ... ok
+test_09_reading_page_is_native_static_and_preserves_preferences (__main__.FinalReduction.test_09_reading_page_is_native_static_and_preserves_preferences) ... ok
+test_10_multiple_local_images_swipe_and_indicator_without_data_changes (__main__.FinalReduction.test_10_multiple_local_images_swipe_and_indicator_without_data_changes) ... ok
+test_11_responsive_reading_bar_images_and_gallery_return (__main__.FinalReduction.test_11_responsive_reading_bar_images_and_gallery_return) ... ok
+test_12_clipboard_denied_falls_back_to_openable_link_not_confirmation (__main__.FinalReduction.test_12_clipboard_denied_falls_back_to_openable_link_not_confirmation) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 23.439s
+
+OK

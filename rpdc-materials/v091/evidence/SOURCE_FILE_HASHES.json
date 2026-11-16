@@ -1,0 +1,224 @@
+[
+  {
+    "source": "README.md",
+    "includedAs": "evidence/source_files/README.md",
+    "sha256": "5d619e5a489391ce0509be0a35164bb4c0cb8c05fe4f848318a07dde6dd483d1",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/README.md"
+  },
+  {
+    "source": "AGENTS.md",
+    "includedAs": "evidence/source_files/AGENTS.md",
+    "sha256": "706d6856159ed9bfab9b6d6dd924b7dd73e1c93b28d52f1b648b6f905f5b0a06",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/AGENTS.md"
+  },
+  {
+    "source": "classification-store.js",
+    "includedAs": "evidence/source_files/classification-store.js",
+    "sha256": "07e10e91420db3408240073146cac66d4bd87f8cf9aefd6d69f59502e5e75d5b",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/classification-store.js"
+  },
+  {
+    "source": "index.html",
+    "includedAs": "evidence/source_files/index.html",
+    "sha256": "f39be63b8f50716789f11e729d9149bd9185bdae06ca02ba5619fdf650954d5c",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/index.html"
+  },
+  {
+    "source": "styles.css",
+    "includedAs": "evidence/source_files/styles.css",
+    "sha256": "6d30c202eafcedd502807dd4a1eccf6b26fe7db6fe10c2762522cb36d9259d58",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/styles.css"
+  },
+  {
+    "source": "data/notes.json",
+    "includedAs": "evidence/source_files/data/notes.json",
+    "sha256": "468cdeaf2a1486fa5154de7f820f64c6e841a3dbacefc24392a2f347081bb77c",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/data/notes.json"
+  },
+  {
+    "source": "data/groups.json",
+    "includedAs": "evidence/source_files/data/groups.json",
+    "sha256": "f78b67d20d042cb6b9708a5d5d57a428a206f3ce42f1aa877aeca03159750cdd",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/data/groups.json"
+  },
+  {
+    "source": "data/classifications.precomputed.json",
+    "includedAs": "evidence/source_files/data/classifications.precomputed.json",
+    "sha256": "58b9a7f16056614c78d04f5b5648efc0f6a3e9f9365fd664cad94fd5fa081897",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/data/classifications.precomputed.json"
+  },
+  {
+    "source": "data/classifications.real.json",
+    "includedAs": "evidence/source_files/data/classifications.real.json",
+    "sha256": "9473c5d854770ae82f29cf6954ac953f9908794d45dcaa8615605f359923318a",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/data/classifications.real.json"
+  },
+  {
+    "source": "data/classifications.offline.json",
+    "includedAs": "evidence/source_files/data/classifications.offline.json",
+    "sha256": "944a46c15a7737fec507bcfda273e53f83e593ac82ca61e8ad721addf823ee36",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/data/classifications.offline.json"
+  },
+  {
+    "source": "data/offline-bundle.js",
+    "includedAs": "evidence/source_files/data/offline-bundle.js",
+    "sha256": "a973b8eee213dafebcd386783b0d0a16c7702478da35823e0de8c751c1e09ef8",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/data/offline-bundle.js"
+  },
+  {
+    "source": "scripts/classify_notes.py",
+    "includedAs": "evidence/source_files/scripts/classify_notes.py",
+    "sha256": "ef0b3b94c6442b1e92b93d12b4910679cde163cac7d70837b60f97c07dc15e00",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/scripts/classify_notes.py"
+  },
+  {
+    "source": "scripts/build_data_bundle.py",
+    "includedAs": "evidence/source_files/scripts/build_data_bundle.py",
+    "sha256": "afaf5d629e0f0e44d4b608689687901c1374046ca363205a66cf11950f0ece60",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/scripts/build_data_bundle.py"
+  },
+  {
+    "source": "scripts/restore_precomputed.py",
+    "includedAs": "evidence/source_files/scripts/restore_precomputed.py",
+    "sha256": "26a13b1af7a7207ba54b07b33b8f03a30211055bf326d133024d17f391b86862",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/scripts/restore_precomputed.py"
+  },
+  {
+    "source": "scripts/evaluate_cases.py",
+    "includedAs": "evidence/source_files/scripts/evaluate_cases.py",
+    "sha256": "ad8c8f4d40276982f3e694830564e6c43087880e1ea55904e617439f1595562c",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/scripts/evaluate_cases.py"
+  },
+  {
+    "source": "docs/AI_CLASSIFICATION.md",
+    "includedAs": "evidence/source_files/docs/AI_CLASSIFICATION.md",
+    "sha256": "cd5d7b6c70018154b3b05674c366473b4267829351059d1921f39158454a8fe4",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/docs/AI_CLASSIFICATION.md"
+  },
+  {
+    "source": "docs/WINDOWS_QUICKSTART.md",
+    "includedAs": "evidence/source_files/docs/WINDOWS_QUICKSTART.md",
+    "sha256": "2b2662763698a2b70c55483102ad3f64f7e9e8eae953e527c828aa3a48b3b8c5",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/docs/WINDOWS_QUICKSTART.md"
+  },
+  {
+    "source": "docs/ASSET_SOURCES_V08.md",
+    "includedAs": "evidence/source_files/docs/ASSET_SOURCES_V08.md",
+    "sha256": "6192329c83c11be08049cb6a4d8b24002163e3327de90f070ee0101a6d46fe72",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/docs/ASSET_SOURCES_V08.md"
+  },
+  {
+    "source": "docs/asset-sources-v08.json",
+    "includedAs": "evidence/source_files/docs/asset-sources-v08.json",
+    "sha256": "5de3cb975e525f7f0a59a5912b13355f6f499782265aa58529fcac7c8536995c",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/docs/asset-sources-v08.json"
+  },
+  {
+    "source": "reports/v07-validation.md",
+    "includedAs": "evidence/source_files/reports/v07-validation.md",
+    "sha256": "98beb1e498ed346d1e8a17803764a3a09caedb6a3ac265a7df00a3ab4c0f283a",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/reports/v07-validation.md"
+  },
+  {
+    "source": "reports/v07-precomputed-validation.md",
+    "includedAs": "evidence/source_files/reports/v07-precomputed-validation.md",
+    "sha256": "a3e30a8b872890282692f9b6d97d4dfc18957c917a0ebd5e618d6e7ac91b9e47",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/reports/v07-precomputed-validation.md"
+  },
+  {
+    "source": "reports/v08-validation.md",
+    "includedAs": "evidence/source_files/reports/v08-validation.md",
+    "sha256": "b89ed6c62e5005cbcc4c94405a86381d88dad11d55ade160e83532025daaddb1",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/reports/v08-validation.md"
+  },
+  {
+    "source": "reports/v09-validation.md",
+    "includedAs": "evidence/source_files/reports/v09-validation.md",
+    "sha256": "384f7a809f974734f7a292dd0f0a86eb8045ed0b4557c325ad73c755d06abb9f",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/reports/v09-validation.md"
+  },
+  {
+    "source": "reports/v091-validation.md",
+    "includedAs": "evidence/source_files/reports/v091-validation.md",
+    "sha256": "cd4525b584fa689b31c32d70fa11b0d0b79021e1bfa66fe28790f464e8aa337f",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/reports/v091-validation.md"
+  },
+  {
+    "source": "docs/licenses/flutter_gallery_assets-1.0.2-LICENSE.txt",
+    "includedAs": "evidence/source_files/docs/licenses/flutter_gallery_assets-1.0.2-LICENSE.txt",
+    "sha256": "6b167c9b0d8e9b17fd2b9eeaac9518ad29f9896e6d793202c738c8db43b1c2d9",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/docs/licenses/flutter_gallery_assets-1.0.2-LICENSE.txt"
+  },
+  {
+    "source": "docs/licenses/material-design-lite-LICENSE.txt",
+    "includedAs": "evidence/source_files/docs/licenses/material-design-lite-LICENSE.txt",
+    "sha256": "dbb22572939f526abc4b72373962840987768da7d1eac9498148c0edcb3ef712",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/docs/licenses/material-design-lite-LICENSE.txt"
+  },
+  {
+    "source": "docs/licenses/scikit-image-coffee-chelsea-CC0.txt",
+    "includedAs": "evidence/source_files/docs/licenses/scikit-image-coffee-chelsea-CC0.txt",
+    "sha256": "773f4cc17757d2619a9666d65c2817142d56d47a7937283b4fd836843c2b73ba",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/docs/licenses/scikit-image-coffee-chelsea-CC0.txt"
+  },
+  {
+    "source": "tests/capture_screenshots.py",
+    "includedAs": "evidence/source_files/tests/capture_screenshots.py",
+    "sha256": "0f957212ac6b923eadd6de7bce441d1702982b9581f350e6a1e4905494de917a",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/capture_screenshots.py"
+  },
+  {
+    "source": "tests/export_standalone.py",
+    "includedAs": "evidence/source_files/tests/export_standalone.py",
+    "sha256": "61b8143af01b3134e843b4689f4c79410876d383288e35ab274ee4bcf49cefbe",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/export_standalone.py"
+  },
+  {
+    "source": "tests/test_ai_ui.py",
+    "includedAs": "evidence/source_files/tests/test_ai_ui.py",
+    "sha256": "9b918eb503d085b6e3e66e0ed28da428ae03d05525685ca2a00ec00eb29478b0",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_ai_ui.py"
+  },
+  {
+    "source": "tests/test_classifier.py",
+    "includedAs": "evidence/source_files/tests/test_classifier.py",
+    "sha256": "9acb6a740af3d02dbf15ce8224ed590f166dd3ffb0f8215f9a2a73a0006f37e5",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_classifier.py"
+  },
+  {
+    "source": "tests/test_precomputed.py",
+    "includedAs": "evidence/source_files/tests/test_precomputed.py",
+    "sha256": "f84e53852de01f1bff864c109a5088e59c5a7c87015c2f235c6345cc6c064b41",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_precomputed.py"
+  },
+  {
+    "source": "tests/test_precomputed_ui.py",
+    "includedAs": "evidence/source_files/tests/test_precomputed_ui.py",
+    "sha256": "81227f503ed8441b67ad53492740b2b52466ddb6cc8c60762630a6d8ca1e92d8",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_precomputed_ui.py"
+  },
+  {
+    "source": "tests/test_ui.py",
+    "includedAs": "evidence/source_files/tests/test_ui.py",
+    "sha256": "d0c80e405afee54b16995061ef9d9d23bff2923d0402d07fab40a714cf0cea02",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_ui.py"
+  },
+  {
+    "source": "tests/test_v08.py",
+    "includedAs": "evidence/source_files/tests/test_v08.py",
+    "sha256": "aa60188a4e1894cfc5396869259893dd80bd6baf11f9bb1a2deee191ddbf1bea",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_v08.py"
+  },
+  {
+    "source": "tests/test_v09.py",
+    "includedAs": "evidence/source_files/tests/test_v09.py",
+    "sha256": "9a8e19e8b336d6d037ed537180a864b7694673be3c98a99247a9a034a65bdd0a",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_v09.py"
+  },
+  {
+    "source": "tests/test_v091.py",
+    "includedAs": "evidence/source_files/tests/test_v091.py",
+    "sha256": "41031d18c38fcf3bd005718cd47c06b99add1ae00510a052f97252dac9cba487",
+    "immutableURL": "https://github.com/lixinisydney-cloud/ux/blob/6e9cc55b46a4cfa991b69da1df66e0567c55017c/tests/test_v091.py"
+  }
+]

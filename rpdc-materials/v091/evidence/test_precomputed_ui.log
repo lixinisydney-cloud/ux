@@ -1,0 +1,12 @@
+UTC: 2026-11-16T15:05:00Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 tests/test_precomputed_ui.py --base-url http://127.0.0.1:4183 --chromium /usr/bin/chromium
+
+test_01_all_group_memberships_and_native_notes_use_shipped_dataset (__main__.PrecomputedUI.test_01_all_group_memberships_and_native_notes_use_shipped_dataset) ... ok
+test_02_correction_undo_reload_original_and_three_new_saves (__main__.PrecomputedUI.test_02_correction_undo_reload_original_and_three_new_saves) ... ok
+test_03_desktop_and_offline_export (__main__.PrecomputedUI.test_03_desktop_and_offline_export) ... ok
+test_04_stale_precomputed_data_falls_back_and_never_impersonates_api (__main__.PrecomputedUI.test_04_stale_precomputed_data_falls_back_and_never_impersonates_api) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 12.349s
+
+OK

@@ -1,0 +1,11 @@
+UTC: 2026-11-16T15:04:13Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p test_precomputed.py -v
+
+test_bootstrap_matches_authoritative_json (test_precomputed.PrecomputedData.test_bootstrap_matches_authoritative_json) ... ok
+test_invalid_and_misattributed_results_rejected (test_precomputed.PrecomputedData.test_invalid_and_misattributed_results_rejected) ... ok
+test_shipped_counts_and_semantic_cases (test_precomputed.PrecomputedData.test_shipped_counts_and_semantic_cases) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.005s
+
+OK

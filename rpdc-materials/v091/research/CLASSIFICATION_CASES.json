@@ -1,0 +1,138 @@
+{
+  "datasetHash": "32ac1b6352714ff4be765cd2e08f47dd1bfc108cb37071f0803508368d011df7",
+  "sourceCommit": "6e9cc55b46a4cfa991b69da1df66e0567c55017c",
+  "cases": [
+    {
+      "input": {
+        "id": "case-a",
+        "title": "这次终于像一家店了",
+        "description": "街角小店的招牌、外带杯和菜单以前各用一套样式。我把它们改为同一组字形和两种主色，菜单按字级安排价格与说明，再扩大段落间的留白，远看近看都更统一。",
+        "tags": [
+          "街角小店",
+          "改造记录",
+          "阅读顺序"
+        ]
+      },
+      "assignment": {
+        "noteId": "case-a",
+        "memberships": [
+          {
+            "groupId": "design",
+            "reason": "虽未在标题点明设计，正文实际统一招牌、外带杯与菜单的字形、主色、字级和留白，属于品牌与版式设计。"
+          }
+        ],
+        "unclassifiedReason": null
+      },
+      "groupNames": [
+        "设计与创作"
+      ],
+      "crossTopic": false
+    },
+    {
+      "input": {
+        "id": "case-b",
+        "title": "求职作品集排版技巧",
+        "description": "下周要投递产品体验岗位，项目册需要在短时间内讲清我的职责与成果。我用统一网格对齐正文和配图，调整标题字级与页边距，同时把最相关的两个项目移到前面，方便招聘方快速阅读。",
+        "tags": [
+          "岗位投递",
+          "项目册",
+          "网格与字级"
+        ]
+      },
+      "assignment": {
+        "noteId": "case-b",
+        "memberships": [
+          {
+            "groupId": "career",
+            "reason": "为投递产品体验岗位筛选和前置相关项目，目的是让招聘方快速理解职责与成果。"
+          },
+          {
+            "groupId": "design",
+            "reason": "正文具体采用网格对齐、标题字级和页边距组织正文与配图，也包含版式设计方法。"
+          }
+        ],
+        "unclassifiedReason": null
+      },
+      "groupNames": [
+        "求职准备",
+        "设计与创作"
+      ],
+      "crossTopic": true
+    },
+    {
+      "input": {
+        "id": "cross-1",
+        "title": "赶路前的一杯热咖啡",
+        "description": "在首尔转车有四小时空档，按地铁换乘时间安排了一小段路线。途中咖啡店的拿铁有坚果香，三明治现做，记下营业时间、价格和回车站所需步行分钟数。",
+        "tags": [
+          "转车空档",
+          "首尔",
+          "拿铁与三明治"
+        ]
+      },
+      "assignment": {
+        "noteId": "cross-1",
+        "memberships": [
+          {
+            "groupId": "travel",
+            "reason": "根据首尔转车空档和地铁换乘安排路线，并记录回车站的步行时间。"
+          },
+          {
+            "groupId": "food",
+            "reason": "同时具体描述拿铁的坚果香、现做三明治和价格，具有独立的餐饮探店信息。"
+          }
+        ],
+        "unclassifiedReason": null
+      },
+      "groupNames": [
+        "旅行与探索",
+        "美食与探店"
+      ],
+      "crossTopic": true
+    },
+    {
+      "input": {
+        "id": "h2",
+        "title": "复古台灯和阅读角",
+        "description": "给阅读角挑了一盏旧台灯，试了三种灯罩和墙面颜色。暖白灯光下，木色书架与低饱和绿色更协调，记录了光源高度和色彩对照。",
+        "tags": [
+          "阅读角",
+          "台灯",
+          "配色对照"
+        ]
+      },
+      "assignment": {
+        "noteId": "h2",
+        "memberships": [
+          {
+            "groupId": "home",
+            "reason": "比较阅读角的灯罩、墙面颜色、木书架和光源高度，语义集中在居住空间的照明与软装；不扩展为平面或界面设计。"
+          }
+        ],
+        "unclassifiedReason": null
+      },
+      "groupNames": [
+        "家居灵感"
+      ],
+      "crossTopic": false
+    },
+    {
+      "input": {
+        "id": "ambiguous-1",
+        "title": "今天先记在这里",
+        "description": "手机备忘录里只有一句“下次再认真看”，没有具体对象、地点或活动。暂时没有补充更多内容。",
+        "tags": [
+          "随手记录"
+        ]
+      },
+      "assignment": {
+        "noteId": "ambiguous-1",
+        "memberships": [],
+        "unclassifiedReason": "只有“下次再认真看”的模糊备忘，没有具体对象、地点或活动，无法可靠判断主题，暂不关联合集。"
+      },
+      "groupNames": [],
+      "crossTopic": false
+    }
+  ],
+  "notAccuracyBenchmark": true
+}

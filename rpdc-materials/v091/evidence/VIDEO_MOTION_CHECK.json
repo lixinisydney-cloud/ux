@@ -1,0 +1,51 @@
+[
+  {
+    "file": "Clip_01_home_horizontal.mp4",
+    "sampleRate": "2 frames/second",
+    "sampleFrames": 26,
+    "uniqueDecodedSampleFrames": 26,
+    "purpose": "Decoded motion sanity check only; screenshots and events provide interaction evidence"
+  },
+  {
+    "file": "Clip_02_collection_note_return.mp4",
+    "sampleRate": "2 frames/second",
+    "sampleFrames": 32,
+    "uniqueDecodedSampleFrames": 32,
+    "purpose": "Decoded motion sanity check only; screenshots and events provide interaction evidence"
+  },
+  {
+    "file": "Clip_03_longpress_reorder.mp4",
+    "sampleRate": "2 frames/second",
+    "sampleFrames": 36,
+    "uniqueDecodedSampleFrames": 36,
+    "purpose": "Decoded motion sanity check only; screenshots and events provide interaction evidence"
+  },
+  {
+    "file": "Clip_04_correction_undo.mp4",
+    "sampleRate": "2 frames/second",
+    "sampleFrames": 28,
+    "uniqueDecodedSampleFrames": 28,
+    "purpose": "Decoded motion sanity check only; screenshots and events provide interaction evidence"
+  },
+  {
+    "file": "Clip_05_new_save_desktop.mp4",
+    "sampleRate": "2 frames/second",
+    "sampleFrames": 23,
+    "uniqueDecodedSampleFrames": 23,
+    "purpose": "Decoded motion sanity check only; screenshots and events provide interaction evidence"
+  },
+  {
+    "file": "Clip_06_share_copy_link.mp4",
+    "sampleRate": "2 frames/second",
+    "sampleFrames": 22,
+    "uniqueDecodedSampleFrames": 22,
+    "purpose": "Decoded motion sanity check only; screenshots and events provide interaction evidence"
+  },
+  {
+    "file": "Clip_07_invite_friends.mp4",
+    "sampleRate": "2 frames/second",
+    "sampleFrames": 26,
+    "uniqueDecodedSampleFrames": 25,
+    "purpose": "Decoded motion sanity check only; screenshots and events provide interaction evidence"
+  }
+]

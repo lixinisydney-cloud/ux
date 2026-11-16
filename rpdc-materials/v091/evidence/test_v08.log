@@ -1,0 +1,29 @@
+UTC: 2026-11-16T15:05:12Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 tests/test_v08.py --base-url http://127.0.0.1:4183 --chromium /usr/bin/chromium --phase all
+
+test_01_shelf_geometry_click_and_mouse_drag (__main__.PhaseA.test_01_shelf_geometry_click_and_mouse_drag)
+Three full cards and a 16–24px fourth-card hint at 390px. ... ok
+test_02_touch_pan_cancels_long_press (__main__.PhaseA.test_02_touch_pan_cancels_long_press) ... ok
+test_03_long_press_does_not_open_and_drag_order_persists (__main__.PhaseA.test_03_long_press_does_not_open_and_drag_order_persists) ... ok
+test_03b_touch_long_press_reorders_without_scrolling_page (__main__.PhaseA.test_03b_touch_long_press_reorders_without_scrolling_page) ... ok
+test_04_old_pins_hidden_and_corrections_are_migrated (__main__.PhaseA.test_04_old_pins_hidden_and_corrections_are_migrated) ... ok
+test_05_management_starts_empty_and_exit_clears_selection (__main__.PhaseA.test_05_management_starts_empty_and_exit_clears_selection) ... ok
+test_06_batch_remove_is_virtual_and_undo_restores (__main__.PhaseA.test_06_batch_remove_is_virtual_and_undo_restores) ... ok
+test_07_batch_add_to_other_group_has_real_membership (__main__.PhaseA.test_07_batch_add_to_other_group_has_real_membership) ... ok
+test_08_cancel_collection_requires_confirmation_and_syncs_original (__main__.PhaseA.test_08_cancel_collection_requires_confirmation_and_syncs_original) ... ok
+test_09_stable_cover_after_simulated_save_and_custom_sort (__main__.PhaseA.test_09_stable_cover_after_simulated_save_and_custom_sort) ... ok
+test_10_add_existing_favorites_is_manual_persistent_preference (__main__.PhaseB.test_10_add_existing_favorites_is_manual_persistent_preference) ... ok
+test_11_note_detail_and_scroll_return (__main__.PhaseB.test_11_note_detail_and_scroll_return) ... ok
+test_12_responsive_detail_and_assets (__main__.PhaseB.test_12_responsive_detail_and_assets) ... ok
+test_13_share_snapshot_is_fixed_current_group_and_private_state_isolated (__main__.PhaseB.test_13_share_snapshot_is_fixed_current_group_and_private_state_isolated) ... ok
+test_14_friend_selection_confirmation_undo_and_persistence (__main__.PhaseB.test_14_friend_selection_confirmation_undo_and_persistence) ... ok
+test_15_malformed_share_link_fails_closed (__main__.PhaseB.test_15_malformed_share_link_fails_closed) ... ok
+test_18_entering_share_clears_private_undo_toast (__main__.PhaseB.test_18_entering_share_clears_private_undo_toast) ... ok
+test_19_globally_unsaved_simulated_note_can_be_collected_again_and_undone (__main__.PhaseB.test_19_globally_unsaved_simulated_note_can_be_collected_again_and_undone) ... ok
+test_16_title_mobile_system_bar_and_desktop_shell (__main__.PhaseC.test_16_title_mobile_system_bar_and_desktop_shell) ... ok
+test_17_every_note_has_original_detail_and_local_media (__main__.PhaseC.test_17_every_note_has_original_detail_and_local_media) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 46.024s
+
+OK

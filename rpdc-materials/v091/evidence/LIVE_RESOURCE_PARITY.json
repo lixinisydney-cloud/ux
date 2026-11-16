@@ -1,0 +1,300 @@
+{
+  "baseline": "6e9cc55b46a4cfa991b69da1df66e0567c55017c",
+  "resources": [
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/",
+      "status": 200,
+      "sha256": "f39be63b8f50716789f11e729d9149bd9185bdae06ca02ba5619fdf650954d5c",
+      "repositoryPath": "index.html",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/styles.css",
+      "status": 200,
+      "sha256": "6d30c202eafcedd502807dd4a1eccf6b26fe7db6fe10c2762522cb36d9259d58",
+      "repositoryPath": "styles.css",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/data/offline-bundle.js",
+      "status": 200,
+      "sha256": "a973b8eee213dafebcd386783b0d0a16c7702478da35823e0de8c751c1e09ef8",
+      "repositoryPath": "data/offline-bundle.js",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/classification-store.js",
+      "status": 200,
+      "sha256": "07e10e91420db3408240073146cac66d4bd87f8cf9aefd6d69f59502e5e75d5b",
+      "repositoryPath": "classification-store.js",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/data/classifications.real.json",
+      "status": 200,
+      "sha256": "9473c5d854770ae82f29cf6954ac953f9908794d45dcaa8615605f359923318a",
+      "repositoryPath": "data/classifications.real.json",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/avatar.svg",
+      "status": 200,
+      "sha256": "8db6ed2e5bb0bc71d8799e87b3411f0ba9d054bf1c8818b330f1005868c035f2",
+      "repositoryPath": "assets/avatar.svg",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_type.webp",
+      "status": 200,
+      "sha256": "51c702e9f8b2f02464c2e534bbe74e5a23061c0ba48ea30f4720cd3c932109bd",
+      "repositoryPath": "assets/design_type.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_cph.webp",
+      "status": 200,
+      "sha256": "a0f3049349a5ed7c243d61f18365bfb2f9127b83b80e1c1ab95eff80f56913eb",
+      "repositoryPath": "assets/travel_cph.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_resume.webp",
+      "status": 200,
+      "sha256": "d10030a1eaea9bd5cc261da6619f0b946447995a5342a026f760feb87b323587",
+      "repositoryPath": "assets/career_resume.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_food.webp",
+      "status": 200,
+      "sha256": "e3e11f8fc65bca5163cb1140cb80c7229cfb28347c64d6e2f40aa79c2851ec0a",
+      "repositoryPath": "assets/photo_food.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_room.webp",
+      "status": 200,
+      "sha256": "997fa9245c85ff1c2355af79f88ef664219f98776f09f66e1919676d147cb731",
+      "repositoryPath": "assets/home_room.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/life_fashion.webp",
+      "status": 200,
+      "sha256": "f5c49ed2d0709f7c6f26d0cba13add669fa4ca32445b2ec969af0f418e973743",
+      "repositoryPath": "assets/life_fashion.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_brand.webp",
+      "status": 200,
+      "sha256": "6765dd5561ed99dd90c146e06c0cb49ddd6b74812bb7f1cde4c5cb00969d7514",
+      "repositoryPath": "assets/design_brand.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_food2.webp",
+      "status": 200,
+      "sha256": "4e211f4b4f1b69041794a277150daa7cc02641a9396560ceb6411ee4832b82b6",
+      "repositoryPath": "assets/photo_food2.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/food_noodle.webp",
+      "status": 200,
+      "sha256": "f55fb7e35b1e13e7ac6263c437983c3cb3a66dc0d43351902584e1835b3e4a0d",
+      "repositoryPath": "assets/food_noodle.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/food_bakery.webp",
+      "status": 200,
+      "sha256": "7b16c5885a532f8f1bcc00424791f3e0bf08902d5e68f91042fa715b1c824754",
+      "repositoryPath": "assets/food_bakery.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_korea.webp",
+      "status": 200,
+      "sha256": "e1fbf4281825fe96f6d24a684f5afc3615c049543705b02c1d9b0a02575de965",
+      "repositoryPath": "assets/photo_korea.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_korea.webp",
+      "status": 200,
+      "sha256": "7a0379193ab5b7629beb0ceb5bec84ba760850c418a95865085adba5e99a0fb9",
+      "repositoryPath": "assets/travel_korea.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_uk.webp",
+      "status": 200,
+      "sha256": "787ce2308dbddb56b4d212b254b67394190155cb7fcd3a273b79171bbc31cec9",
+      "repositoryPath": "assets/travel_uk.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_motion.webp",
+      "status": 200,
+      "sha256": "8869336dad5204f157e22dea432f7558dc460691eb0f2aa8e1b57f84c1b17162",
+      "repositoryPath": "assets/design_motion.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_packaging.webp",
+      "status": 200,
+      "sha256": "c9d065ff6cd705ea360fb98d5c41b4ed48588731b5dae483b0c6c7c20d833972",
+      "repositoryPath": "assets/design_packaging.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_case.webp",
+      "status": 200,
+      "sha256": "585897ac1d476ad2f1ff69e68e0003b506650abd824d99205691520e6ff91029",
+      "repositoryPath": "assets/career_case.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_grid.webp",
+      "status": 200,
+      "sha256": "87041ad8520b2e251e661db7b084a49a20be0fc87b23e918b9382979b5eae8ef",
+      "repositoryPath": "assets/design_grid.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_ai.webp",
+      "status": 200,
+      "sha256": "99ec34977f6c069ec6ee68353e9f1e2194eded081d83a1f6bf7e1a12dc9d88d4",
+      "repositoryPath": "assets/career_ai.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_jobs.webp",
+      "status": 200,
+      "sha256": "d56cb00d76aee345148cc2ac4c82d9a561eb8098f86ec90a91b6b089fdf31ce7",
+      "repositoryPath": "assets/career_jobs.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_interview.webp",
+      "status": 200,
+      "sha256": "93ef20e803a2c87b83c8a2063c35a701764ef70cbf0272a988de926307f22444",
+      "repositoryPath": "assets/career_interview.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_nz.webp",
+      "status": 200,
+      "sha256": "cc7a165ca895476f47dd383f615984683a0f584b768f025e63be18d98f3ef5a8",
+      "repositoryPath": "assets/travel_nz.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_bergen.webp",
+      "status": 200,
+      "sha256": "b694fe96fbdf7eab85bb2662489b1d86c3b1c1e52e7cc0b08cc978d076e50c67",
+      "repositoryPath": "assets/travel_bergen.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_lamp.webp",
+      "status": 200,
+      "sha256": "1039e8d77e11bca3a2ff6eb83184e5f68e00616daab45c38b84cce4adf823e82",
+      "repositoryPath": "assets/home_lamp.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_small.webp",
+      "status": 200,
+      "sha256": "828b630a452ad20a71c65328a1084842273951b47275ab4b4656d777294ad703",
+      "repositoryPath": "assets/home_small.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_color.webp",
+      "status": 200,
+      "sha256": "0a2ab0e6d0635cf9dc9d05c4cac24942b5fe3ef0d0f64b755f5094ec72d14365",
+      "repositoryPath": "assets/home_color.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_ui.webp",
+      "status": 200,
+      "sha256": "e0024cad6504966bb558ffc029c80a96942bfffd0ac331d8e0a812d9a8919437",
+      "repositoryPath": "assets/design_ui.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_blender.webp",
+      "status": 200,
+      "sha256": "0c7255c72c4c1792a8c7118286984a7e4ce12808bcd92dd31d5e829c7d0523c3",
+      "repositoryPath": "assets/design_blender.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_website.webp",
+      "status": 200,
+      "sha256": "fa97a1c043c98035bd8cf1fd728c38bd0dbfb644a455468463814b758b1df199",
+      "repositoryPath": "assets/design_website.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-design.svg",
+      "status": 200,
+      "sha256": "9fbcc4228c17d1e5c20d5887012580b1a57bc9302d925b6d1abf3065c6f6d3f1",
+      "repositoryPath": "assets/author-design.svg",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-home.svg",
+      "status": 200,
+      "sha256": "95ddd026a99ab5ff7c95ceb93fc3b5b32cf149fa7e7f9957ec5c2bb8570ec195",
+      "repositoryPath": "assets/author-home.svg",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-travel.svg",
+      "status": 200,
+      "sha256": "173e0a2ec4a2f6e7305cc618444ef755bfd9aa05f176b34f0e729482924534cd",
+      "repositoryPath": "assets/author-travel.svg",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-life.svg",
+      "status": 200,
+      "sha256": "adcb3bd58e408955c4261c066edc47273a358eb2f1a7e3c897bea30e94975390",
+      "repositoryPath": "assets/author-life.svg",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-food.svg",
+      "status": 200,
+      "sha256": "44f606ae88e83597a70275b8d83d38d5e4df8fdceb5f429d1759dfa057b5ab39",
+      "repositoryPath": "assets/author-food.svg",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_room.webp",
+      "status": 200,
+      "sha256": "847013d130a0233008051d07e4e5df9156d9922a4f7d26505ce54fdc24011fee",
+      "repositoryPath": "assets/new_room.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_type.webp",
+      "status": 200,
+      "sha256": "b469808e27e0a09e3d96e9984f9d9d7a8291e2be4a70ecafb4fc870ad39ed0ba",
+      "repositoryPath": "assets/new_type.webp",
+      "byteIdentical": true
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_korea.webp",
+      "status": 200,
+      "sha256": "b5925777a553e5536f69f83242269361b79d3b8bd193ca7ed37b3ceda9c289cf",
+      "repositoryPath": "assets/new_korea.webp",
+      "byteIdentical": true
+    }
+  ],
+  "mechanism": "Published upstream HTTPS fetched with TLS validation; bytes fulfilled unchanged at original browser URL; not ignore_https_errors"
+}

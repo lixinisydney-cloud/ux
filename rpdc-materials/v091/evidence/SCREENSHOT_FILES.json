@@ -1,0 +1,274 @@
+[
+  {
+    "file": "screenshots/01_home.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "5c4ca377952b1ea8ad9c6b45230e41a19483828576aeee94f50477f23a384071"
+  },
+  {
+    "file": "screenshots/02_horizontal_scroll.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "4d379342360abbbcc6d6896ad87a21b802030c56be86974159eef555051c4f23"
+  },
+  {
+    "file": "screenshots/03_ai_collection.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "1bbee462c71d6f478a62f9a22338de5e18e7206c4386a2497f68f0fbb38e0779"
+  },
+  {
+    "file": "screenshots/04_note_body_and_tags.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "5310f0ebf33004e220c01c381ae80d24a2a13770dc755163af7d7c1d10325bea"
+  },
+  {
+    "file": "screenshots/04_note_detail.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "494b47d0af5f5aa66a9bbcf62c24eb40d5fa1892c1e0914809ef96f00fb3e80d"
+  },
+  {
+    "file": "screenshots/05_home_menu.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "03e02b6e7f22150c2bc8164d206636b37f9288618cde827d5f59cae02bd15ccb"
+  },
+  {
+    "file": "screenshots/06_reorder_mode.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "e3f476133c72ff89f7f8b55cca5a88d3f5444d4cbef04bdc14b76cac5cddefca"
+  },
+  {
+    "file": "screenshots/07_reorder_result.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "6bdba99c06044773b69cc82ebd8f410e3fbeaba73c7a10534ad04bc00f43983a"
+  },
+  {
+    "file": "screenshots/08_batch_manage.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "f634835c53a9a76f4dde585056fc9a0a16bce5df336e41716aa8e3cf593e1f56"
+  },
+  {
+    "file": "screenshots/09_correction_result.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "40782c2495b09be881f5df87219a08f5fb28426d767b9bd3baca7a1edd2be4b3"
+  },
+  {
+    "file": "screenshots/09_original_album_retained.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "179a5a4a1e08df743b47ee334148e234f3d7c87c89acc4df09eba43d19684ab5"
+  },
+  {
+    "file": "screenshots/10_share_sheet.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "3c1200e0ed6a7700be22533df82884de6a1f908f7ab4dd426b751e1b33cd0758"
+  },
+  {
+    "file": "screenshots/11_invite_friends.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "fa8e9abf0beacca2fb5a88f7234e9178d0211073e5bfeb6916b4df41cc79b5b3"
+  },
+  {
+    "file": "screenshots/12_shared_state.png",
+    "pixels": [
+      390,
+      844
+    ],
+    "sha256": "c525e268171f12c4353474c53addaf0459dece21c15d9bd5c0c50fb5ad273746"
+  },
+  {
+    "file": "screenshots/13_before_new_save.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "7dbb7c5fad5df93b3c35047c416fe8469c549ee91719e782f3147ff3fc9996bc"
+  },
+  {
+    "file": "screenshots/13_new_save_update.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "a9cafc68496d6a990c400d6db812aa9ac5c5e0ee066e60f55711df59cb837b06"
+  },
+  {
+    "file": "screenshots/14_desktop_demo.png",
+    "pixels": [
+      1440,
+      900
+    ],
+    "sha256": "7d06d91bc819c8028893b521c964816a42a2d068345e1f2b6d17d51d0cd2fb6b"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/01_home.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "b608097f666d2310dd1e91ee2e3edaf8706b9646a0b74b95375f39c80d9b5557"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/02_horizontal_scroll.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "4d379342360abbbcc6d6896ad87a21b802030c56be86974159eef555051c4f23"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/03_ai_collection.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "7cd54dae6f3d6f92de7d8a1ae0765b8a0fb7716e8bd0ce448806651487f20115"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/04_note_body_and_tags.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "5310f0ebf33004e220c01c381ae80d24a2a13770dc755163af7d7c1d10325bea"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/04_note_detail.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "47667aac76729ebaca6fa053fb542c1856c002e508f5916a97560bc01bcc4076"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/05_home_menu.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "ac63ba2495056902b7bd2484f05f928f00acf6d1c54f0921a9ece8544ea08950"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/06_reorder_mode.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "e3f476133c72ff89f7f8b55cca5a88d3f5444d4cbef04bdc14b76cac5cddefca"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/07_reorder_result.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "6bdba99c06044773b69cc82ebd8f410e3fbeaba73c7a10534ad04bc00f43983a"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/08_batch_manage.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "63ced28be4db056546a3d7055abe1464bf097698d3388483757d62f46357ec03"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/09_correction_result.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "40782c2495b09be881f5df87219a08f5fb28426d767b9bd3baca7a1edd2be4b3"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/09_original_album_retained.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "179a5a4a1e08df743b47ee334148e234f3d7c87c89acc4df09eba43d19684ab5"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/10_share_sheet.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "c7bc2f4ab9b8104f7daa078162f30e99d4663815ab0e88cfbb3a84c3350fea01"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/11_invite_friends.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "ed53dc539991a2f7c7e522a9df61c7b0c746c91cde5673e3980c44f9007cc3c9"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/12_shared_state.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "742562f7884f49583c6b6a85697ee32d67bb8379fae3894a92ed98a9f24dfc6b"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/13_before_new_save.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "7dbb7c5fad5df93b3c35047c416fe8469c549ee91719e782f3147ff3fc9996bc"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/13_new_save_update.png",
+    "pixels": [
+      780,
+      1688
+    ],
+    "sha256": "a9cafc68496d6a990c400d6db812aa9ac5c5e0ee066e60f55711df59cb837b06"
+  },
+  {
+    "file": "screenshots/high_resolution_2x/14_desktop_demo.png",
+    "pixels": [
+      1440,
+      900
+    ],
+    "sha256": "621148ce2fe774d601eb8d51bcfcad8081237242120178bccb20653899bdca34"
+  }
+]

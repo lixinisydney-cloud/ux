@@ -1,0 +1,132 @@
+[
+  {
+    "suite": "classifier",
+    "expectedTests": 24,
+    "exitCode": 0,
+    "elapsedSeconds": 0.25,
+    "log": "test_classifier.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_classifier.py",
+      "-v"
+    ]
+  },
+  {
+    "suite": "precomputed",
+    "expectedTests": 3,
+    "exitCode": 0,
+    "elapsedSeconds": 0.12,
+    "log": "test_precomputed.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_precomputed.py",
+      "-v"
+    ]
+  },
+  {
+    "suite": "ui",
+    "expectedTests": 10,
+    "exitCode": 0,
+    "elapsedSeconds": 19.08,
+    "log": "test_ui.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tests/test_ui.py",
+      "--base-url",
+      "http://127.0.0.1:4183",
+      "--chromium",
+      "/usr/bin/chromium"
+    ]
+  },
+  {
+    "suite": "ai_ui",
+    "expectedTests": 8,
+    "exitCode": 0,
+    "elapsedSeconds": 27.92,
+    "log": "test_ai_ui.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tests/test_ai_ui.py",
+      "--base-url",
+      "http://127.0.0.1:4183",
+      "--chromium",
+      "/usr/bin/chromium"
+    ]
+  },
+  {
+    "suite": "precomputed_ui",
+    "expectedTests": 4,
+    "exitCode": 0,
+    "elapsedSeconds": 12.51,
+    "log": "test_precomputed_ui.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tests/test_precomputed_ui.py",
+      "--base-url",
+      "http://127.0.0.1:4183",
+      "--chromium",
+      "/usr/bin/chromium"
+    ]
+  },
+  {
+    "suite": "v08",
+    "expectedTests": 20,
+    "exitCode": 0,
+    "elapsedSeconds": 46.2,
+    "log": "test_v08.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tests/test_v08.py",
+      "--base-url",
+      "http://127.0.0.1:4183",
+      "--chromium",
+      "/usr/bin/chromium",
+      "--phase",
+      "all"
+    ]
+  },
+  {
+    "suite": "v09",
+    "expectedTests": 17,
+    "exitCode": 0,
+    "elapsedSeconds": 40.17,
+    "log": "test_v09.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tests/test_v09.py",
+      "--base-url",
+      "http://127.0.0.1:4183",
+      "--chromium",
+      "/usr/bin/chromium",
+      "--round",
+      "all"
+    ]
+  },
+  {
+    "suite": "v091",
+    "expectedTests": 12,
+    "exitCode": 0,
+    "elapsedSeconds": 23.61,
+    "log": "test_v091.log",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "tests/test_v091.py",
+      "--base-url",
+      "http://127.0.0.1:4183",
+      "--chromium",
+      "/usr/bin/chromium"
+    ]
+  }
+]

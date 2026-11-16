@@ -1,0 +1,436 @@
+{
+  "version": "0.8",
+  "recordedAt": "2026-11-16",
+  "notes": "Photographs illustrate fictional notes; no claim of depicted location, real author identity or image-semantic AI analysis.",
+  "upstreamArchive": {
+    "package": "flutter_gallery_assets",
+    "version": "1.0.2",
+    "url": "https://pub.dev/api/archives/flutter_gallery_assets-1.0.2.tar.gz",
+    "sha256": "f8fecfeebcfbe80a2fabc00c0834046890abe681f59d3e2c5b1028faf887d94b",
+    "verification": "Matched official pub.dev package API archive_sha256 before use."
+  },
+  "assets": [
+    {
+      "file": "assets/design_type.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/design_motion.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/design_brand.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/design_packaging.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/design_blender.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/design_grid.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/career_resume.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/new_type.webp",
+      "type": "original-design",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/design_website.webp",
+      "type": "original-interface-study",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/design_ui.webp",
+      "type": "original-interface-study",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/career_ai.webp",
+      "type": "original-interface-study",
+      "author": "RE:FOLD prototype team",
+      "source": "Original artwork created for RE v0.8; no third-party screenshot or AI-generated photograph",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "notes": "Fictional design study; not a screenshot of a real service or third-party work."
+    },
+    {
+      "file": "assets/travel_cph.webp",
+      "type": "photography",
+      "author": "Material Design Lite contributors (individual photographer not credited in upstream repository)",
+      "source": "https://github.com/google/material-design-lite/blob/mdl-1.x/templates/portfolio/images/example-blog01.jpg",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/google/material-design-lite/blob/mdl-1.x/LICENSE",
+      "subject": "Pier at sunset; mood image, not asserted to be Copenhagen",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "a0f3049349a5ed7c243d61f18365bfb2f9127b83b80e1c1ab95eff80f56913eb"
+    },
+    {
+      "file": "assets/photo_korea.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/crane/destinations/3.0x/eat_9.jpg",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Cafe counter; mood image, no Korean location claim",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "e1fbf4281825fe96f6d24a684f5afc3615c049543705b02c1d9b0a02575de965"
+    },
+    {
+      "file": "assets/travel_nz.webp",
+      "type": "photography",
+      "author": "Material Design Lite contributors (individual photographer not credited in upstream repository)",
+      "source": "https://github.com/google/material-design-lite/blob/mdl-1.x/templates/blog/images/road_big.jpg",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/google/material-design-lite/blob/mdl-1.x/LICENSE",
+      "subject": "Mountain hiker; mood image, not asserted to be New Zealand",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "cc7a165ca895476f47dd383f615984683a0f584b768f025e63be18d98f3ef5a8"
+    },
+    {
+      "file": "assets/travel_uk.webp",
+      "type": "photography",
+      "author": "Material Design Lite contributors (individual photographer not credited in upstream repository)",
+      "source": "https://github.com/google/material-design-lite/blob/mdl-1.x/templates/portfolio/images/example-blog07.jpg",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/google/material-design-lite/blob/mdl-1.x/LICENSE",
+      "subject": "Forest trail; mood image, no UK location claim",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "787ce2308dbddb56b4d212b254b67394190155cb7fcd3a273b79171bbc31cec9"
+    },
+    {
+      "file": "assets/travel_italy.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/crane/destinations/3.0x/sleep_8.jpg",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Coastal town / travel photography",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "60d0e8659fa604eff4c649b61bfcf095d89b23d7ba6b925dfc7d8ada57ef5dd5"
+    },
+    {
+      "file": "assets/career_interview.webp",
+      "type": "photography",
+      "author": "Material Design Lite contributors (individual photographer not credited in upstream repository)",
+      "source": "https://github.com/google/material-design-lite/blob/mdl-1.x/templates/portfolio/images/example-work08.jpg",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/google/material-design-lite/blob/mdl-1.x/LICENSE",
+      "subject": "Notebooks and pen",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "93ef20e803a2c87b83c8a2063c35a701764ef70cbf0272a988de926307f22444"
+    },
+    {
+      "file": "assets/career_jobs.webp",
+      "type": "photography",
+      "author": "Material Design Lite contributors (individual photographer not credited in upstream repository)",
+      "source": "https://github.com/google/material-design-lite/blob/mdl-1.x/templates/portfolio/images/example-work07.jpg",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/google/material-design-lite/blob/mdl-1.x/LICENSE",
+      "subject": "Typewriter on a wooden desk",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "d56cb00d76aee345148cc2ac4c82d9a561eb8098f86ec90a91b6b089fdf31ce7"
+    },
+    {
+      "file": "assets/career_case.webp",
+      "type": "photography",
+      "author": "Material Design Lite contributors (individual photographer not credited in upstream repository)",
+      "source": "https://github.com/google/material-design-lite/blob/mdl-1.x/templates/blog/images/shopping.jpg",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/google/material-design-lite/blob/mdl-1.x/LICENSE",
+      "subject": "Workspace stationery and notebooks",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "585897ac1d476ad2f1ff69e68e0003b506650abd824d99205691520e6ff91029"
+    },
+    {
+      "file": "assets/photo_food.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/food/pesto_pasta.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Pasta preparation / food mood image",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "e3e11f8fc65bca5163cb1140cb80c7229cfb28347c64d6e2f40aa79c2851ec0a"
+    },
+    {
+      "file": "assets/food_cafe.webp",
+      "type": "photography",
+      "author": "Rachel Michetti",
+      "source": "https://github.com/scikit-image/scikit-image/blob/v0.25.0/skimage/data/coffee.png",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://github.com/scikit-image/scikit-image/blob/v0.25.0/skimage/data/_fetchers.py",
+      "subject": "Coffee cup, courtesy of Pikolo Espresso Bar",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "d78cdf2bdd78a6b0607583607405801aeffcebf1047fc249dc01ce653ef2f653"
+    },
+    {
+      "file": "assets/food_bakery.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/food/cherry_pie.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Cherry pastry baking",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "7b16c5885a532f8f1bcc00424791f3e0bf08902d5e68f91042fa715b1c824754"
+    },
+    {
+      "file": "assets/photo_food2.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/food/roasted_chicken.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Roasted chicken and vegetables",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "4e211f4b4f1b69041794a277150daa7cc02641a9396560ceb6411ee4832b82b6"
+    },
+    {
+      "file": "assets/food_home.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/food/butternut_squash_soup.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Soup / home cooking mood image",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "b8261aa0ff74836a629adbdc20e803ee0fc2843d7eb19b22fe399e4a792bf223"
+    },
+    {
+      "file": "assets/home_room.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/products/table.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Small wooden side table",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "997fa9245c85ff1c2355af79f88ef664219f98776f09f66e1919676d147cb731"
+    },
+    {
+      "file": "assets/home_lamp.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/products/teaset.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Glass tea set / quiet corner mood image",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "1039e8d77e11bca3a2ff6eb83184e5f68e00616daab45c38b84cce4adf823e82"
+    },
+    {
+      "file": "assets/home_small.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/products/deskset.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Organized desk stationery",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "828b630a452ad20a71c65328a1084842273951b47275ab4b4656d777294ad703"
+    },
+    {
+      "file": "assets/home_color.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/products/napkins.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Muted textile and tabletop palette",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "0a2ab0e6d0635cf9dc9d05c4cac24942b5fe3ef0d0f64b755f5094ec72d14365"
+    },
+    {
+      "file": "assets/new_room.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/products/planters.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Small wooden planters and houseplants",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "847013d130a0233008051d07e4e5df9156d9922a4f7d26505ce54fdc24011fee"
+    },
+    {
+      "file": "assets/life_fashion.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/products/jumper.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Knitwear fashion photograph; model is not the fictional author",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "f5c49ed2d0709f7c6f26d0cba13add669fa4ca32445b2ec969af0f418e973743"
+    },
+    {
+      "file": "assets/life_skincare.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/products/sweater.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Natural portrait / knitwear photograph; a makeup mood image, model is not the fictional author",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "f8392638abb44587d1033a61a782279467751b07d51979adfd0428500bc77298"
+    },
+    {
+      "file": "assets/life_pet.webp",
+      "type": "photography",
+      "author": "Stefan van der Walt",
+      "source": "https://github.com/scikit-image/scikit-image/blob/v0.25.0/skimage/data/chelsea.png",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://github.com/scikit-image/scikit-image/blob/v0.25.0/skimage/data/_fetchers.py",
+      "subject": "Chelsea the cat",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "c33bf7fbffa3f4175e07684b3ac9c3faef4dd23855b78af53fbc5daf01f8c4bb"
+    },
+    {
+      "file": "assets/new_korea.webp",
+      "type": "photography",
+      "author": "Material Design Lite contributors (individual photographer not credited in upstream repository)",
+      "source": "https://github.com/google/material-design-lite/blob/mdl-1.x/templates/portfolio/images/example-blog03.jpg",
+      "license": "Apache-2.0",
+      "licenseUrl": "https://github.com/google/material-design-lite/blob/mdl-1.x/LICENSE",
+      "subject": "Seaside rocks / walking mood image, no Seoul location claim",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "b5925777a553e5536f69f83242269361b79d3b8bd193ca7ed37b3ceda9c289cf"
+    },
+    {
+      "file": "assets/food_noodle.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/food/spanakopita.png",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Baked pastry on a plate",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "f55fb7e35b1e13e7ac6263c437983c3cb3a66dc0d43351902584e1835b3e4a0d"
+    },
+    {
+      "file": "assets/travel_bergen.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/crane/destinations/3.0x/fly_5.jpg",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Mountain valley travel photography",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "b694fe96fbdf7eab85bb2662489b1d86c3b1c1e52e7cc0b08cc978d076e50c67"
+    },
+    {
+      "file": "assets/travel_korea.webp",
+      "type": "photography",
+      "author": "The Chromium Authors (individual photographer not credited in upstream package)",
+      "source": "https://github.com/flutter/flutter_gallery_assets/blob/master/lib/crane/destinations/3.0x/eat_1.jpg",
+      "license": "BSD-3-Clause",
+      "licenseUrl": "https://pub.dev/packages/flutter_gallery_assets/license",
+      "subject": "Cafe interior; mood image, no Korean location claim",
+      "modifications": "Locally resized/re-encoded as WebP; no semantic image generation or added watermark.",
+      "sha256": "7a0379193ab5b7629beb0ceb5bec84ba760850c418a95865085adba5e99a0fb9"
+    },
+    {
+      "file": "assets/author-food.svg",
+      "type": "original-avatar",
+      "author": "RE:FOLD prototype team",
+      "source": "Original fictional avatar created for RE v0.8",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "file": "assets/author-design.svg",
+      "type": "original-avatar",
+      "author": "RE:FOLD prototype team",
+      "source": "Original fictional avatar created for RE v0.8",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "file": "assets/author-life.svg",
+      "type": "original-avatar",
+      "author": "RE:FOLD prototype team",
+      "source": "Original fictional avatar created for RE v0.8",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "file": "assets/author-home.svg",
+      "type": "original-avatar",
+      "author": "RE:FOLD prototype team",
+      "source": "Original fictional avatar created for RE v0.8",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "file": "assets/author-travel.svg",
+      "type": "original-avatar",
+      "author": "RE:FOLD prototype team",
+      "source": "Original fictional avatar created for RE v0.8",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "file": "assets/author-career.svg",
+      "type": "original-avatar",
+      "author": "RE:FOLD prototype team",
+      "source": "Original fictional avatar created for RE v0.8",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ]
+}

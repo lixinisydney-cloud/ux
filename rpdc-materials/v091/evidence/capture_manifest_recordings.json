@@ -1,0 +1,566 @@
+{
+  "baseline": "6e9cc55b46a4cfa991b69da1df66e0567c55017c",
+  "source": "https://lixinisydney-cloud.github.io/ux/",
+  "capturedAtUTC": "2026-11-16T15:12:29Z",
+  "realPhone": false,
+  "screenshots": [],
+  "recordings": [
+    {
+      "events": [
+        {
+          "seconds": 5.38,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 6.81,
+          "action": "Real Chromium touch swipe",
+          "start": [
+            330,
+            566
+          ],
+          "end": [
+            70,
+            566
+          ]
+        },
+        {
+          "seconds": 10.84,
+          "action": "Real Chromium touch swipe",
+          "start": [
+            70,
+            566
+          ],
+          "end": [
+            330,
+            566
+          ]
+        },
+        {
+          "seconds": 11.96,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ],
+      "viewport": "390x844 Chromium touch emulation",
+      "realPhone": false,
+      "originalWebM": "recordings/Clip_01_home_horizontal.webm",
+      "file": "recordings/Clip_01_home_horizontal.mp4",
+      "originalWebMSHA256": "731ca50d1ee60be7c4d7777496c0986f8fb78d12bc3e36fab0142b69a4eff380",
+      "mp4SHA256": "65b6e7ae3e7da8577447f8a5fe436ec5a24fb196348e15ab85b2c7d6f37e4cb2"
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.21,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.29,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 5.93,
+          "action": "Real Chromium touch swipe",
+          "start": [
+            210,
+            690
+          ],
+          "end": [
+            210,
+            335
+          ]
+        },
+        {
+          "seconds": 7.1,
+          "action": "Tap note",
+          "id": "d3"
+        },
+        {
+          "seconds": 11.04,
+          "action": "Real Chromium touch swipe",
+          "start": [
+            210,
+            670
+          ],
+          "end": [
+            210,
+            310
+          ]
+        },
+        {
+          "seconds": 14.98,
+          "action": "Return restored collection scroll",
+          "before": 340,
+          "after": 340
+        },
+        {
+          "seconds": 14.99,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ],
+      "viewport": "390x844 Chromium touch emulation",
+      "realPhone": false,
+      "originalWebM": "recordings/Clip_02_collection_note_return.webm",
+      "file": "recordings/Clip_02_collection_note_return.mp4",
+      "originalWebMSHA256": "cff6e37524594104d9c9ab6eaa9650f18a3bd63327a6f587b754963cbe85ccbe",
+      "mp4SHA256": "5c4436ed16487ce7be72f7b7c2a524806bbe4ad079c73cfbb67aba5d78c080ad"
+    },
+    {
+      "events": [
+        {
+          "seconds": 7.17,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 7.25,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 8.87,
+          "action": "Tap home",
+          "id": null
+        },
+        {
+          "seconds": 10.53,
+          "action": "Held touch 720ms; existing 450ms long-press entered sorting"
+        },
+        {
+          "seconds": 13.52,
+          "action": "Dragged career card before design with same held touch"
+        },
+        {
+          "seconds": 13.58,
+          "action": "Tap sort-done",
+          "id": null
+        },
+        {
+          "seconds": 16.3,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ],
+      "viewport": "390x844 Chromium touch emulation",
+      "realPhone": false,
+      "originalWebM": "recordings/Clip_03_longpress_reorder.webm",
+      "file": "recordings/Clip_03_longpress_reorder.mp4",
+      "originalWebMSHA256": "9f6213a285172412d05453faac9c840b014ac696b67bd529d52a3d594ab6cc7b",
+      "mp4SHA256": "f272d2054d6152e8a1c5266548c51942aac9b9438ff6a9762f506fe5cdd769d1",
+      "recapturedAtUTC": "2026-11-16T15:17:55Z"
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.2,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.28,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 3.24,
+          "action": "Tap manage",
+          "id": null
+        },
+        {
+          "seconds": 4.2,
+          "action": "Tap manage-start",
+          "id": null
+        },
+        {
+          "seconds": 6.16,
+          "action": "Tap select-note",
+          "id": "d1"
+        },
+        {
+          "seconds": 7.96,
+          "action": "Tap batch-remove",
+          "id": null
+        },
+        {
+          "seconds": 9.47,
+          "action": "Removed virtual association; original saved note retained"
+        },
+        {
+          "seconds": 9.52,
+          "action": "Tap undo",
+          "id": null
+        },
+        {
+          "seconds": 11.13,
+          "action": "Undo restored original collection membership"
+        },
+        {
+          "seconds": 11.14,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ],
+      "viewport": "390x844 Chromium touch emulation",
+      "realPhone": false,
+      "originalWebM": "recordings/Clip_04_correction_undo.webm",
+      "file": "recordings/Clip_04_correction_undo.mp4",
+      "originalWebMSHA256": "3563471806f32c91bafd62e4c194438111a4b626a2d0e10d415ea6817f55a1b5",
+      "mp4SHA256": "474b61188f4fb0dc0532ce8941c74fd37f9fa564c18545e63e5099d34beab4a0"
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.21,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.45,
+          "action": "Open existing desktop Demo new-save control"
+        },
+        {
+          "seconds": 4.53,
+          "action": "Tap save-note",
+          "id": "new1"
+        },
+        {
+          "seconds": 6.47,
+          "action": "Tap group",
+          "id": "home"
+        },
+        {
+          "seconds": 9.19,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ],
+      "viewport": "1440x900 desktop (actual demo control)",
+      "realPhone": false,
+      "originalWebM": "recordings/Clip_05_new_save_desktop.webm",
+      "file": "recordings/Clip_05_new_save_desktop.mp4",
+      "originalWebMSHA256": "270c3a8ad3565a730a693584a68855beff60667eb280b31d64e18be395311c9a",
+      "mp4SHA256": "7a8c5126164362b082fde920c69ffeee42e6d816fe3e17017e9e90f9937d31f3"
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.23,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.3,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 3.29,
+          "action": "Tap share",
+          "id": null
+        },
+        {
+          "seconds": 6.64,
+          "action": "Tap share-channel",
+          "id": "copy"
+        },
+        {
+          "seconds": 7.95,
+          "action": "Actual clipboard read verified static snapshot IDs",
+          "noteCount": 11,
+          "url": "https://lixinisydney-cloud.github.io/ux/#share=eyJ2IjoxLCJuYW1lIjoi6K6-6K6h5LiO5Yib5L2cIMK3IOWFseS6q-WJr-acrCIsIm5vdGVJZHMiOlsiZDEiLCJkMiIsImQzIiwiZDQiLCJkNSIsImQ3IiwiZDYiLCJkOCIsImM1IiwiY2FzZS1hIiwiY2FzZS1iIl19"
+        },
+        {
+          "seconds": 9.76,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ],
+      "viewport": "390x844 Chromium touch emulation",
+      "realPhone": false,
+      "originalWebM": "recordings/Clip_06_share_copy_link.webm",
+      "file": "recordings/Clip_06_share_copy_link.mp4",
+      "originalWebMSHA256": "0e426a8d488c00688cd28354142561fcab221c142c3dcfa7bbfd1c9a2c60d136",
+      "mp4SHA256": "abffdb3301e545fed4985ccbc5e5def2d5fa633086291041e751e16be9a9c39a"
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.27,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.34,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 3.3,
+          "action": "Tap share-invite",
+          "id": null
+        },
+        {
+          "seconds": 5.55,
+          "action": "Tap friends-toggle",
+          "id": null
+        },
+        {
+          "seconds": 6.5,
+          "action": "Tap friend-toggle",
+          "id": "lin"
+        },
+        {
+          "seconds": 7.45,
+          "action": "Tap friend-toggle",
+          "id": "qiao"
+        },
+        {
+          "seconds": 10.1,
+          "action": "Tap friends-done",
+          "id": null
+        },
+        {
+          "seconds": 11.81,
+          "action": "Saved local simulated friends and returned directly; no messages sent",
+          "friendIds": [
+            "lin",
+            "qiao"
+          ],
+          "snapshotCount": 11
+        },
+        {
+          "seconds": 11.82,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ],
+      "viewport": "390x844 Chromium touch emulation",
+      "realPhone": false,
+      "originalWebM": "recordings/Clip_07_invite_friends.webm",
+      "file": "recordings/Clip_07_invite_friends.mp4",
+      "originalWebMSHA256": "6712b28591fbfb5c52d8e3d63e41cf9f25fc8e0f90845e8eac505ae3c1e237d9",
+      "mp4SHA256": "ea431cd0cc6cc8f8589d5b18657268081b3d7d62cee609059931452840a48a74"
+    }
+  ],
+  "checks": [
+    {
+      "events": [
+        {
+          "seconds": 2.14,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.18,
+          "action": "Copied public demo link opened successfully in a separate fresh context"
+        },
+        {
+          "seconds": 2.18,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    }
+  ],
+  "copiedDemoLink": "https://lixinisydney-cloud.github.io/ux/#share=eyJ2IjoxLCJuYW1lIjoi6K6-6K6h5LiO5Yib5L2cIMK3IOWFseS6q-WJr-acrCIsIm5vdGVJZHMiOlsiZDEiLCJkMiIsImQzIiwiZDQiLCJkNSIsImQ3IiwiZDYiLCJkOCIsImM1IiwiY2FzZS1hIiwiY2FzZS1iIl19",
+  "verifiedResources": [
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/",
+      "status": 200,
+      "sha256": "f39be63b8f50716789f11e729d9149bd9185bdae06ca02ba5619fdf650954d5c"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/styles.css",
+      "status": 200,
+      "sha256": "6d30c202eafcedd502807dd4a1eccf6b26fe7db6fe10c2762522cb36d9259d58"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/data/offline-bundle.js",
+      "status": 200,
+      "sha256": "a973b8eee213dafebcd386783b0d0a16c7702478da35823e0de8c751c1e09ef8"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/classification-store.js",
+      "status": 200,
+      "sha256": "07e10e91420db3408240073146cac66d4bd87f8cf9aefd6d69f59502e5e75d5b"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/data/classifications.real.json",
+      "status": 200,
+      "sha256": "9473c5d854770ae82f29cf6954ac953f9908794d45dcaa8615605f359923318a"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/avatar.svg",
+      "status": 200,
+      "sha256": "8db6ed2e5bb0bc71d8799e87b3411f0ba9d054bf1c8818b330f1005868c035f2"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_type.webp",
+      "status": 200,
+      "sha256": "51c702e9f8b2f02464c2e534bbe74e5a23061c0ba48ea30f4720cd3c932109bd"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_cph.webp",
+      "status": 200,
+      "sha256": "a0f3049349a5ed7c243d61f18365bfb2f9127b83b80e1c1ab95eff80f56913eb"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_resume.webp",
+      "status": 200,
+      "sha256": "d10030a1eaea9bd5cc261da6619f0b946447995a5342a026f760feb87b323587"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_food.webp",
+      "status": 200,
+      "sha256": "e3e11f8fc65bca5163cb1140cb80c7229cfb28347c64d6e2f40aa79c2851ec0a"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_room.webp",
+      "status": 200,
+      "sha256": "997fa9245c85ff1c2355af79f88ef664219f98776f09f66e1919676d147cb731"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/life_fashion.webp",
+      "status": 200,
+      "sha256": "f5c49ed2d0709f7c6f26d0cba13add669fa4ca32445b2ec969af0f418e973743"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_brand.webp",
+      "status": 200,
+      "sha256": "6765dd5561ed99dd90c146e06c0cb49ddd6b74812bb7f1cde4c5cb00969d7514"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_food2.webp",
+      "status": 200,
+      "sha256": "4e211f4b4f1b69041794a277150daa7cc02641a9396560ceb6411ee4832b82b6"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/food_noodle.webp",
+      "status": 200,
+      "sha256": "f55fb7e35b1e13e7ac6263c437983c3cb3a66dc0d43351902584e1835b3e4a0d"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/food_bakery.webp",
+      "status": 200,
+      "sha256": "7b16c5885a532f8f1bcc00424791f3e0bf08902d5e68f91042fa715b1c824754"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_korea.webp",
+      "status": 200,
+      "sha256": "e1fbf4281825fe96f6d24a684f5afc3615c049543705b02c1d9b0a02575de965"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_korea.webp",
+      "status": 200,
+      "sha256": "7a0379193ab5b7629beb0ceb5bec84ba760850c418a95865085adba5e99a0fb9"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_uk.webp",
+      "status": 200,
+      "sha256": "787ce2308dbddb56b4d212b254b67394190155cb7fcd3a273b79171bbc31cec9"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_motion.webp",
+      "status": 200,
+      "sha256": "8869336dad5204f157e22dea432f7558dc460691eb0f2aa8e1b57f84c1b17162"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_packaging.webp",
+      "status": 200,
+      "sha256": "c9d065ff6cd705ea360fb98d5c41b4ed48588731b5dae483b0c6c7c20d833972"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_case.webp",
+      "status": 200,
+      "sha256": "585897ac1d476ad2f1ff69e68e0003b506650abd824d99205691520e6ff91029"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_grid.webp",
+      "status": 200,
+      "sha256": "87041ad8520b2e251e661db7b084a49a20be0fc87b23e918b9382979b5eae8ef"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_ai.webp",
+      "status": 200,
+      "sha256": "99ec34977f6c069ec6ee68353e9f1e2194eded081d83a1f6bf7e1a12dc9d88d4"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_jobs.webp",
+      "status": 200,
+      "sha256": "d56cb00d76aee345148cc2ac4c82d9a561eb8098f86ec90a91b6b089fdf31ce7"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_interview.webp",
+      "status": 200,
+      "sha256": "93ef20e803a2c87b83c8a2063c35a701764ef70cbf0272a988de926307f22444"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_nz.webp",
+      "status": 200,
+      "sha256": "cc7a165ca895476f47dd383f615984683a0f584b768f025e63be18d98f3ef5a8"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_bergen.webp",
+      "status": 200,
+      "sha256": "b694fe96fbdf7eab85bb2662489b1d86c3b1c1e52e7cc0b08cc978d076e50c67"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_lamp.webp",
+      "status": 200,
+      "sha256": "1039e8d77e11bca3a2ff6eb83184e5f68e00616daab45c38b84cce4adf823e82"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_small.webp",
+      "status": 200,
+      "sha256": "828b630a452ad20a71c65328a1084842273951b47275ab4b4656d777294ad703"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_color.webp",
+      "status": 200,
+      "sha256": "0a2ab0e6d0635cf9dc9d05c4cac24942b5fe3ef0d0f64b755f5094ec72d14365"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_ui.webp",
+      "status": 200,
+      "sha256": "e0024cad6504966bb558ffc029c80a96942bfffd0ac331d8e0a812d9a8919437"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_blender.webp",
+      "status": 200,
+      "sha256": "0c7255c72c4c1792a8c7118286984a7e4ce12808bcd92dd31d5e829c7d0523c3"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_website.webp",
+      "status": 200,
+      "sha256": "fa97a1c043c98035bd8cf1fd728c38bd0dbfb644a455468463814b758b1df199"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-design.svg",
+      "status": 200,
+      "sha256": "9fbcc4228c17d1e5c20d5887012580b1a57bc9302d925b6d1abf3065c6f6d3f1"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_room.webp",
+      "status": 200,
+      "sha256": "847013d130a0233008051d07e4e5df9156d9922a4f7d26505ce54fdc24011fee"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_type.webp",
+      "status": 200,
+      "sha256": "b469808e27e0a09e3d96e9984f9d9d7a8291e2be4a70ecafb4fc870ad39ed0ba"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_korea.webp",
+      "status": 200,
+      "sha256": "b5925777a553e5536f69f83242269361b79d3b8bd193ca7ed37b3ceda9c289cf"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-home.svg",
+      "status": 200,
+      "sha256": "95ddd026a99ab5ff7c95ceb93fc3b5b32cf149fa7e7f9957ec5c2bb8570ec195"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-travel.svg",
+      "status": 200,
+      "sha256": "173e0a2ec4a2f6e7305cc618444ef755bfd9aa05f176b34f0e729482924534cd"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-life.svg",
+      "status": 200,
+      "sha256": "adcb3bd58e408955c4261c066edc47273a358eb2f1a7e3c897bea30e94975390"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-food.svg",
+      "status": 200,
+      "sha256": "44f606ae88e83597a70275b8d83d38d5e4df8fdceb5f429d1759dfa057b5ab39"
+    }
+  ]
+}

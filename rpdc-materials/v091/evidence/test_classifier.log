@@ -1,0 +1,32 @@
+UTC: 2026-11-16T15:04:12Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -p test_classifier.py -v
+
+test_cache_model_and_prompt_version_affect_identity (test_classifier.ClassifierTests.test_cache_model_and_prompt_version_affect_identity) ... ok
+test_envelope_rejects_wrong_hash_model_mode_prompt_and_note_count (test_classifier.ClassifierTests.test_envelope_rejects_wrong_hash_model_mode_prompt_and_note_count) ... ok
+test_force_bypasses_valid_cache (test_classifier.ClassifierTests.test_force_bypasses_valid_cache) ... ok
+test_future_result_timestamps_are_rejected (test_classifier.ClassifierTests.test_future_result_timestamps_are_rejected) ... ok
+test_hash_uses_only_semantic_inputs_and_canonical_json (test_classifier.ClassifierTests.test_hash_uses_only_semantic_inputs_and_canonical_json) ... ok
+test_http_errors_omit_provider_body_and_key (test_classifier.ClassifierTests.test_http_errors_omit_provider_body_and_key) ... ok
+test_invalid_classification_preserves_existing_output (test_classifier.ClassifierTests.test_invalid_classification_preserves_existing_output) ... ok
+test_key_prompt_requires_a_real_terminal (test_classifier.ClassifierTests.test_key_prompt_requires_a_real_terminal) ... ok
+test_local_dataset_ids_dates_and_tags_are_validated (test_classifier.ClassifierTests.test_local_dataset_ids_dates_and_tags_are_validated) ... ok
+test_missing_key_does_not_call_network_or_create_real_output (test_classifier.ClassifierTests.test_missing_key_does_not_call_network_or_create_real_output) ... ok
+test_mock_response_is_validated_before_cache_and_publication (test_classifier.ClassifierTests.test_mock_response_is_validated_before_cache_and_publication) ... ok
+test_model_input_has_explicit_allowlist_without_answers (test_classifier.ClassifierTests.test_model_input_has_explicit_allowlist_without_answers) ... ok
+test_multi_label_and_uncertain_records_are_valid (test_classifier.ClassifierTests.test_multi_label_and_uncertain_records_are_valid) ... ok
+test_offline_envelope_requires_explicit_fixture_metadata (test_classifier.ClassifierTests.test_offline_envelope_requires_explicit_fixture_metadata) ... ok
+test_project_dataset_and_offline_file_match_shared_contract (test_classifier.ClassifierTests.test_project_dataset_and_offline_file_match_shared_contract) ... ok
+test_read_json_accepts_windows_utf8_bom (test_classifier.ClassifierTests.test_read_json_accepts_windows_utf8_bom) ... ok
+test_reason_limit_matches_browser_at_400_characters (test_classifier.ClassifierTests.test_reason_limit_matches_browser_at_400_characters) ... ok
+test_refusal_truncation_and_invalid_json_never_publish (test_classifier.ClassifierTests.test_refusal_truncation_and_invalid_json_never_publish) ... ok
+test_stale_cache_requires_new_request_and_changed_content_misses_cache (test_classifier.ClassifierTests.test_stale_cache_requires_new_request_and_changed_content_misses_cache) ... ok
+test_tampered_cache_is_revalidated_and_not_silently_reused (test_classifier.ClassifierTests.test_tampered_cache_is_revalidated_and_not_silently_reused) ... ok
+test_uncertain_records_need_an_explanation (test_classifier.ClassifierTests.test_uncertain_records_need_an_explanation) ... ok
+test_unknown_and_duplicate_note_ids_and_missing_records_rejected (test_classifier.ClassifierTests.test_unknown_and_duplicate_note_ids_and_missing_records_rejected) ... ok
+test_unknown_duplicate_group_and_invalid_reasons_rejected (test_classifier.ClassifierTests.test_unknown_duplicate_group_and_invalid_reasons_rejected) ... ok
+test_valid_cache_can_be_reused_without_key_or_second_charge (test_classifier.ClassifierTests.test_valid_cache_can_be_reused_without_key_or_second_charge) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.088s
+
+OK

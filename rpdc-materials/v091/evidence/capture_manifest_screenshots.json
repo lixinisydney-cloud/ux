@@ -1,0 +1,818 @@
+{
+  "baseline": "6e9cc55b46a4cfa991b69da1df66e0567c55017c",
+  "source": "https://lixinisydney-cloud.github.io/ux/",
+  "capturedAtUTC": "2026-11-16T15:04:49Z",
+  "realPhone": false,
+  "screenshots": [
+    {
+      "file": "screenshots/01_home.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/home_top_390.png",
+      "sha256": "5c4ca377952b1ea8ad9c6b45230e41a19483828576aeee94f50477f23a384071",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/03_ai_collection.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/collection_390.png",
+      "sha256": "1bbee462c71d6f478a62f9a22338de5e18e7206c4386a2497f68f0fbb38e0779",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/04_note_detail.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/note_detail_390.png",
+      "sha256": "494b47d0af5f5aa66a9bbcf62c24eb40d5fa1892c1e0914809ef96f00fb3e80d",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/05_home_menu.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/home_menu_390.png",
+      "sha256": "03e02b6e7f22150c2bc8164d206636b37f9288618cde827d5f59cae02bd15ccb",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/08_batch_manage.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/manage_390.png",
+      "sha256": "f634835c53a9a76f4dde585056fc9a0a16bce5df336e41716aa8e3cf593e1f56",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/10_share_sheet.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/share_390.png",
+      "sha256": "3c1200e0ed6a7700be22533df82884de6a1f908f7ab4dd426b751e1b33cd0758",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/11_invite_friends.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/friends_390.png",
+      "sha256": "fa8e9abf0beacca2fb5a88f7234e9178d0211073e5bfeb6916b4df41cc79b5b3",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/12_shared_state.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/shared_state_390.png",
+      "sha256": "c525e268171f12c4353474c53addaf0459dece21c15d9bd5c0c50fb5ad273746",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/14_desktop_demo.png",
+      "origin": "unchanged final tracked screenshot: screenshots/v091/desktop_1440.png",
+      "sha256": "7d06d91bc819c8028893b521c964816a42a2d068345e1f2b6d17d51d0cd2fb6b",
+      "deviceScaleFactor": 1
+    },
+    {
+      "file": "screenshots/high_resolution_2x/01_home.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "home",
+      "sha256": "b608097f666d2310dd1e91ee2e3edaf8706b9646a0b74b95375f39c80d9b5557"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/02_horizontal_scroll.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "home",
+      "sha256": "4d379342360abbbcc6d6896ad87a21b802030c56be86974159eef555051c4f23"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/05_home_menu.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "home",
+      "sha256": "ac63ba2495056902b7bd2484f05f928f00acf6d1c54f0921a9ece8544ea08950"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/06_reorder_mode.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "home",
+      "sha256": "e3f476133c72ff89f7f8b55cca5a88d3f5444d4cbef04bdc14b76cac5cddefca"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/07_reorder_result.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "home",
+      "sha256": "6bdba99c06044773b69cc82ebd8f410e3fbeaba73c7a10534ad04bc00f43983a"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/03_ai_collection.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "group",
+      "sha256": "7cd54dae6f3d6f92de7d8a1ae0765b8a0fb7716e8bd0ce448806651487f20115"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/04_note_detail.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "note",
+      "sha256": "47667aac76729ebaca6fa053fb542c1856c002e508f5916a97560bc01bcc4076"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/04_note_body_and_tags.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "note",
+      "sha256": "5310f0ebf33004e220c01c381ae80d24a2a13770dc755163af7d7c1d10325bea"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/08_batch_manage.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "group",
+      "sha256": "63ced28be4db056546a3d7055abe1464bf097698d3388483757d62f46357ec03"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/09_correction_result.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "group",
+      "sha256": "40782c2495b09be881f5df87219a08f5fb28426d767b9bd3baca7a1edd2be4b3"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/09_original_album_retained.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "album",
+      "sha256": "179a5a4a1e08df743b47ee334148e234f3d7c87c89acc4df09eba43d19684ab5"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/10_share_sheet.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "group",
+      "sha256": "c7bc2f4ab9b8104f7daa078162f30e99d4663815ab0e88cfbb3a84c3350fea01"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/11_invite_friends.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "friends",
+      "sha256": "ed53dc539991a2f7c7e522a9df61c7b0c746c91cde5673e3980c44f9007cc3c9"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/12_shared_state.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "group",
+      "sha256": "742562f7884f49583c6b6a85697ee32d67bb8379fae3894a92ed98a9f24dfc6b"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/13_before_new_save.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "group",
+      "sha256": "7dbb7c5fad5df93b3c35047c416fe8469c549ee91719e782f3147ff3fc9996bc"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/13_new_save_update.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "page": "group",
+      "sha256": "a9cafc68496d6a990c400d6db812aa9ac5c5e0ee066e60f55711df59cb837b06"
+    },
+    {
+      "file": "screenshots/high_resolution_2x/14_desktop_demo.png",
+      "origin": "new actual DOM capture",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "deviceScaleFactor": 1,
+      "page": "home",
+      "sha256": "621148ce2fe774d601eb8d51bcfcad8081237242120178bccb20653899bdca34"
+    }
+  ],
+  "recordings": [],
+  "checks": [
+    {
+      "events": [
+        {
+          "seconds": 5.62,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 5.94,
+          "action": "Actual DOM screenshot",
+          "file": "01_home.png"
+        },
+        {
+          "seconds": 6.92,
+          "action": "Real Chromium touch swipe",
+          "start": [
+            323,
+            566
+          ],
+          "end": [
+            191,
+            566
+          ]
+        },
+        {
+          "seconds": 8.32,
+          "action": "Actual DOM screenshot",
+          "file": "02_horizontal_scroll.png"
+        },
+        {
+          "seconds": 8.34,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.45,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.6,
+          "action": "Tap settings",
+          "id": null
+        },
+        {
+          "seconds": 3.78,
+          "action": "Actual DOM screenshot",
+          "file": "05_home_menu.png"
+        },
+        {
+          "seconds": 3.8,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.26,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 3.03,
+          "action": "Held touch 720ms; existing 450ms long-press entered sorting"
+        },
+        {
+          "seconds": 3.35,
+          "action": "Actual DOM screenshot",
+          "file": "06_reorder_mode.png"
+        },
+        {
+          "seconds": 6.7,
+          "action": "Dragged career card before design with same held touch"
+        },
+        {
+          "seconds": 6.75,
+          "action": "Tap sort-done",
+          "id": null
+        },
+        {
+          "seconds": 7.95,
+          "action": "Actual DOM screenshot",
+          "file": "07_reorder_result.png"
+        },
+        {
+          "seconds": 7.96,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.21,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.33,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 3.61,
+          "action": "Actual DOM screenshot",
+          "file": "03_ai_collection.png"
+        },
+        {
+          "seconds": 3.67,
+          "action": "Tap note",
+          "id": "d1"
+        },
+        {
+          "seconds": 4.88,
+          "action": "Actual DOM screenshot",
+          "file": "04_note_detail.png"
+        },
+        {
+          "seconds": 6.03,
+          "action": "Real Chromium touch swipe",
+          "start": [
+            200,
+            660
+          ],
+          "end": [
+            200,
+            290
+          ]
+        },
+        {
+          "seconds": 7.39,
+          "action": "Actual DOM screenshot",
+          "file": "04_note_body_and_tags.png"
+        },
+        {
+          "seconds": 7.4,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.22,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.29,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 3.25,
+          "action": "Tap manage",
+          "id": null
+        },
+        {
+          "seconds": 4.2,
+          "action": "Tap manage-start",
+          "id": null
+        },
+        {
+          "seconds": 5.15,
+          "action": "Tap select-note",
+          "id": "d1"
+        },
+        {
+          "seconds": 6.38,
+          "action": "Actual DOM screenshot",
+          "file": "08_batch_manage.png"
+        },
+        {
+          "seconds": 6.47,
+          "action": "Tap batch-remove",
+          "id": null
+        },
+        {
+          "seconds": 7.03,
+          "action": "Virtual correction verified",
+          "beforeCount": 11,
+          "afterCount": 10,
+          "originalSaved": true
+        },
+        {
+          "seconds": 7.31,
+          "action": "Actual DOM screenshot",
+          "file": "09_correction_result.png"
+        },
+        {
+          "seconds": 7.41,
+          "action": "Tap home",
+          "id": null
+        },
+        {
+          "seconds": 8.37,
+          "action": "Tap album",
+          "id": "视觉设计灵感"
+        },
+        {
+          "seconds": 9.61,
+          "action": "Actual DOM screenshot",
+          "file": "09_original_album_retained.png"
+        },
+        {
+          "seconds": 9.64,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.26,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.33,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 3.27,
+          "action": "Tap share",
+          "id": null
+        },
+        {
+          "seconds": 4.49,
+          "action": "Actual DOM screenshot",
+          "file": "10_share_sheet.png"
+        },
+        {
+          "seconds": 4.5,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.21,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.31,
+          "action": "Tap group",
+          "id": "design"
+        },
+        {
+          "seconds": 3.26,
+          "action": "Tap share-invite",
+          "id": null
+        },
+        {
+          "seconds": 4.23,
+          "action": "Tap friends-toggle",
+          "id": null
+        },
+        {
+          "seconds": 5.19,
+          "action": "Tap friend-toggle",
+          "id": "lin"
+        },
+        {
+          "seconds": 6.14,
+          "action": "Tap friend-toggle",
+          "id": "qiao"
+        },
+        {
+          "seconds": 7.34,
+          "action": "Actual DOM screenshot",
+          "file": "11_invite_friends.png"
+        },
+        {
+          "seconds": 7.41,
+          "action": "Tap friends-done",
+          "id": null
+        },
+        {
+          "seconds": 8.27,
+          "action": "Actual DOM screenshot",
+          "file": "12_shared_state.png"
+        },
+        {
+          "seconds": 8.28,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.31,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.39,
+          "action": "Tap group",
+          "id": "home"
+        },
+        {
+          "seconds": 3.6,
+          "action": "Actual DOM screenshot",
+          "file": "13_before_new_save.png"
+        },
+        {
+          "seconds": 3.68,
+          "action": "Tap home",
+          "id": null
+        },
+        {
+          "seconds": 5.92,
+          "action": "Tap save-note",
+          "id": "new1"
+        },
+        {
+          "seconds": 7.6,
+          "action": "Tap group",
+          "id": "home"
+        },
+        {
+          "seconds": 8.51,
+          "action": "Preset new save verified",
+          "beforeCount": 5,
+          "afterCount": 6,
+          "control": "desktop Demo only"
+        },
+        {
+          "seconds": 8.88,
+          "action": "Actual DOM screenshot",
+          "file": "13_new_save_update.png"
+        },
+        {
+          "seconds": 8.89,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    },
+    {
+      "events": [
+        {
+          "seconds": 2.29,
+          "action": "Open final v0.9.1 in fresh isolated context"
+        },
+        {
+          "seconds": 2.58,
+          "action": "Actual DOM screenshot",
+          "file": "14_desktop_demo.png"
+        },
+        {
+          "seconds": 2.59,
+          "action": "End checks: no console/page errors; all current images loaded; no document overflow"
+        }
+      ]
+    }
+  ],
+  "verifiedResources": [
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/",
+      "status": 200,
+      "sha256": "f39be63b8f50716789f11e729d9149bd9185bdae06ca02ba5619fdf650954d5c"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/styles.css",
+      "status": 200,
+      "sha256": "6d30c202eafcedd502807dd4a1eccf6b26fe7db6fe10c2762522cb36d9259d58"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/data/offline-bundle.js",
+      "status": 200,
+      "sha256": "a973b8eee213dafebcd386783b0d0a16c7702478da35823e0de8c751c1e09ef8"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/classification-store.js",
+      "status": 200,
+      "sha256": "07e10e91420db3408240073146cac66d4bd87f8cf9aefd6d69f59502e5e75d5b"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/data/classifications.real.json",
+      "status": 200,
+      "sha256": "9473c5d854770ae82f29cf6954ac953f9908794d45dcaa8615605f359923318a"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/avatar.svg",
+      "status": 200,
+      "sha256": "8db6ed2e5bb0bc71d8799e87b3411f0ba9d054bf1c8818b330f1005868c035f2"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_type.webp",
+      "status": 200,
+      "sha256": "51c702e9f8b2f02464c2e534bbe74e5a23061c0ba48ea30f4720cd3c932109bd"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_cph.webp",
+      "status": 200,
+      "sha256": "a0f3049349a5ed7c243d61f18365bfb2f9127b83b80e1c1ab95eff80f56913eb"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_resume.webp",
+      "status": 200,
+      "sha256": "d10030a1eaea9bd5cc261da6619f0b946447995a5342a026f760feb87b323587"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_food.webp",
+      "status": 200,
+      "sha256": "e3e11f8fc65bca5163cb1140cb80c7229cfb28347c64d6e2f40aa79c2851ec0a"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_room.webp",
+      "status": 200,
+      "sha256": "997fa9245c85ff1c2355af79f88ef664219f98776f09f66e1919676d147cb731"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/life_fashion.webp",
+      "status": 200,
+      "sha256": "f5c49ed2d0709f7c6f26d0cba13add669fa4ca32445b2ec969af0f418e973743"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_brand.webp",
+      "status": 200,
+      "sha256": "6765dd5561ed99dd90c146e06c0cb49ddd6b74812bb7f1cde4c5cb00969d7514"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_food2.webp",
+      "status": 200,
+      "sha256": "4e211f4b4f1b69041794a277150daa7cc02641a9396560ceb6411ee4832b82b6"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/food_noodle.webp",
+      "status": 200,
+      "sha256": "f55fb7e35b1e13e7ac6263c437983c3cb3a66dc0d43351902584e1835b3e4a0d"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/food_bakery.webp",
+      "status": 200,
+      "sha256": "7b16c5885a532f8f1bcc00424791f3e0bf08902d5e68f91042fa715b1c824754"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/photo_korea.webp",
+      "status": 200,
+      "sha256": "e1fbf4281825fe96f6d24a684f5afc3615c049543705b02c1d9b0a02575de965"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_korea.webp",
+      "status": 200,
+      "sha256": "7a0379193ab5b7629beb0ceb5bec84ba760850c418a95865085adba5e99a0fb9"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_uk.webp",
+      "status": 200,
+      "sha256": "787ce2308dbddb56b4d212b254b67394190155cb7fcd3a273b79171bbc31cec9"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_motion.webp",
+      "status": 200,
+      "sha256": "8869336dad5204f157e22dea432f7558dc460691eb0f2aa8e1b57f84c1b17162"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_packaging.webp",
+      "status": 200,
+      "sha256": "c9d065ff6cd705ea360fb98d5c41b4ed48588731b5dae483b0c6c7c20d833972"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_case.webp",
+      "status": 200,
+      "sha256": "585897ac1d476ad2f1ff69e68e0003b506650abd824d99205691520e6ff91029"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_grid.webp",
+      "status": 200,
+      "sha256": "87041ad8520b2e251e661db7b084a49a20be0fc87b23e918b9382979b5eae8ef"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_ai.webp",
+      "status": 200,
+      "sha256": "99ec34977f6c069ec6ee68353e9f1e2194eded081d83a1f6bf7e1a12dc9d88d4"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_jobs.webp",
+      "status": 200,
+      "sha256": "d56cb00d76aee345148cc2ac4c82d9a561eb8098f86ec90a91b6b089fdf31ce7"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/career_interview.webp",
+      "status": 200,
+      "sha256": "93ef20e803a2c87b83c8a2063c35a701764ef70cbf0272a988de926307f22444"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_nz.webp",
+      "status": 200,
+      "sha256": "cc7a165ca895476f47dd383f615984683a0f584b768f025e63be18d98f3ef5a8"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/travel_bergen.webp",
+      "status": 200,
+      "sha256": "b694fe96fbdf7eab85bb2662489b1d86c3b1c1e52e7cc0b08cc978d076e50c67"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_lamp.webp",
+      "status": 200,
+      "sha256": "1039e8d77e11bca3a2ff6eb83184e5f68e00616daab45c38b84cce4adf823e82"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_small.webp",
+      "status": 200,
+      "sha256": "828b630a452ad20a71c65328a1084842273951b47275ab4b4656d777294ad703"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/home_color.webp",
+      "status": 200,
+      "sha256": "0a2ab0e6d0635cf9dc9d05c4cac24942b5fe3ef0d0f64b755f5094ec72d14365"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_ui.webp",
+      "status": 200,
+      "sha256": "e0024cad6504966bb558ffc029c80a96942bfffd0ac331d8e0a812d9a8919437"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_blender.webp",
+      "status": 200,
+      "sha256": "0c7255c72c4c1792a8c7118286984a7e4ce12808bcd92dd31d5e829c7d0523c3"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/design_website.webp",
+      "status": 200,
+      "sha256": "fa97a1c043c98035bd8cf1fd728c38bd0dbfb644a455468463814b758b1df199"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-design.svg",
+      "status": 200,
+      "sha256": "9fbcc4228c17d1e5c20d5887012580b1a57bc9302d925b6d1abf3065c6f6d3f1"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-home.svg",
+      "status": 200,
+      "sha256": "95ddd026a99ab5ff7c95ceb93fc3b5b32cf149fa7e7f9957ec5c2bb8570ec195"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-travel.svg",
+      "status": 200,
+      "sha256": "173e0a2ec4a2f6e7305cc618444ef755bfd9aa05f176b34f0e729482924534cd"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-life.svg",
+      "status": 200,
+      "sha256": "adcb3bd58e408955c4261c066edc47273a358eb2f1a7e3c897bea30e94975390"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/author-food.svg",
+      "status": 200,
+      "sha256": "44f606ae88e83597a70275b8d83d38d5e4df8fdceb5f429d1759dfa057b5ab39"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_room.webp",
+      "status": 200,
+      "sha256": "847013d130a0233008051d07e4e5df9156d9922a4f7d26505ce54fdc24011fee"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_type.webp",
+      "status": 200,
+      "sha256": "b469808e27e0a09e3d96e9984f9d9d7a8291e2be4a70ecafb4fc870ad39ed0ba"
+    },
+    {
+      "url": "https://lixinisydney-cloud.github.io/ux/assets/new_korea.webp",
+      "status": 200,
+      "sha256": "b5925777a553e5536f69f83242269361b79d3b8bd193ca7ed37b3ceda9c289cf"
+    }
+  ]
+}

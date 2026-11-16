@@ -1,0 +1,41 @@
+Source: https://github.com/scikit-image/scikit-image/blob/v0.25.0/skimage/data/_fetchers.py
+
+def chelsea():
+    """Chelsea the cat.
+
+    An example with texture, prominent edges in horizontal and diagonal
+    directions, as well as features of differing scales.
+
+    Notes
+    -----
+    No copyright restrictions.  CC0 by the photographer (Stefan van der Walt).
+
+    Returns
+    -------
+    chelsea : (300, 451, 3) uint8 ndarray
+        Chelsea image.
+    """
+    return _load("data/chelsea.png")
+
+
+# Define an alias for chelsea that is more descriptive.
+cat = chelsea
+
+
+def coffee():
+    """Coffee cup.
+
+    This photograph is courtesy of Pikolo Espresso Bar.
+    It contains several elliptical shapes as well as varying texture (smooth
+    porcelain to coarse wood grain).
+
+    Notes
+    -----
+    No copyright restrictions.  CC0 by the photographer (Rachel Michetti).
+
+    Returns
+    -------
+    coffee : (400, 600, 3) uint8 ndarray
+        Coffee image.
+    """
+    return _load("data/coffee.png")

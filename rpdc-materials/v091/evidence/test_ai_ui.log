@@ -1,0 +1,21 @@
+UTC: 2026-11-16T15:04:32Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 tests/test_ai_ui.py --base-url http://127.0.0.1:4183 --chromium /usr/bin/chromium
+
+test_01_real_file_fixture_changes_memberships_not_original_data (__main__.AIClassificationUI.test_01_real_file_fixture_changes_memberships_not_original_data)
+Synthetic JSON must drive membership rather than old preset answers. ... ok
+test_02_case_c_manual_exclusion_survives_same_and_updated_real_file (__main__.AIClassificationUI.test_02_case_c_manual_exclusion_survives_same_and_updated_real_file)
+Case C is an actual browser persistence check, not a model-quality test. ... All AI browser inputs below are synthetic contract fixtures; no AI provider is called.
+CASE_C_BROWSER_EVIDENCE {"inputSource": "synthetic_browser_fixture_not_a_real_model_run", "noteId": "d1", "groupId": "design", "initiallyPresent": true, "afterManualRemoval": false, "afterReloadSameResult": false, "afterReloadUpdatedResult": false, "originalAlbumStillContainsNote": true}
+ok
+test_03_invalid_real_envelopes_fall_back_and_do_not_enter_cache (__main__.AIClassificationUI.test_03_invalid_real_envelopes_fall_back_and_do_not_enter_cache) ... ok
+test_04_placeholder_uses_precomputed_and_forced_offline_is_explicit (__main__.AIClassificationUI.test_04_placeholder_uses_precomputed_and_forced_offline_is_explicit) ... ok
+test_05_valid_cached_real_result_survives_network_failure (__main__.AIClassificationUI.test_05_valid_cached_real_result_survives_network_failure) ... ok
+test_06_expired_and_wrong_dataset_cache_are_rejected (__main__.AIClassificationUI.test_06_expired_and_wrong_dataset_cache_are_rejected) ... ok
+test_07_mode_change_keeps_custom_order_hidden_groups_and_corrections (__main__.AIClassificationUI.test_07_mode_change_keeps_custom_order_hidden_groups_and_corrections) ... ok
+test_08_disabled_storage_keeps_offline_ui_and_undo_working (__main__.AIClassificationUI.test_08_disabled_storage_keeps_offline_ui_and_undo_working)
+A browser privacy setting must not turn the prototype into a blank page. ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 27.775s
+
+OK

@@ -1,0 +1,20 @@
+UTC: 2026-11-16T15:04:13Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 tests/test_ui.py --base-url http://127.0.0.1:4183 --chromium /usr/bin/chromium
+
+test_01_responsive_pages_and_images (__main__.PrototypeUI.test_01_responsive_pages_and_images)
+All principal pages render at 375, 390 and 430 without broken images. ... ok
+test_02_horizontal_vertical_wheel_and_return_position (__main__.PrototypeUI.test_02_horizontal_vertical_wheel_and_return_position)
+The shelf scrolls sideways and does not trap vertical page movement. ... ok
+test_03_correction_undo_and_original_album (__main__.PrototypeUI.test_03_correction_undo_and_original_album) ... ok
+test_04_correction_survives_reload_without_affecting_original (__main__.PrototypeUI.test_04_correction_survives_reload_without_affecting_original) ... ok
+test_05_new_collection_updates_sort_count_and_persistence (__main__.PrototypeUI.test_05_new_collection_updates_sort_count_and_persistence) ... ok
+test_06_custom_sort_keeps_priority_until_recent_sort_restored (__main__.PrototypeUI.test_06_custom_sort_keeps_priority_until_recent_sort_restored) ... ok
+test_07_hide_restore_and_disable_enable (__main__.PrototypeUI.test_07_hide_restore_and_disable_enable) ... ok
+test_08_create_with_similarity_and_permissions (__main__.PrototypeUI.test_08_create_with_similarity_and_permissions) ... ok
+test_09_suggestion_can_be_ignored (__main__.PrototypeUI.test_09_suggestion_can_be_ignored) ... ok
+test_10_manage_menu_escape_backdrop_and_scroll_isolation (__main__.PrototypeUI.test_10_manage_menu_escape_backdrop_and_scroll_isolation) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 18.923s
+
+OK

@@ -1,0 +1,347 @@
+74ca8f803f9dda0068e9a531aa8710f2d63b64b1
+AuthorDate: 2026-11-15T22:08:30+08:00
+Subject: Initial commit
+
+ .gitattributes | 2 ++
+ 1 file changed, 2 insertions(+)
+6b08c5b2e8821214f0092c88659083ccb4e894de
+AuthorDate: 2026-11-15T15:30:34Z
+Subject: Publish RE:FOLD v0.6 static demo for GitHub Pages
+
+ .gitignore                     |  10 ++
+ .nojekyll                      |   0
+ AGENTS.md                      |   9 +
+ README.md                      |  74 ++++++++
+ RE_FOLD_v06_Demo.html          | 377 +++++++++++++++++++++++++++++++++++++++++
+ assets/avatar.svg              |   8 +
+ assets/career_ai.webp          | Bin 0 -> 5442 bytes
+ assets/career_case.webp        | Bin 0 -> 5660 bytes
+ assets/career_interview.webp   | Bin 0 -> 5654 bytes
+ assets/career_jobs.webp        | Bin 0 -> 6096 bytes
+ assets/career_resume.webp      | Bin 0 -> 5288 bytes
+ assets/design_blender.webp     | Bin 0 -> 11320 bytes
+ assets/design_brand.webp       | Bin 0 -> 8896 bytes
+ assets/design_grid.webp        | Bin 0 -> 6974 bytes
+ assets/design_motion.webp      | Bin 0 -> 10016 bytes
+ assets/design_packaging.webp   | Bin 0 -> 10620 bytes
+ assets/design_type.webp        | Bin 0 -> 7946 bytes
+ assets/design_ui.webp          | Bin 0 -> 8124 bytes
+ assets/design_website.webp     | Bin 0 -> 8460 bytes
+ assets/food_bakery.webp        | Bin 0 -> 10060 bytes
+ assets/food_cafe.webp          | Bin 0 -> 10376 bytes
+ assets/food_home.webp          | Bin 0 -> 10220 bytes
+ assets/food_noodle.webp        | Bin 0 -> 10840 bytes
+ assets/home_color.webp         | Bin 0 -> 4514 bytes
+ assets/home_lamp.webp          | Bin 0 -> 3874 bytes
+ assets/home_room.webp          | Bin 0 -> 4138 bytes
+ assets/home_small.webp         | Bin 0 -> 4212 bytes
+ assets/life_fashion.webp       | Bin 0 -> 4294 bytes
+ assets/life_pet.webp           | Bin 0 -> 4660 bytes
+ assets/life_skincare.webp      | Bin 0 -> 3754 bytes
+ assets/new_korea.webp          | Bin 0 -> 9576 bytes
+ assets/new_room.webp           | Bin 0 -> 4414 bytes
+ assets/new_type.webp           | Bin 0 -> 7764 bytes
+ assets/photo_food.webp         | Bin 0 -> 20672 bytes
+ assets/photo_food2.webp        | Bin 0 -> 28648 bytes
+ assets/photo_korea.webp        | Bin 0 -> 8316 bytes
+ assets/travel_bergen.webp      | Bin 0 -> 9286 bytes
+ assets/travel_cph.webp         | Bin 0 -> 9680 bytes
+ assets/travel_italy.webp       | Bin 0 -> 9340 bytes
+ assets/travel_korea.webp       | Bin 0 -> 9036 bytes
+ assets/travel_nz.webp          | Bin 0 -> 9636 bytes
+ assets/travel_uk.webp          | Bin 0 -> 9396 bytes
+ index.html                     | 183 ++++++++++++++++++++
+ screenshots/collection_375.png | Bin 0 -> 105700 bytes
+ screenshots/collection_390.png | Bin 0 -> 104692 bytes
+ screenshots/collection_430.png | Bin 0 -> 114122 bytes
+ screenshots/correction_375.png | Bin 0 -> 67453 bytes
+ screenshots/correction_390.png | Bin 0 -> 69363 bytes
+ screenshots/correction_430.png | Bin 0 -> 74249 bytes
+ screenshots/create_375.png     | Bin 0 -> 26590 bytes
+ screenshots/create_390.png     | Bin 0 -> 26657 bytes
+ screenshots/create_430.png     | Bin 0 -> 26461 bytes
+ screenshots/desktop.png        | Bin 0 -> 170657 bytes
+ screenshots/desktop_1440.png   | Bin 0 -> 170657 bytes
+ screenshots/home_375.png       | Bin 0 -> 125881 bytes
+ screenshots/home_390.png       | Bin 0 -> 131923 bytes
+ screenshots/home_430.png       | Bin 0 -> 155417 bytes
+ screenshots/home_top_375.png   | Bin 0 -> 75225 bytes
+ screenshots/home_top_390.png   | Bin 0 -> 75721 bytes
+ screenshots/home_top_430.png   | Bin 0 -> 86368 bytes
+ screenshots/undo_375.png       | Bin 0 -> 103764 bytes
+ screenshots/undo_390.png       | Bin 0 -> 98278 bytes
+ screenshots/undo_430.png       | Bin 0 -> 108347 bytes
+ styles.css                     | 191 +++++++++++++++++++++
+ tests/capture_screenshots.py   |  50 ++++++
+ tests/export_standalone.py     |  28 +++
+ tests/test_ui.py               | 310 +++++++++++++++++++++++++++++++++
+ 67 files changed, 1240 insertions(+)
+90e61e118c4f6640ac365d17e973b33051c18c48
+AuthorDate: 2026-11-15T16:14:52Z
+Subject: Add v0.7 AI classification pipeline and Windows instructions
+
+ .env.example                      |   4 +
+ .gitignore                        |   2 +
+ README.md                         |  12 +-
+ RE_FOLD_v06_Demo.html             | 246 ++++++++++++++----
+ classification-store.js           | 156 +++++++++++
+ data/classifications.offline.json | 413 +++++++++++++++++++++++++++++
+ data/classifications.real.json    |   6 +
+ data/groups.json                  |  38 +++
+ data/notes.json                   | 532 ++++++++++++++++++++++++++++++++++++++
+ data/offline-bundle.js            |   2 +
+ docs/AI_CLASSIFICATION.md         | 127 +++++++++
+ docs/WINDOWS_QUICKSTART.md        |  59 +++++
+ index.html                        |  82 ++----
+ reports/cases-v07.json            |  89 +++++++
+ reports/v07-desktop_1440.png      | Bin 0 -> 172277 bytes
+ reports/v07-home_390.png          | Bin 0 -> 75721 bytes
+ reports/v07-validation.md         |  38 +++
+ scripts/build_data_bundle.py      |  23 ++
+ scripts/classify_notes.py         | 407 +++++++++++++++++++++++++++++
+ scripts/evaluate_cases.py         |  55 ++++
+ tests/export_standalone.py        |  13 +-
+ tests/test_ai_ui.py               | 352 +++++++++++++++++++++++++
+ tests/test_classifier.py          | 297 +++++++++++++++++++++
+ 23 files changed, 2835 insertions(+), 118 deletions(-)
+d7c602a4b98825c9a974b0e7b68e72c674a02988
+AuthorDate: 2026-11-16T05:22:32Z
+Subject: Publish Codex precomputed semantic classifications for RE v0.7
+
+ README.md                             |  14 +-
+ RE_FOLD_v06_Demo.html                 |  29 ++-
+ classification-store.js               |  21 +-
+ data/classifications.precomputed.json | 409 ++++++++++++++++++++++++++++++++++
+ data/offline-bundle.js                |   4 +-
+ docs/AI_CLASSIFICATION.md             |  21 +-
+ index.html                            |   4 +-
+ reports/v07-precomputed-validation.md |  61 +++++
+ scripts/build_data_bundle.py          |   6 +-
+ scripts/classify_notes.py             |   7 +-
+ scripts/restore_precomputed.py        |  34 +++
+ tests/test_ai_ui.py                   |  11 +-
+ tests/test_precomputed.py             |  50 +++++
+ tests/test_precomputed_ui.py          | 142 ++++++++++++
+ 14 files changed, 776 insertions(+), 37 deletions(-)
+45a0c06cb93e68dabf96f5936af8941fbff5f0f0
+AuthorDate: 2026-11-16T07:54:27Z
+Subject: Refine RE v0.8 collection management, note details and private sharing
+
+ README.md                                          |  102 +-
+ RE_FOLD_v06_Demo.html                              | 1560 +++++++++++++++++++-
+ assets/author-career.svg                           |    1 +
+ assets/author-design.svg                           |    1 +
+ assets/author-food.svg                             |    1 +
+ assets/author-home.svg                             |    1 +
+ assets/author-life.svg                             |    1 +
+ assets/author-travel.svg                           |    1 +
+ assets/career_ai.webp                              |  Bin 5442 -> 29578 bytes
+ assets/career_case.webp                            |  Bin 5660 -> 31660 bytes
+ assets/career_interview.webp                       |  Bin 5654 -> 4696 bytes
+ assets/career_jobs.webp                            |  Bin 6096 -> 9856 bytes
+ assets/career_resume.webp                          |  Bin 5288 -> 24638 bytes
+ assets/design_blender.webp                         |  Bin 11320 -> 26286 bytes
+ assets/design_brand.webp                           |  Bin 8896 -> 23402 bytes
+ assets/design_grid.webp                            |  Bin 6974 -> 19484 bytes
+ assets/design_motion.webp                          |  Bin 10016 -> 29026 bytes
+ assets/design_packaging.webp                       |  Bin 10620 -> 25892 bytes
+ assets/design_type.webp                            |  Bin 7946 -> 29550 bytes
+ assets/design_ui.webp                              |  Bin 8124 -> 24394 bytes
+ assets/design_website.webp                         |  Bin 8460 -> 20880 bytes
+ assets/food_bakery.webp                            |  Bin 10060 -> 16040 bytes
+ assets/food_cafe.webp                              |  Bin 10376 -> 48310 bytes
+ assets/food_home.webp                              |  Bin 10220 -> 13168 bytes
+ assets/food_noodle.webp                            |  Bin 10840 -> 16948 bytes
+ assets/home_color.webp                             |  Bin 4514 -> 51404 bytes
+ assets/home_lamp.webp                              |  Bin 3874 -> 20218 bytes
+ assets/home_room.webp                              |  Bin 4138 -> 5400 bytes
+ assets/home_small.webp                             |  Bin 4212 -> 20252 bytes
+ assets/life_fashion.webp                           |  Bin 4294 -> 14576 bytes
+ assets/life_pet.webp                               |  Bin 4660 -> 21810 bytes
+ assets/life_skincare.webp                          |  Bin 3754 -> 21646 bytes
+ assets/new_korea.webp                              |  Bin 9576 -> 17800 bytes
+ assets/new_room.webp                               |  Bin 4414 -> 21590 bytes
+ assets/new_type.webp                               |  Bin 7764 -> 25040 bytes
+ assets/photo_food.webp                             |  Bin 20672 -> 10388 bytes
+ assets/photo_food2.webp                            |  Bin 28648 -> 15622 bytes
+ assets/photo_korea.webp                            |  Bin 8316 -> 105170 bytes
+ assets/travel_bergen.webp                          |  Bin 9286 -> 245062 bytes
+ assets/travel_cph.webp                             |  Bin 9680 -> 12288 bytes
+ assets/travel_italy.webp                           |  Bin 9340 -> 181066 bytes
+ assets/travel_korea.webp                           |  Bin 9036 -> 145704 bytes
+ assets/travel_nz.webp                              |  Bin 9636 -> 38838 bytes
+ assets/travel_uk.webp                              |  Bin 9396 -> 9284 bytes
+ data/notes.json                                    |  494 ++++++-
+ data/offline-bundle.js                             |    2 +-
+ docs/ASSET_SOURCES_V08.md                          |   29 +
+ docs/asset-sources-v08.json                        |  436 ++++++
+ .../flutter_gallery_assets-1.0.2-LICENSE.txt       |  516 +++++++
+ docs/licenses/material-design-lite-LICENSE.txt     |  212 +++
+ docs/licenses/scikit-image-coffee-chelsea-CC0.txt  |   41 +
+ index.html                                         |  233 ++-
+ reports/v08-validation.md                          |   47 +
+ screenshots/v08/collection_375.png                 |  Bin 0 -> 107316 bytes
+ screenshots/v08/collection_390.png                 |  Bin 0 -> 105434 bytes
+ screenshots/v08/collection_430.png                 |  Bin 0 -> 110012 bytes
+ screenshots/v08/correction_375.png                 |  Bin 0 -> 57591 bytes
+ screenshots/v08/correction_390.png                 |  Bin 0 -> 59189 bytes
+ screenshots/v08/correction_430.png                 |  Bin 0 -> 59140 bytes
+ screenshots/v08/create_375.png                     |  Bin 0 -> 30572 bytes
+ screenshots/v08/create_390.png                     |  Bin 0 -> 30655 bytes
+ screenshots/v08/create_430.png                     |  Bin 0 -> 30502 bytes
+ screenshots/v08/desktop.png                        |  Bin 0 -> 190753 bytes
+ screenshots/v08/desktop_1440.png                   |  Bin 0 -> 190753 bytes
+ screenshots/v08/friends_375.png                    |  Bin 0 -> 60503 bytes
+ screenshots/v08/friends_390.png                    |  Bin 0 -> 58500 bytes
+ screenshots/v08/friends_430.png                    |  Bin 0 -> 61543 bytes
+ screenshots/v08/home_375.png                       |  Bin 0 -> 164374 bytes
+ screenshots/v08/home_390.png                       |  Bin 0 -> 172439 bytes
+ screenshots/v08/home_430.png                       |  Bin 0 -> 199788 bytes
+ screenshots/v08/home_top_375.png                   |  Bin 0 -> 98808 bytes
+ screenshots/v08/home_top_390.png                   |  Bin 0 -> 98877 bytes
+ screenshots/v08/home_top_430.png                   |  Bin 0 -> 100761 bytes
+ screenshots/v08/manage_375.png                     |  Bin 0 -> 113572 bytes
+ screenshots/v08/manage_390.png                     |  Bin 0 -> 110909 bytes
+ screenshots/v08/manage_430.png                     |  Bin 0 -> 116869 bytes
+ screenshots/v08/note_detail_375.png                |  Bin 0 -> 90913 bytes
+ screenshots/v08/note_detail_390.png                |  Bin 0 -> 92051 bytes
+ screenshots/v08/note_detail_430.png                |  Bin 0 -> 93686 bytes
+ screenshots/v08/picker_375.png                     |  Bin 0 -> 240293 bytes
+ screenshots/v08/picker_390.png                     |  Bin 0 -> 241551 bytes
+ screenshots/v08/picker_430.png                     |  Bin 0 -> 243761 bytes
+ screenshots/v08/share_375.png                      |  Bin 0 -> 65769 bytes
+ screenshots/v08/share_390.png                      |  Bin 0 -> 65358 bytes
+ screenshots/v08/share_430.png                      |  Bin 0 -> 65280 bytes
+ screenshots/v08/share_selection_375.png            |  Bin 0 -> 122244 bytes
+ screenshots/v08/share_selection_390.png            |  Bin 0 -> 127246 bytes
+ screenshots/v08/share_selection_430.png            |  Bin 0 -> 139415 bytes
+ screenshots/v08/sort_390.png                       |  Bin 0 -> 132744 bytes
+ screenshots/v08/undo_375.png                       |  Bin 0 -> 107328 bytes
+ screenshots/v08/undo_390.png                       |  Bin 0 -> 106938 bytes
+ screenshots/v08/undo_430.png                       |  Bin 0 -> 112173 bytes
+ styles.css                                         |  113 ++
+ tests/capture_screenshots.py                       |   27 +-
+ tests/export_standalone.py                         |    9 +
+ tests/test_ai_ui.py                                |   30 +-
+ tests/test_precomputed_ui.py                       |   10 +-
+ tests/test_ui.py                                   |   40 +-
+ tests/test_v08.py                                  |  554 +++++++
+ 99 files changed, 4269 insertions(+), 192 deletions(-)
+eedcc6e34ebf40dddbc7bc44404dcd03087fb1b1
+AuthorDate: 2026-11-16T10:24:04Z
+Subject: Polish RE v0.9 native sharing, collection layout and interaction motion
+
+ README.md                                     |  21 +-
+ RE_FOLD_v06_Demo.html                         | 553 ++++++++++++++++++++++----
+ index.html                                    | 428 ++++++++++++++++----
+ reports/v09-validation.md                     |  55 +++
+ screenshots/v09/final/collection_375.png      | Bin 0 -> 106272 bytes
+ screenshots/v09/final/collection_390.png      | Bin 0 -> 100302 bytes
+ screenshots/v09/final/collection_430.png      | Bin 0 -> 107838 bytes
+ screenshots/v09/final/correction_375.png      | Bin 0 -> 57625 bytes
+ screenshots/v09/final/correction_390.png      | Bin 0 -> 59227 bytes
+ screenshots/v09/final/correction_430.png      | Bin 0 -> 59177 bytes
+ screenshots/v09/final/create_375.png          | Bin 0 -> 26604 bytes
+ screenshots/v09/final/create_390.png          | Bin 0 -> 26687 bytes
+ screenshots/v09/final/create_430.png          | Bin 0 -> 26531 bytes
+ screenshots/v09/final/desktop.png             | Bin 0 -> 190770 bytes
+ screenshots/v09/final/desktop_1440.png        | Bin 0 -> 190770 bytes
+ screenshots/v09/final/friends_375.png         | Bin 0 -> 43732 bytes
+ screenshots/v09/final/friends_390.png         | Bin 0 -> 43848 bytes
+ screenshots/v09/final/friends_430.png         | Bin 0 -> 43573 bytes
+ screenshots/v09/final/home_375.png            | Bin 0 -> 164307 bytes
+ screenshots/v09/final/home_390.png            | Bin 0 -> 172439 bytes
+ screenshots/v09/final/home_430.png            | Bin 0 -> 199789 bytes
+ screenshots/v09/final/home_top_375.png        | Bin 0 -> 98741 bytes
+ screenshots/v09/final/home_top_390.png        | Bin 0 -> 98877 bytes
+ screenshots/v09/final/home_top_430.png        | Bin 0 -> 100762 bytes
+ screenshots/v09/final/manage_375.png          | Bin 0 -> 121211 bytes
+ screenshots/v09/final/manage_390.png          | Bin 0 -> 116327 bytes
+ screenshots/v09/final/manage_430.png          | Bin 0 -> 118487 bytes
+ screenshots/v09/final/manage_menu_375.png     | Bin 0 -> 65503 bytes
+ screenshots/v09/final/manage_menu_390.png     | Bin 0 -> 61874 bytes
+ screenshots/v09/final/manage_menu_430.png     | Bin 0 -> 62951 bytes
+ screenshots/v09/final/note_detail_375.png     | Bin 0 -> 91029 bytes
+ screenshots/v09/final/note_detail_390.png     | Bin 0 -> 92290 bytes
+ screenshots/v09/final/note_detail_430.png     | Bin 0 -> 93931 bytes
+ screenshots/v09/final/picker_375.png          | Bin 0 -> 238939 bytes
+ screenshots/v09/final/picker_390.png          | Bin 0 -> 240172 bytes
+ screenshots/v09/final/picker_430.png          | Bin 0 -> 242710 bytes
+ screenshots/v09/final/share_375.png           | Bin 0 -> 68880 bytes
+ screenshots/v09/final/share_390.png           | Bin 0 -> 66581 bytes
+ screenshots/v09/final/share_430.png           | Bin 0 -> 66735 bytes
+ screenshots/v09/final/share_selection_375.png | Bin 0 -> 120917 bytes
+ screenshots/v09/final/share_selection_390.png | Bin 0 -> 125941 bytes
+ screenshots/v09/final/share_selection_430.png | Bin 0 -> 138126 bytes
+ screenshots/v09/final/sort_375.png            | Bin 0 -> 131427 bytes
+ screenshots/v09/final/sort_390.png            | Bin 0 -> 136813 bytes
+ screenshots/v09/final/sort_430.png            | Bin 0 -> 149560 bytes
+ screenshots/v09/final/undo_375.png            | Bin 0 -> 104258 bytes
+ screenshots/v09/final/undo_390.png            | Bin 0 -> 104984 bytes
+ screenshots/v09/final/undo_430.png            | Bin 0 -> 108388 bytes
+ screenshots/v09/final/visibility_375.png      | Bin 0 -> 44347 bytes
+ screenshots/v09/final/visibility_390.png      | Bin 0 -> 45904 bytes
+ screenshots/v09/final/visibility_430.png      | Bin 0 -> 50524 bytes
+ screenshots/v09/round1/collection_390.png     | Bin 0 -> 100312 bytes
+ screenshots/v09/round1/friends_390.png        | Bin 0 -> 43848 bytes
+ screenshots/v09/round1/manage_menu_390.png    | Bin 0 -> 64436 bytes
+ screenshots/v09/round1/multiselect_390.png    | Bin 0 -> 116327 bytes
+ screenshots/v09/round1/share_390.png          | Bin 0 -> 64123 bytes
+ screenshots/v09/round1/sort_390.png           | Bin 0 -> 138647 bytes
+ screenshots/v09/round1/visibility_390.png     | Bin 0 -> 50670 bytes
+ styles.css                                    | 125 ++++++
+ tests/capture_screenshots.py                  |  26 +-
+ tests/test_ai_ui.py                           |  12 +-
+ tests/test_ui.py                              |  17 +-
+ tests/test_v08.py                             |  85 ++--
+ tests/test_v09.py                             | 389 ++++++++++++++++++
+ 64 files changed, 1493 insertions(+), 218 deletions(-)
+6e9cc55b46a4cfa991b69da1df66e0567c55017c
+AuthorDate: 2026-11-16T11:49:56Z
+Subject: Simplify RE v0.9.1 snapshots, menus and native note reading
+
+ README.md                              |  63 +++----
+ RE_FOLD_v06_Demo.html                  | 247 +++++++++++++++-----------
+ index.html                             | 199 ++++++++++-----------
+ reports/v091-validation.md             |  61 +++++++
+ screenshots/v091/collection_375.png    | Bin 0 -> 106366 bytes
+ screenshots/v091/collection_390.png    | Bin 0 -> 100391 bytes
+ screenshots/v091/collection_430.png    | Bin 0 -> 107930 bytes
+ screenshots/v091/desktop_1440.png      | Bin 0 -> 195029 bytes
+ screenshots/v091/desktop_demo_1440.png | Bin 0 -> 210316 bytes
+ screenshots/v091/friends_375.png       | Bin 0 -> 41166 bytes
+ screenshots/v091/friends_390.png       | Bin 0 -> 41285 bytes
+ screenshots/v091/friends_430.png       | Bin 0 -> 41096 bytes
+ screenshots/v091/home_375.png          | Bin 0 -> 99204 bytes
+ screenshots/v091/home_390.png          | Bin 0 -> 99286 bytes
+ screenshots/v091/home_430.png          | Bin 0 -> 101174 bytes
+ screenshots/v091/home_menu_375.png     | Bin 0 -> 70202 bytes
+ screenshots/v091/home_menu_390.png     | Bin 0 -> 71222 bytes
+ screenshots/v091/home_menu_430.png     | Bin 0 -> 72233 bytes
+ screenshots/v091/home_top_375.png      | Bin 0 -> 99204 bytes
+ screenshots/v091/home_top_390.png      | Bin 0 -> 99286 bytes
+ screenshots/v091/home_top_430.png      | Bin 0 -> 101174 bytes
+ screenshots/v091/manage_375.png        | Bin 0 -> 121211 bytes
+ screenshots/v091/manage_390.png        | Bin 0 -> 116327 bytes
+ screenshots/v091/manage_430.png        | Bin 0 -> 118487 bytes
+ screenshots/v091/note_detail_375.png   | Bin 0 -> 95222 bytes
+ screenshots/v091/note_detail_390.png   | Bin 0 -> 95109 bytes
+ screenshots/v091/note_detail_430.png   | Bin 0 -> 98038 bytes
+ screenshots/v091/share_375.png         | Bin 0 -> 65563 bytes
+ screenshots/v091/share_390.png         | Bin 0 -> 63276 bytes
+ screenshots/v091/share_430.png         | Bin 0 -> 63397 bytes
+ screenshots/v091/shared_state_375.png  | Bin 0 -> 105669 bytes
+ screenshots/v091/shared_state_390.png  | Bin 0 -> 101207 bytes
+ screenshots/v091/shared_state_430.png  | Bin 0 -> 104441 bytes
+ screenshots/v091/sort_375.png          | Bin 0 -> 137629 bytes
+ screenshots/v091/sort_390.png          | Bin 0 -> 140075 bytes
+ screenshots/v091/sort_430.png          | Bin 0 -> 148451 bytes
+ styles.css                             |  48 +++++
+ tests/capture_screenshots.py           | 116 +++++-------
+ tests/test_ai_ui.py                    |  40 +++--
+ tests/test_precomputed_ui.py           |  44 +++--
+ tests/test_ui.py                       |  73 ++++----
+ tests/test_v08.py                      | 118 ++++++-------
+ tests/test_v09.py                      |  76 ++++----
+ tests/test_v091.py                     | 312 +++++++++++++++++++++++++++++++++
+ 44 files changed, 914 insertions(+), 483 deletions(-)

@@ -1,0 +1,69 @@
+{
+  "initial": {
+    "notes": 35,
+    "classified": 34,
+    "unclassified": 1,
+    "multiTopic": 4,
+    "memberships": 38
+  },
+  "simulated": {
+    "notes": 3,
+    "classified": 3,
+    "unclassified": 0,
+    "multiTopic": 0,
+    "memberships": 3
+  },
+  "all": {
+    "notes": 38,
+    "classified": 37,
+    "unclassified": 1,
+    "multiTopic": 4,
+    "memberships": 41
+  },
+  "datasetHash": "32ac1b6352714ff4be765cd2e08f47dd1bfc108cb37071f0803508368d011df7",
+  "inputFields": [
+    "id",
+    "title",
+    "description",
+    "tags"
+  ],
+  "groups": [
+    {
+      "id": "design",
+      "name": "设计与创作",
+      "description": "关注视觉表达与创作方法，包括品牌视觉、字体与版式、动态表现、三维创作、网页交互和界面信息组织。",
+      "cover": "design_type"
+    },
+    {
+      "id": "travel",
+      "name": "旅行与探索",
+      "description": "关注目的地探索和出行安排，包括城市路线、交通、行程、徒步及旅行中的地点信息。",
+      "cover": "travel_cph"
+    },
+    {
+      "id": "career",
+      "name": "求职准备",
+      "description": "关注求职与职业机会准备，包括简历、作品集投递、笔试、面试、招聘时间和项目表达。",
+      "cover": "career_resume"
+    },
+    {
+      "id": "food",
+      "name": "美食与探店",
+      "description": "关注吃喝内容，包括烹饪配方、烘焙、家庭餐食、餐厅、咖啡及食物体验。",
+      "cover": "photo_food"
+    },
+    {
+      "id": "home",
+      "name": "家居灵感",
+      "description": "关注居住空间，包括家具布置、照明、软装、卧室配色、收纳和小空间使用。",
+      "cover": "home_room"
+    },
+    {
+      "id": "life",
+      "name": "穿搭与生活",
+      "description": "关注个人日常生活，包括服饰搭配、妆容护肤、宠物陪伴与有明确内容的生活方式记录。",
+      "cover": "life_fashion"
+    }
+  ],
+  "allProductionNotesSingleImage": true
+}

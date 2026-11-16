@@ -1,0 +1,415 @@
+[
+  {
+    "file": "recordings/Clip_01_home_horizontal.mp4",
+    "source": "Playwright native record_video WebM, continuous browser interaction",
+    "transformation": "Full-length codec conversion only; no crop, cuts, concatenation, overlays or synthetic frames",
+    "sourceSHA256": "731ca50d1ee60be7c4d7777496c0986f8fb78d12bc3e36fab0142b69a4eff380",
+    "mp4SHA256": "65b6e7ae3e7da8577447f8a5fe436ec5a24fb196348e15ab85b2c7d6f37e4cb2",
+    "sourceProbe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "323"
+        }
+      ],
+      "format": {
+        "duration": "12.920000",
+        "size": "519268"
+      }
+    },
+    "mp4Probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "323"
+        }
+      ],
+      "format": {
+        "duration": "12.920000",
+        "size": "296903"
+      }
+    },
+    "command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_01_home_horizontal.webm",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_01_home_horizontal.mp4"
+    ]
+  },
+  {
+    "file": "recordings/Clip_02_collection_note_return.mp4",
+    "source": "Playwright native record_video WebM, continuous browser interaction",
+    "transformation": "Full-length codec conversion only; no crop, cuts, concatenation, overlays or synthetic frames",
+    "sourceSHA256": "cff6e37524594104d9c9ab6eaa9650f18a3bd63327a6f587b754963cbe85ccbe",
+    "mp4SHA256": "5c4436ed16487ce7be72f7b7c2a524806bbe4ad079c73cfbb67aba5d78c080ad",
+    "sourceProbe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "402"
+        }
+      ],
+      "format": {
+        "duration": "16.080000",
+        "size": "1255278"
+      }
+    },
+    "mp4Probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "402"
+        }
+      ],
+      "format": {
+        "duration": "16.080000",
+        "size": "942197"
+      }
+    },
+    "command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_02_collection_note_return.webm",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_02_collection_note_return.mp4"
+    ]
+  },
+  {
+    "file": "recordings/Clip_03_longpress_reorder.mp4",
+    "source": "Playwright native record_video WebM, continuous browser interaction",
+    "transformation": "Full-length codec conversion only; no crop, cuts, concatenation, overlays or synthetic frames",
+    "sourceSHA256": "9f6213a285172412d05453faac9c840b014ac696b67bd529d52a3d594ab6cc7b",
+    "mp4SHA256": "f272d2054d6152e8a1c5266548c51942aac9b9438ff6a9762f506fe5cdd769d1",
+    "sourceProbe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "454"
+        }
+      ],
+      "format": {
+        "duration": "18.160000",
+        "size": "879442"
+      }
+    },
+    "mp4Probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "454"
+        }
+      ],
+      "format": {
+        "duration": "18.160000",
+        "size": "429703"
+      }
+    },
+    "command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_03_longpress_reorder.webm",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_03_longpress_reorder.mp4"
+    ]
+  },
+  {
+    "file": "recordings/Clip_04_correction_undo.mp4",
+    "source": "Playwright native record_video WebM, continuous browser interaction",
+    "transformation": "Full-length codec conversion only; no crop, cuts, concatenation, overlays or synthetic frames",
+    "sourceSHA256": "3563471806f32c91bafd62e4c194438111a4b626a2d0e10d415ea6817f55a1b5",
+    "mp4SHA256": "474b61188f4fb0dc0532ce8941c74fd37f9fa564c18545e63e5099d34beab4a0",
+    "sourceProbe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "344"
+        }
+      ],
+      "format": {
+        "duration": "13.760000",
+        "size": "768446"
+      }
+    },
+    "mp4Probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "344"
+        }
+      ],
+      "format": {
+        "duration": "13.760000",
+        "size": "505027"
+      }
+    },
+    "command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_04_correction_undo.webm",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_04_correction_undo.mp4"
+    ]
+  },
+  {
+    "file": "recordings/Clip_05_new_save_desktop.mp4",
+    "source": "Playwright native record_video WebM, continuous browser interaction",
+    "transformation": "Full-length codec conversion only; no crop, cuts, concatenation, overlays or synthetic frames",
+    "sourceSHA256": "270c3a8ad3565a730a693584a68855beff60667eb280b31d64e18be395311c9a",
+    "mp4SHA256": "7a8c5126164362b082fde920c69ffeee42e6d816fe3e17017e9e90f9937d31f3",
+    "sourceProbe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 1440,
+          "height": 900,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "291"
+        }
+      ],
+      "format": {
+        "duration": "11.640000",
+        "size": "1009173"
+      }
+    },
+    "mp4Probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1440,
+          "height": 900,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "291"
+        }
+      ],
+      "format": {
+        "duration": "11.640000",
+        "size": "795640"
+      }
+    },
+    "command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_05_new_save_desktop.webm",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_05_new_save_desktop.mp4"
+    ]
+  },
+  {
+    "file": "recordings/Clip_06_share_copy_link.mp4",
+    "source": "Playwright native record_video WebM, continuous browser interaction",
+    "transformation": "Full-length codec conversion only; no crop, cuts, concatenation, overlays or synthetic frames",
+    "sourceSHA256": "0e426a8d488c00688cd28354142561fcab221c142c3dcfa7bbfd1c9a2c60d136",
+    "mp4SHA256": "abffdb3301e545fed4985ccbc5e5def2d5fa633086291041e751e16be9a9c39a",
+    "sourceProbe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "273"
+        }
+      ],
+      "format": {
+        "duration": "10.920000",
+        "size": "720010"
+      }
+    },
+    "mp4Probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "273"
+        }
+      ],
+      "format": {
+        "duration": "10.920000",
+        "size": "572058"
+      }
+    },
+    "command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_06_share_copy_link.webm",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_06_share_copy_link.mp4"
+    ]
+  },
+  {
+    "file": "recordings/Clip_07_invite_friends.mp4",
+    "source": "Playwright native record_video WebM, continuous browser interaction",
+    "transformation": "Full-length codec conversion only; no crop, cuts, concatenation, overlays or synthetic frames",
+    "sourceSHA256": "6712b28591fbfb5c52d8e3d63e41cf9f25fc8e0f90845e8eac505ae3c1e237d9",
+    "mp4SHA256": "ea431cd0cc6cc8f8589d5b18657268081b3d7d62cee609059931452840a48a74",
+    "sourceProbe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "322"
+        }
+      ],
+      "format": {
+        "duration": "12.880000",
+        "size": "655685"
+      }
+    },
+    "mp4Probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844,
+          "r_frame_rate": "25/1",
+          "nb_read_frames": "322"
+        }
+      ],
+      "format": {
+        "duration": "12.880000",
+        "size": "490819"
+      }
+    },
+    "command": [
+      "ffmpeg",
+      "-y",
+      "-i",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_07_invite_friends.webm",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-an",
+      "/workspace/rpdc-final/REFOLD_RPDC_FINAL_ASSETS/recordings/Clip_07_invite_friends.mp4"
+    ]
+  }
+]

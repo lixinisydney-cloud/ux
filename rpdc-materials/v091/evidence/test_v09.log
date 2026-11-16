@@ -1,0 +1,25 @@
+UTC: 2026-11-16T15:05:59Z
+Command: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 tests/test_v09.py --base-url http://127.0.0.1:4183 --chromium /usr/bin/chromium --round all
+
+test_01_collection_native_hierarchy_and_action_sheet (__main__.NativeStructure.test_01_collection_native_hierarchy_and_action_sheet) ... ok
+test_02_share_to_is_direct_native_sheet_with_svg_channels (__main__.NativeStructure.test_02_share_to_is_direct_native_sheet_with_svg_channels) ... ok
+test_03_copy_current_scope_directly_to_openable_snapshot (__main__.NativeStructure.test_03_copy_current_scope_directly_to_openable_snapshot) ... ok
+test_04_invite_opens_full_settings_and_preserves_private_default (__main__.NativeStructure.test_04_invite_opens_full_settings_and_preserves_private_default) ... ok
+test_05_sort_has_no_visible_controls_keyboard_and_visibility_persist (__main__.NativeStructure.test_05_sort_has_no_visible_controls_keyboard_and_visibility_persist) ... ok
+test_06_multiselect_uses_only_circle_and_cover_overlay (__main__.NativeStructure.test_06_multiselect_uses_only_circle_and_cover_overlay) ... ok
+test_07_channels_use_system_share_without_false_delivery_claims (__main__.NativeStructure.test_07_channels_use_system_share_without_false_delivery_claims) ... ok
+test_07b_native_share_uses_confirmed_scope_and_copy_fallback (__main__.NativeStructure.test_07b_native_share_uses_confirmed_scope_and_copy_fallback) ... ok
+test_07c_clipboard_denial_is_honest_openable_fallback (__main__.NativeStructure.test_07c_clipboard_denial_is_honest_openable_fallback) ... ok
+test_08_sheet_handle_swipe_and_scrim_close_without_double_actions (__main__.NativeMotion.test_08_sheet_handle_swipe_and_scrim_close_without_double_actions) ... ok
+test_09_internal_sheet_scroll_is_not_a_dismiss_gesture (__main__.NativeMotion.test_09_internal_sheet_scroll_is_not_a_dismiss_gesture) ... ok
+test_10_navigation_animates_and_returns_to_previous_scroll (__main__.NativeMotion.test_10_navigation_animates_and_returns_to_previous_scroll) ... ok
+test_11_dragged_tile_follows_pointer_and_preserves_order (__main__.NativeMotion.test_11_dragged_tile_follows_pointer_and_preserves_order) ... ok
+test_12_reduced_motion_keeps_complete_functionality (__main__.NativeMotion.test_12_reduced_motion_keeps_complete_functionality) ... ok
+test_13_responsive_components_assets_and_repeated_selection (__main__.NativeMotion.test_13_responsive_components_assets_and_repeated_selection) ... ok
+test_14_touch_handle_and_no_web_animations_fallback (__main__.NativeMotion.test_14_touch_handle_and_no_web_animations_fallback) ... ok
+test_15_closing_sheet_cannot_remove_replacement (__main__.NativeMotion.test_15_closing_sheet_cannot_remove_replacement) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 40.018s
+
+OK

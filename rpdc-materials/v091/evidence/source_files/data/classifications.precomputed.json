@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "mode": "precomputed",
+  "provider": "codex",
+  "model": "Codex",
+  "generatedAt": "2026-11-16T05:18:50.521534Z",
+  "datasetHash": "32ac1b6352714ff4be765cd2e08f47dd1bfc108cb37071f0803508368d011df7",
+  "promptVersion": "re-fold-text-v1",
+  "inputFields": [
+    "id",
+    "title",
+    "description",
+    "tags"
+  ],
+  "notesCount": 38,
+  "assignments": [
+    {
+      "noteId": "d1",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "把手写字拆成笔画并比较字距、字重与海报阅读顺序，主题是字体和版式实验。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "d2",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "六秒循环中圆点聚成字母再散开，并记录关键帧曲线和衔接，属于动态视觉创作。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "d3",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "统一面包店招牌、纸袋和菜单的主色与字级规范，讨论的是品牌视觉系统；没有食谱或餐饮体验内容。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "d4",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "用四栏网格组织展览信息，并比较印刷页边距与留白，属于平面排版方法。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "d5",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "用 Blender 调整圆环造型、材质粗糙度和柔光阴影，是三维图形创作练习。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "d6",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "比较网页滚动反馈、固定目录和段落高亮，关注交互与信息定位。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "d7",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "通过封面的岗位文字、主图和缩略图对照组织视觉中心，涉及封面版式设计。"
+        },
+        {
+          "groupId": "career",
+          "reason": "封面与简历一起用于岗位投递，内容直接服务于求职作品集准备。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "d8",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "重组订单页面信息层级，比较按钮强调色和卡片间距，属于界面设计。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "t1",
+      "memberships": [
+        {
+          "groupId": "travel",
+          "reason": "围绕哥本哈根车站至港边的步行耗时、交通票与雨天替代路线安排出行。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "t2",
+      "memberships": [
+        {
+          "groupId": "travel",
+          "reason": "提供首尔街区的地铁出口、店铺时间、避开人流的小巷和雨天路线。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "t3",
+      "memberships": [
+        {
+          "groupId": "travel",
+          "reason": "记录南岛徒步的停车、补水、装备及恶劣天气折返方案，属于户外出行准备。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "t4",
+      "memberships": [
+        {
+          "groupId": "travel",
+          "reason": "整理伦敦至海边的火车班次、公交接驳和半日路线，核心是短途旅行安排。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "t5",
+      "memberships": [
+        {
+          "groupId": "travel",
+          "reason": "以意大利两座城市为落脚点，统筹高铁、博物馆预约和寄存行李的顺序。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "c1",
+      "memberships": [
+        {
+          "groupId": "career",
+          "reason": "根据招聘方的阅读需求筛选项目并组织讲述，目的是准备设计岗位投递；未展开具体视觉制作方法。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "c2",
+      "memberships": [
+        {
+          "groupId": "career",
+          "reason": "复盘面试中的方案选择、合作分歧与衡量结果，练习不同长度的回答。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "c3",
+      "memberships": [
+        {
+          "groupId": "career",
+          "reason": "按周安排校招投递、笔试、面试练习和回访邮件，是求职时间管理。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "c4",
+      "memberships": [
+        {
+          "groupId": "career",
+          "reason": "为面试把项目改成问题、决定、结果的讲述结构，并通过录音复盘表达。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "c5",
+      "memberships": [
+        {
+          "groupId": "career",
+          "reason": "以笔试要求和录屏验收为背景，记录求职作品的实现过程与边界。"
+        },
+        {
+          "groupId": "design",
+          "reason": "先绘制状态表，再实现网页交互并检查空状态、返回与错误提示，也包含交互原型设计方法。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "f1",
+      "memberships": [
+        {
+          "groupId": "food",
+          "reason": "记录蒸蛋水量、小火时间和调味顺序，并搭配番茄炒虾仁，属于家常烹饪。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "f2",
+      "memberships": [
+        {
+          "groupId": "food",
+          "reason": "描述手冲咖啡风味、豆子产地、冲煮温度和甜点搭配，核心是咖啡探店体验。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "f3",
+      "memberships": [
+        {
+          "groupId": "food",
+          "reason": "提供司康的折叠次数、冷黄油、烘烤时间和原料用量，是烘焙配方记录。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "f4",
+      "memberships": [
+        {
+          "groupId": "food",
+          "reason": "记录一锅完成米饭、鸡肉和蔬菜的备菜、火候与带饭保存方法。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "h1",
+      "memberships": [
+        {
+          "groupId": "home",
+          "reason": "通过调整床的位置、窄层架、灯罩和床品改善九平方米卧室，属于小空间布置。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "h2",
+      "memberships": [
+        {
+          "groupId": "home",
+          "reason": "比较阅读角的灯罩、墙面颜色、木书架和光源高度，语义集中在居住空间的照明与软装；不扩展为平面或界面设计。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "h3",
+      "memberships": [
+        {
+          "groupId": "home",
+          "reason": "按出门顺序安排玄关物品和可移动挂钩，解决租房窄空间的收纳与动线。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "h4",
+      "memberships": [
+        {
+          "groupId": "home",
+          "reason": "用米白床品、木柜和橄榄绿搭配卧室，并比较昼夜灯光下的软装颜色。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "l1",
+      "memberships": [
+        {
+          "groupId": "life",
+          "reason": "比较针织衫、直筒裤、鞋靴及降温叠穿，属于日常通勤服饰搭配。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "l2",
+      "memberships": [
+        {
+          "groupId": "life",
+          "reason": "记录局部遮瑕、妆前保湿、上妆工具和补妆，属于日常美妆生活。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "l3",
+      "memberships": [
+        {
+          "groupId": "life",
+          "reason": "记录猫咪休息、伸懒腰和等饭的视频及毛巾垫子，具有明确的宠物陪伴主题。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "case-a",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "虽未在标题点明设计，正文实际统一招牌、外带杯与菜单的字形、主色、字级和留白，属于品牌与版式设计。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "case-b",
+      "memberships": [
+        {
+          "groupId": "career",
+          "reason": "为投递产品体验岗位筛选和前置相关项目，目的是让招聘方快速理解职责与成果。"
+        },
+        {
+          "groupId": "design",
+          "reason": "正文具体采用网格对齐、标题字级和页边距组织正文与配图，也包含版式设计方法。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "cross-1",
+      "memberships": [
+        {
+          "groupId": "travel",
+          "reason": "根据首尔转车空档和地铁换乘安排路线，并记录回车站的步行时间。"
+        },
+        {
+          "groupId": "food",
+          "reason": "同时具体描述拿铁的坚果香、现做三明治和价格，具有独立的餐饮探店信息。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "room-1",
+      "memberships": [
+        {
+          "groupId": "home",
+          "reason": "移动书桌、测量插座距离并整理灯具与走线，目的是改善房间过道和收纳。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "recipe-1",
+      "memberships": [
+        {
+          "groupId": "food",
+          "reason": "记录豆腐蔬菜汤、米饭分装、冷藏和复热，关注晚饭与次日便当的食物保存。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "ambiguous-1",
+      "memberships": [],
+      "unclassifiedReason": "只有“下次再认真看”的模糊备忘，没有具体对象、地点或活动，无法可靠判断主题，暂不关联合集。"
+    },
+    {
+      "noteId": "new1",
+      "memberships": [
+        {
+          "groupId": "home",
+          "reason": "通过暖光落地灯、浅色窗帘和窄柜改善不能刷墙的租房卧室，属于低预算居住布置。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "new2",
+      "memberships": [
+        {
+          "groupId": "design",
+          "reason": "从旧车票字母笔画到纸上草图和矢量轮廓，并比较字距，是字体制作过程。"
+        }
+      ],
+      "unclassifiedReason": null
+    },
+    {
+      "noteId": "new3",
+      "memberships": [
+        {
+          "groupId": "travel",
+          "reason": "安排首尔沿河两小时散步、地铁往返和雨天室内展馆备选，属于周末出行路线。"
+        }
+      ],
+      "unclassifiedReason": null
+    }
+  ]
+}

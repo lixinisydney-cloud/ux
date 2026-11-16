@@ -53,13 +53,14 @@
     const keys = ['schemaVersion','mode','provider','model','generatedAt','datasetHash','promptVersion','inputFields','notesCount','assignments'];
     demand(exactKeys(result, keys), 'Unexpected classification fields');
     demand(result.schemaVersion === VERSION && result.promptVersion === PROMPT, 'Unsupported result version');
-    demand(result.mode === expectedMode && ['real','offline'].includes(result.mode), 'Incorrect result mode');
+    demand(result.mode === expectedMode && ['real','offline','precomputed'].includes(result.mode), 'Incorrect result mode');
     demand(result.datasetHash === hash && /^[a-f0-9]{64}$/.test(hash), 'Classification dataset mismatch');
     demand(JSON.stringify(result.inputFields) === JSON.stringify(FIELDS), 'Unexpected model input fields');
     demand(result.notesCount === bundle.notes.length && Number.isInteger(result.notesCount), 'Incorrect note count');
     const generated = typeof result.generatedAt === 'string' ? Date.parse(result.generatedAt) : NaN;
     demand(Number.isFinite(generated) && generated <= Date.now() + 5 * 60 * 1000, 'Invalid generation date');
     if (expectedMode === 'real') demand(result.provider === 'openai' && text(result.model, 160), 'Invalid real result provenance');
+    else if (expectedMode === 'precomputed') demand(result.provider === 'codex' && result.model === 'Codex', 'Invalid precomputed provenance');
     else demand(result.provider === 'offline-fixture' && result.model === null, 'Invalid offline provenance');
     demand(Array.isArray(result.assignments) && result.assignments.length === bundle.notes.length, 'Incomplete assignments');
     const ids = new Set(bundle.notes.map(n => n.id));
@@ -81,6 +82,11 @@
     const bundle = validateDataset(rawBundle);
     const hash = await datasetHash(bundle);
     const offline = validateResult(bundle.offline, bundle, hash, 'offline');
+    let precomputed = null;
+    if (bundle.precomputed) {
+      try { precomputed = validateResult(bundle.precomputed, bundle, hash, 'precomputed'); }
+      catch (_) { /* A stale or invalid preclassification must never be displayed. */ }
+    }
     let storage = options.storage;
     if (!storage) {
       try { storage = root.localStorage; } catch (_) { /* Disabled storage is supported. */ }
@@ -88,9 +94,11 @@
     }
     const fetcher = options.fetcher || root.fetch.bind(root);
     const forceOffline = options.forceOffline === true;
-    let result = offline;
-    let source = 'offline';
-    let status = forceOffline ? 'offline_requested' : 'not_generated';
+    const fallback = !forceOffline && precomputed ? precomputed : offline;
+    const fallbackSource = fallback.mode === 'precomputed' ? 'precomputed' : 'offline';
+    let result = fallback;
+    let source = fallbackSource;
+    let status = forceOffline ? 'offline_requested' : precomputed ? 'precomputed_loaded' : 'not_generated';
     let byNote = new Map(result.assignments.map(row => [row.noteId, row]));
     function apply(value, origin) {
       result = value;
@@ -125,14 +133,14 @@
         if (object(incoming) && incoming.mode === 'unavailable') {
           // An explicit not-generated marker must not resurrect an old real cache.
           try { storage.removeItem(CACHE_KEY); } catch (_) {}
-          apply(offline, 'offline'); status = 'not_generated'; return false;
+          apply(fallback, fallbackSource); status = precomputed ? 'precomputed_loaded' : 'not_generated'; return false;
         }
         const checked = validateResult(incoming, bundle, hash, 'real');
         apply(checked, 'file'); writeCache(checked); status = 'loaded'; return true;
       } catch (_) {
         const cached = readCache();
         if (cached) { apply(cached, 'cache'); status = 'cached_result'; return true; }
-        apply(offline, 'offline'); status = 'invalid_or_unavailable'; return false;
+        apply(fallback, fallbackSource); status = 'invalid_or_unavailable'; return false;
       }
     }
     return {
@@ -147,6 +155,7 @@
         return row?.memberships.find(m => m.groupId === groupId)?.reason || row?.memberships.map(m => m.reason).join('；') || row?.unclassifiedReason || '暂无分类依据';
       },
       label() {
+        if (result.mode === 'precomputed') return 'Codex AI 语义预分类 · 未调用付费 API';
         if (result.mode === 'offline') return '离线模拟分类 · 非真实模型输出';
         return '真实 AI 文本分类 · ' + result.model + (source === 'cache' ? ' · 本地缓存' : '');
       }

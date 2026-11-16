@@ -212,12 +212,15 @@ def validate_envelope(envelope: Any, notes: list[dict], groups: list[dict], *, e
         raise ClassificationError("classification file has unexpected or missing fields")
     if type(envelope["schemaVersion"]) is not int or envelope["schemaVersion"] != 1:
         raise ClassificationError("unsupported classification schema version")
-    if envelope["mode"] not in ("real", "offline") or (expected_mode and envelope["mode"] != expected_mode):
+    if envelope["mode"] not in ("real", "offline", "precomputed") or (expected_mode and envelope["mode"] != expected_mode):
         raise ClassificationError("classification mode does not match the expected source")
     if envelope["mode"] == "real":
         if envelope["provider"] != "openai":
             raise ClassificationError("real results must identify the OpenAI provider")
         _text(envelope["model"], "model", 120)
+    elif envelope["mode"] == "precomputed":
+        if envelope["provider"] != "codex" or envelope["model"] != "Codex":
+            raise ClassificationError("precomputed results must identify Codex session classification")
     elif envelope["provider"] != "offline-fixture" or envelope["model"] is not None:
         raise ClassificationError("offline results must be explicitly marked as fixtures")
     if expected_model and envelope["model"] != expected_model:
@@ -375,7 +378,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--force", action="store_true", help="bypass cache and make a new API request")
     parser.add_argument("--ask-key", action="store_true", help="read the key from an interactive terminal without echoing or saving it")
     parser.add_argument("--dry-run", action="store_true", help="print the exact model input and schema without a model call")
-    parser.add_argument("--validate-existing", type=Path, metavar="FILE", help="validate an existing real/offline result without a model call")
+    parser.add_argument("--validate-existing", type=Path, metavar="FILE", help="validate an existing real/offline/precomputed result without a model call")
     args = parser.parse_args(argv)
     try:
         notes, groups = load_dataset(args.input, args.groups)

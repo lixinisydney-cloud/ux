@@ -1,8 +1,8 @@
-# RE｜AI 智能合集 v0.7：文本分类验证
+# RE｜AI 智能合集 v0.7：Codex 语义预分类
 
 沿用已定稿的 v0.6 HTML/CSS/JavaScript UI，不切换框架，无需安装前端依赖或构建。
 
-当前本地环境缺少 `OPENAI_API_KEY`，**真实模型尚未调用**。页面明确显示离线模拟分类；A/B 案例未判通过。分类管线、校验、缓存和前端联动已完成，详见 [AI 配置与运行说明](docs/AI_CLASSIFICATION.md) 和 [本轮验证记录](reports/v07-validation.md)。
+当前默认使用 `data/classifications.precomputed.json` 中的 **Codex AI 语义预分类**，无须 API Key，不调用付费 API。上次云环境的结果及恢复脚本未能找回，本次根据笔记标题、描述和标签重新生成，详见 [恢复与验证记录](reports/v07-precomputed-validation.md)。35 篇已有笔记中 34 篇已分类、1 篇未分类、4 篇关联两个主题；另覆盖 3 篇模拟新收藏。页面只读取静态数据，用户纠错始终优先。
 
 Windows 用户从 `main` 下载后，请优先阅读 [Windows 快速上手](docs/WINDOWS_QUICKSTART.md)。Python 3.10+ 使用 `py scripts\classify_notes.py --ask-key` 即可运行分类，不需要安装额外的 Python 包。
 
@@ -65,7 +65,7 @@ python3 tests/capture_screenshots.py --base-url http://127.0.0.1:4173
 
 ## 数据边界
 
-用户资料和笔记均为原创模拟数据，不连接小红书账号。3900/132 为情境数字；实际为 35 条初始笔记、6 个智能合集、8 个原有专辑和 3 条可模拟的新收藏。真实 AI 只通过本地 Python 脚本预计算文本分类，页面不持有密钥，也不会调用 AI API。当前结果仍为离线示例。
+用户资料和笔记均为原创模拟数据，不连接小红书账号。3900/132 为情境数字；实际为 35 条初始笔记、6 个智能合集、8 个原有专辑和 3 条可模拟的新收藏。默认分类由 Codex 在任务中按文本语义预先完成，页面不持有密钥，也不会调用 AI API。`classifications.offline.json` 仅保留为明确标注的回退示例。
 
 沿用 `refold-v05-experience-data` 存储键，兼容已有状态。纠错只改变合集关联，不取消收藏、不移动笔记、不改变原专辑或权限。桌面说明区可恢复初始体验。
 
@@ -77,4 +77,10 @@ python3 tests/capture_screenshots.py --base-url http://127.0.0.1:4173
 
 之后的 UI 修改在完成浏览器测试后继续提交并推送到 `main`，更新同一网站。发布是否完成应以 Pages 部署状态和线上实际访问结果为准。
 
-v0.7 源码、Windows 说明与离线 Demo 统一使用原 `main` 根目录。尚未生成真实结果时，GitHub Pages 继续显示离线 Demo，不请求 AI API。你在本机生成的真实分类 JSON 不会自动上传；完成评估后可单独发布已校验的静态结果，继续使用同一个 Pages 地址，不需要付费后端。
+v0.7 源码、Windows 说明与离线 Demo 统一使用原 `main` 根目录。GitHub Pages 默认显示 Codex 预分类结果，不请求 AI API。你在本机生成的真实分类 JSON 不会自动上传；完成评估后可单独发布已校验的静态结果，继续使用同一个 Pages 地址，不需要付费后端。
+
+## 恢复已有预分类（不重新生成）
+
+在仓库根目录运行 `python3 scripts/restore_precomputed.py`：保留并校验已有 JSON；若文件丢失，从本地 Git HEAD 恢复，再构建数据包和离线 HTML。无需密钥或网络。数据内容变更导致 hash 不符时会报错，不会自动补造分类。
+
+验证命令与本次结果见 [恢复与验证记录](reports/v07-precomputed-validation.md)。原 API 分类脚本是可选流程，本次未执行。

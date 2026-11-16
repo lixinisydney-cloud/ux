@@ -147,7 +147,8 @@ class AIClassificationUI(unittest.TestCase):
 
     def assert_mode(self, mode):
         footer = self.page.locator(".footer-mock")
-        expect(footer).to_contain_text("离线模拟" if mode == "offline" else "真实 AI")
+        expect(footer).to_have_attribute("data-classification-mode", mode)
+        expect(footer).to_contain_text({"offline": "离线模拟", "real": "真实 AI", "precomputed": "Codex AI 语义预分类"}[mode])
 
     def test_01_real_file_fixture_changes_memberships_not_original_data(self):
         """Synthetic JSON must drive membership rather than old preset answers."""
@@ -260,15 +261,15 @@ class AIClassificationUI(unittest.TestCase):
                 self.goto()
                 self.page.evaluate("localStorage.clear()")
                 self.page.reload(wait_until="networkidle")
-                self.assert_mode("offline")
+                self.assert_mode("precomputed")
                 self.assertIsNone(self.cache(), "Invalid result must not be cached")
                 self.group("design")
                 self.assertIn("d1", self.ids())
 
-    def test_04_placeholder_and_forced_offline_are_explicit(self):
+    def test_04_placeholder_uses_precomputed_and_forced_offline_is_explicit(self):
         self.response_kind = "placeholder"
         self.goto()
-        self.assert_mode("offline")
+        self.assert_mode("precomputed")
         self.assertIsNone(self.cache())
         self.response_kind = "response"
         previous_requests = self.classification_requests
@@ -307,7 +308,7 @@ class AIClassificationUI(unittest.TestCase):
                     [RESULT_CACHE_KEY, cached],
                 )
                 self.page.reload(wait_until="networkidle")
-                self.assert_mode("offline")
+                self.assert_mode("precomputed")
 
     def test_07_mode_change_keeps_pins_hidden_groups_and_corrections(self):
         self.goto()

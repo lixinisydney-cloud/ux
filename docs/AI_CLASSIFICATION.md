@@ -2,7 +2,9 @@
 
 ## 当前实际状态
 
-当前环境未配置 `OPENAI_API_KEY`，没有真实模型请求或真实输出。`data/classifications.real.json` 的 `mode` 为 `unavailable`；不能将 `classifications.offline.json` 的人工分配当成 AI 测试结果。
+默认使用 `data/classifications.precomputed.json`：`mode=precomputed`、`provider=codex`、`model=Codex`。这是本次 Codex 会话按标题、描述与标签重新完成的语义预分类，没有调用付费 API，也不需要 API Key。旧云环境文件不可读取，未能恢复上次产物；本次不是原结果恢复。详见 [恢复记录](../reports/v07-precomputed-validation.md)。
+
+`data/classifications.real.json` 仍为 `unavailable`，表示独立 OpenAI API 流程未运行；不能把 Codex 会话预分类或离线示例冒充为该 API 的输出。下文“真实运行”章节仅描述已有可选流程，本次未执行。
 
 24 项管线单元测试、8 项 AI 文件浏览器集成测试和 10 项原 UI 回归通过。前两类涉及模型输出的测试全部使用明确标注的测试夹具；不证明语义分类准确率。实际案例记录见 `reports/cases-v07.json` 与 `reports/v07-validation.md`。
 
@@ -79,10 +81,10 @@ python3 scripts/evaluate_cases.py
 `classification-store.js` 只加载同源静态 JSON，不含密钥，不访问模型 API。加载前会再次验证结果结构与输入 hash。
 
 - 默认：有有效真实结果文件则使用它，并明确显示“真实 AI 文本分类”及模型名。
-- 文件尚未生成：使用明确标注的离线示例；不是一次真实 AI 调用。
-- 结果加载失败：仅可使用同一数据集下仍有效的浏览器真实结果缓存，并显示“本地缓存”；否则回退离线示例。
+- API 文件尚未生成：使用校验过的 Codex 预分类，标注“Codex AI 语义预分类 · 未调用付费 API”；预分类不可用时才使用离线示例。
+- API 结果加载失败：仅可使用同一数据集下仍有效的浏览器 API 结果缓存，并显示“本地缓存”；否则回退校验过的 Codex 预分类，再回退离线示例。
 - `?classification=offline`：强制离线模拟，不加载真实文件。
-- `data/offline-bundle.js`：从 JSON 源文件生成的本地启动数据，保持无网络模型服务时 UI 可用。
+- `data/offline-bundle.js`：从 JSON 源文件生成，内嵌笔记、合集、Codex 预分类及回退示例；网页和离线 HTML 读取同一份已校验结果。
 
 修改笔记/合集或离线示例后，重新生成启动数据：
 
@@ -125,3 +127,14 @@ python3 tests/export_standalone.py
 ```
 
 为兼容旧下载入口，文件名继续为 `RE_FOLD_v06_Demo.html`，内容随当前代码生成；它内嵌当前数据、结果和图片，遵守同样的真实/离线标记。原始响应缓存和密钥不会内嵌。
+
+## 预分类恢复与校验
+
+```bash
+python3 scripts/restore_precomputed.py
+python3 scripts/classify_notes.py --validate-existing data/classifications.precomputed.json
+python3 -m unittest discover -s tests -p test_precomputed.py -v
+python3 tests/test_precomputed_ui.py --base-url http://127.0.0.1:4173
+```
+
+恢复脚本不调用模型，不重写已有有效分类。源文件必须与当前语义数据 hash 匹配；构建时完整校验 ID、覆盖率、依据、来源和日期。浏览器再次校验嵌入的数据。

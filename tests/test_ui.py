@@ -115,10 +115,10 @@ class PrototypeUI(unittest.TestCase):
                 self.assert_no_horizontal_overflow()
                 self.assert_images()
                 self.action("note", "d1").click()
-                expect(self.page.locator('[role="dialog"]')).to_be_visible()
+                expect(self.page.locator('.note-detail')).to_be_visible()
                 self.assert_images()
                 self.assert_no_horizontal_overflow()
-                self.action("close").click()
+                self.action("note-back").click()
                 self.home()
                 self.action("create").click()
                 self.page.locator("#albumTitle").fill("设计灵感")
@@ -164,11 +164,13 @@ class PrototypeUI(unittest.TestCase):
         self.group()
         before_count = self.action("note").count()
         self.action("note", "d1").click()
+        self.action("note-menu").click()
         details = self.page.locator(".sheet details")
         expect(details).not_to_have_attribute("open", "")
         details.locator("summary").click()
         expect(details).to_have_attribute("open", "")
-        self.action("exclude", "d1").click()
+        self.action("note-exclude").click()
+        self.action("note-back").click()
         self.assertEqual(self.action("note").count(), before_count - 1)
         expect(self.action("note", "d1")).to_have_count(0)
         expect(self.action("undo")).to_be_visible()
@@ -185,7 +187,9 @@ class PrototypeUI(unittest.TestCase):
     def test_04_correction_survives_reload_without_affecting_original(self):
         self.group()
         self.action("note", "d1").click()
-        self.action("exclude", "d1").click()
+        self.action("note-menu").click()
+        self.action("note-exclude").click()
+        self.action("note-back").click()
         self.page.reload(wait_until="networkidle")
         self.group()
         expect(self.action("note", "d1")).to_have_count(0)
@@ -214,27 +218,26 @@ class PrototypeUI(unittest.TestCase):
         self.action("simulate").click()
         expect(self.action("save-note", "new1")).to_be_disabled()
 
-    def test_06_pinned_groups_keep_priority(self):
-        self.group()
-        self.action("group-menu").click()
-        self.action("pin", "design").click()
-        self.home()
+    def test_06_custom_sort_keeps_priority_until_recent_sort_restored(self):
+        self.settings()
+        self.action("sort-start").click()
+        self.action("sort-right", "design").click()
+        self.action("sort-left", "design").click()
+        self.action("sort-done").click()
         self.save_note("new3")
         ordered = self.page.locator("#smartShelf [data-action=group]").evaluate_all(
             "els => els.map(el => el.dataset.id)"
         )
         self.assertEqual(ordered[:2], ["design", "travel"])
-        self.group()
-        self.action("group-menu").click()
-        self.action("pin", "design").click()
-        self.home()
+        self.settings()
+        self.action("sort-auto").click()
         expect(self.page.locator("#smartShelf [data-action=group]").first).to_have_attribute(
             "data-id", "travel"
         )
 
     def test_07_hide_restore_and_disable_enable(self):
-        self.group()
-        self.action("group-menu").click()
+        self.settings()
+        self.action("sort-start").click()
         self.action("hide", "design").click()
         expect(self.action("group", "design")).to_have_count(0)
         self.page.reload(wait_until="networkidle")
@@ -285,13 +288,14 @@ class PrototypeUI(unittest.TestCase):
             self.page.locator('[data-action="album"][data-id^="user-"]').filter(has_text="设计灵感")
         ).to_have_count(1)
 
-    def test_10_modal_close_escape_backdrop_and_scroll_isolation(self):
+    def test_10_secondary_menu_escape_backdrop_and_scroll_isolation(self):
         self.group()
         self.action("note", "d1").click()
+        self.action("note-menu").click()
         expect(self.page.locator('[role="dialog"]')).to_be_visible()
         self.page.keyboard.press("Escape")
         expect(self.page.locator('[role="dialog"]')).to_have_count(0)
-        self.action("note", "d1").click()
+        self.action("note-menu").click()
         before_top = self.page.locator("#appScreen").evaluate("el => el.scrollTop")
         self.page.locator(".sheet").hover()
         self.page.mouse.wheel(0, 600)
@@ -301,7 +305,7 @@ class PrototypeUI(unittest.TestCase):
         )
         self.page.locator("#backdrop").click(position={"x": 8, "y": 8})
         expect(self.page.locator('[role="dialog"]')).to_have_count(0)
-        self.action("note", "d1").click()
+        self.action("note-menu").click()
         self.action("close").click()
         expect(self.page.locator('[role="dialog"]')).to_have_count(0)
 

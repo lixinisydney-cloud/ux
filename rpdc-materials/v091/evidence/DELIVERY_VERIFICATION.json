@@ -1,0 +1,92 @@
+{
+  "checkedAtUTC": "2026-11-16T15:21:29Z",
+  "downloads": [
+    {
+      "file": "REFOLD_RPDC_FINAL_ASSETS.zip",
+      "url": "https://raw.githubusercontent.com/lixinisydney-cloud/ux/refs/heads/rpdc-materials-v091/rpdc-materials/v091/REFOLD_RPDC_FINAL_ASSETS.zip",
+      "status": 200,
+      "bytes": 11785007,
+      "sha256": "c1868a179bf546c83344efd612fcfc02bb4be53c7202f47b39e88f7b639d22ca",
+      "matchesLocal": true
+    },
+    {
+      "file": "SCREENSHOT_INDEX.md",
+      "url": "https://raw.githubusercontent.com/lixinisydney-cloud/ux/refs/heads/rpdc-materials-v091/rpdc-materials/v091/SCREENSHOT_INDEX.md",
+      "status": 200,
+      "bytes": 6067,
+      "sha256": "d0bcd7233b7ce61d8751fad9788f54fbe817bcd1582bc2d1d455bf5843e3bddb",
+      "matchesLocal": true
+    },
+    {
+      "file": "research/DEVELOPMENT_PROCESS.md",
+      "url": "https://raw.githubusercontent.com/lixinisydney-cloud/ux/refs/heads/rpdc-materials-v091/rpdc-materials/v091/research/DEVELOPMENT_PROCESS.md",
+      "status": 200,
+      "bytes": 10714,
+      "sha256": "3d6fd934df7209d58ccedf28d7bd046001987a0502f2ff28d8119837e26a5219",
+      "matchesLocal": true
+    },
+    {
+      "file": "research/AI_IMPLEMENTATION_EVIDENCE.md",
+      "url": "https://raw.githubusercontent.com/lixinisydney-cloud/ux/refs/heads/rpdc-materials-v091/rpdc-materials/v091/research/AI_IMPLEMENTATION_EVIDENCE.md",
+      "status": 200,
+      "bytes": 9953,
+      "sha256": "b59fafbe50849bb26c0d35818240eca083f7b8d82fde31a5ad6c737e8228dbbd",
+      "matchesLocal": true
+    },
+    {
+      "file": "recordings/RECORDING_INDEX.md",
+      "url": "https://raw.githubusercontent.com/lixinisydney-cloud/ux/refs/heads/rpdc-materials-v091/rpdc-materials/v091/recordings/RECORDING_INDEX.md",
+      "status": 200,
+      "bytes": 3099,
+      "sha256": "40b2b728c594f08aa28389926d4c7d71f6fa30208a0a7bb3bdfd6da6629e4212",
+      "matchesLocal": true
+    },
+    {
+      "file": "evidence/TEST_RESULTS.md",
+      "url": "https://raw.githubusercontent.com/lixinisydney-cloud/ux/refs/heads/rpdc-materials-v091/rpdc-materials/v091/evidence/TEST_RESULTS.md",
+      "status": 200,
+      "bytes": 4422,
+      "sha256": "beb71b37910acc1b97b7e64d8f69a36dc9c3420ac3c37c2582e0362d9a54bbf8",
+      "matchesLocal": true
+    },
+    {
+      "file": "screenshots/high_resolution_2x/01_home.png",
+      "url": "https://raw.githubusercontent.com/lixinisydney-cloud/ux/refs/heads/rpdc-materials-v091/rpdc-materials/v091/screenshots/high_resolution_2x/01_home.png",
+      "status": 200,
+      "bytes": 267269,
+      "sha256": "b608097f666d2310dd1e91ee2e3edaf8706b9646a0b74b95375f39c80d9b5557",
+      "matchesLocal": true
+    }
+  ],
+  "materialsCommit": "d5c006b9088dba62acab50ecf9d606368b6f628a",
+  "productMain": {
+    "html_url": "https://github.com/lixinisydney-cloud/ux/commit/6e9cc55b46a4cfa991b69da1df66e0567c55017c",
+    "sha": "6e9cc55b46a4cfa991b69da1df66e0567c55017c"
+  },
+  "pages": {
+    "build_type": "legacy",
+    "html_url": "https://lixinisydney-cloud.github.io/ux/",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    },
+    "status": "built"
+  },
+  "latestPagesRun": {
+    "conclusion": "success",
+    "head_branch": "main",
+    "head_sha": "6e9cc55b46a4cfa991b69da1df66e0567c55017c",
+    "html_url": "https://github.com/lixinisydney-cloud/ux/actions/runs/43861189551",
+    "id": 43861189551,
+    "status": "completed"
+  },
+  "latestPagesRunUnchangedAtVerification": true,
+  "productDiffContainsOnlyMaterialAdditions": true,
+  "liveIndexMatchesBaseline": true,
+  "liveIndexSHA256": "f39be63b8f50716789f11e729d9149bd9185bdae06ca02ba5619fdf650954d5c",
+  "delivery": "GitHub raw file in independent rpdc-materials-v091 branch; no Release attachment because uploads.github.com is blocked by environment network policy",
+  "archiveCRC": "passed on downloaded public ZIP",
+  "productUIChanged": false,
+  "realDeviceIOSVerified": false,
+  "note": "This post-download verification is intentionally outside the sealed ZIP; the archive checksum remains unchanged."
+}

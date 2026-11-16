@@ -80,6 +80,20 @@ class BrowserCase(unittest.TestCase):
     def order(self):
         return self.page.locator('#smartShelf [data-action="group"]').evaluate_all('els=>els.map(el=>el.dataset.id)')
 
+    def start_manage(self):
+        self.action('manage').click()
+        self.action('manage-start').click()
+
+    def open_picker(self):
+        self.action('manage').click()
+        self.action('add-notes').click()
+
+    def toggle_visible(self, group):
+        self.settings()
+        self.action('display-settings').click()
+        self.action('visibility-toggle', group).click()
+        self.action('close').click()
+
     def select(self, note='d1'):
         self.action('select-note', note).click()
 
@@ -191,21 +205,20 @@ class PhaseA(BrowserCase):
         expect(self.action('group-menu')).to_have_count(0)
         expect(self.action('pin')).to_have_count(0)
         self.home()
-        self.settings()
-        self.action('restore', 'food').click()
+        self.toggle_visible('food')
         self.assertIn('food', self.order())
         self.assertEqual(self.order()[:2], ['travel','life'])
 
     def test_05_management_starts_empty_and_exit_clears_selection(self):
         self.group()
-        self.action('manage').click()
+        self.start_manage()
         expect(self.page.locator('.pagehead')).to_contain_text('已选择 0 篇')
         for name in ('batch-remove', 'batch-add', 'batch-unsave'):
             expect(self.action(name)).to_be_disabled()
         self.select()
         expect(self.page.locator('.pagehead')).to_contain_text('已选择 1 篇')
         self.action('manage-exit').click()
-        self.action('manage').click()
+        self.start_manage()
         expect(self.page.locator('.pagehead')).to_contain_text('已选择 0 篇')
         self.action('select-all').click()
         expect(self.page.locator('.pagehead')).to_contain_text(f'已选择 {self.action("select-note").count()} 篇')
@@ -214,7 +227,7 @@ class PhaseA(BrowserCase):
 
     def test_06_batch_remove_is_virtual_and_undo_restores(self):
         self.group()
-        self.action('manage').click()
+        self.start_manage()
         self.select()
         self.action('batch-remove').click()
         expect(self.action('undo')).to_be_visible()
@@ -223,7 +236,7 @@ class PhaseA(BrowserCase):
         self.assertIn('d1', self.ids('select-note') + self.ids())
         if self.action('manage-exit').count():
             self.action('manage-exit').click()
-        self.action('manage').click()
+        self.start_manage()
         self.select()
         self.action('batch-remove').click()
         if self.action('manage-exit').count():
@@ -237,7 +250,7 @@ class PhaseA(BrowserCase):
 
     def test_07_batch_add_to_other_group_has_real_membership(self):
         self.group()
-        self.action('manage').click()
+        self.start_manage()
         self.select()
         self.action('batch-add').click()
         self.action('target-group', 'travel').click()
@@ -256,7 +269,7 @@ class PhaseA(BrowserCase):
 
     def test_08_cancel_collection_requires_confirmation_and_syncs_original(self):
         self.group()
-        self.action('manage').click()
+        self.start_manage()
         self.select()
         self.action('batch-unsave').click()
         expect(self.action('confirm-unsave')).to_be_visible()
@@ -269,7 +282,7 @@ class PhaseA(BrowserCase):
         self.assertIn('d1', self.ids('select-note') + self.ids())
         if self.action('manage-exit').count():
             self.action('manage-exit').click()
-        self.action('manage').click()
+        self.start_manage()
         self.select()
         self.action('batch-unsave').click()
         self.action('confirm-unsave').click()
@@ -299,14 +312,11 @@ class PhaseA(BrowserCase):
         self.action('sort-auto').click()
         self.assertEqual(self.order()[0], 'home')
         self.assertIsNone(self.state().get('order'))
-        self.settings()
-        self.action('sort-start').click()
-        self.action('hide', 'home').click()
+        self.toggle_visible('home')
         self.assertNotIn('home', self.order())
         self.page.reload(wait_until='networkidle')
         self.assertNotIn('home', self.order())
-        self.settings()
-        self.action('restore', 'home').click()
+        self.toggle_visible('home')
         self.assertEqual(self.order()[0], 'home')
 
 
@@ -314,7 +324,7 @@ class PhaseB(BrowserCase):
     def test_10_add_existing_favorites_is_manual_persistent_preference(self):
         self.seed({'exclude':{'design':['d1']}, 'hidden':[], 'pins':[]})
         self.group()
-        self.action('add-notes').click()
+        self.open_picker()
         expect(self.page.locator('.pagehead')).to_contain_text('所有帖子')
         expect(self.action('picker-confirm')).to_be_disabled()
         expect(self.action('picker-toggle', 'd2')).to_be_disabled()
@@ -328,7 +338,7 @@ class PhaseB(BrowserCase):
         self.group()
         self.assertIn('d1', self.ids())
         self.assertIn('t1', self.ids())
-        self.action('add-notes').click()
+        self.open_picker()
         expect(self.action('picker-toggle', 'd1')).to_be_disabled()
         expect(self.action('picker-toggle', 't1')).to_be_disabled()
         self.action('picker-close').click()
@@ -376,7 +386,7 @@ class PhaseB(BrowserCase):
     def test_13_share_snapshot_is_explicit_fixed_and_opens_without_private_state(self):
         self.group()
         self.action('share').click()
-        self.action('share-create').click()
+        self.action('share-channel', 'save').click()
         expect(self.action('share-confirm')).to_be_disabled()
         expect(self.page.locator('[data-action="share-select"][aria-pressed="true"]')).to_have_count(0)
         self.action('share-select', 'd1').click()
@@ -427,37 +437,38 @@ class PhaseB(BrowserCase):
     def test_14_friend_selection_confirmation_undo_and_persistence(self):
         self.group()
         self.action('share-invite').click()
-        expect(self.action('share-confirm')).to_be_disabled()
-        self.action('share-select', 'd1').click()
-        self.action('share-confirm').click()
-        expect(self.page.locator('.sheet')).to_contain_text('演示操作')
-        expect(self.page.locator('.sheet')).to_contain_text('不会发送真实邀请或消息')
+        expect(self.page.locator('#appScreen')).to_contain_text('共享专辑')
+        self.action('friends-toggle').click()
         self.action('friend-toggle', 'lin').click()
         expect(self.action('friend-toggle', 'lin')).to_have_attribute('aria-pressed', 'true')
         self.action('friend-toggle', 'lin').click()
         expect(self.action('friend-toggle', 'lin')).to_have_attribute('aria-pressed', 'false')
         self.action('friend-toggle', 'qiao').click()
-        self.action('friend-confirm').click()
+        self.action('friends-done').click()
+        expect(self.action('share-confirm')).to_be_disabled()
+        self.action('share-select', 'd1').click()
+        self.action('share-confirm').click()
         copy = self.state()['copies'][0]
         self.assertEqual(copy['friends'], ['qiao'])
-        expect(self.page.locator('.share-status')).to_contain_text('本地模拟共享给')
+        expect(self.page.locator('#toastLayer')).to_contain_text('模拟')
         self.action('undo').click()
-        self.assertEqual(self.state()['copies'][0]['friends'], [])
-        self.action('copy-invite').click()
+        self.assertFalse(any('qiao' in c.get('friends', []) for c in self.state().get('copies', [])))
+        self.action('share-invite').click()
+        if self.action('friends-toggle').get_attribute('aria-checked') != 'true':
+            self.action('friends-toggle').click()
         self.action('friend-toggle', 'an').click()
-        self.action('friend-confirm').click()
-        self.action('close').click()
+        self.action('friends-done').click()
+        if self.action('share-confirm').count():
+            self.action('share-select', 'd1').click()
+            self.action('share-confirm').click()
         self.page.reload(wait_until='networkidle')
         self.group()
-        self.action('share').click()
-        self.action('share-open-copy', copy['id']).click()
-        self.action('copy-invite').click()
+        self.action('share-invite').click()
         expect(self.action('friend-toggle', 'an')).to_have_attribute('aria-pressed', 'true')
         expect(self.action('friend-toggle', 'lin')).to_have_attribute('aria-pressed', 'false')
-        self.action('friend-toggle', 'an').click()
-        self.action('friend-confirm').click()
-        self.assertEqual(self.state()['copies'][0]['friends'], [])
-        expect(self.page.locator('.share-status')).to_contain_text('尚未邀请好友')
+        self.action('friends-toggle').click()
+        self.action('friends-done').click()
+        self.assertFalse(any(c.get('friends') for c in self.state().get('copies', [])))
 
     def test_15_malformed_share_link_fails_closed(self):
         self.seed({'hidden':['life'], 'exclude':{'design':['d1']}, 'extraAlbums':[{'id':'private','name':'PRIVATE USER ALBUM','covers':['design_grid'],'locked':True,'count':0}]})
@@ -472,7 +483,7 @@ class PhaseB(BrowserCase):
 
     def test_18_entering_share_clears_private_undo_toast(self):
         self.group()
-        self.action('manage').click()
+        self.start_manage()
         self.select('d1')
         self.action('batch-remove').click()
         expect(self.action('undo')).to_be_visible()
@@ -491,7 +502,7 @@ class PhaseB(BrowserCase):
         self.action('simulate').click()
         self.action('save-note', 'new1').click()
         self.group('home')
-        self.action('manage').click()
+        self.start_manage()
         self.select('new1')
         self.action('batch-unsave').click()
         self.action('confirm-unsave').click()

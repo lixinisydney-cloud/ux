@@ -61,7 +61,7 @@ class PrototypeUI(unittest.TestCase):
 
     def group(self, group_id="design"):
         self.action("group", group_id).click()
-        expect(self.page.locator(".pagehead")).to_contain_text(
+        expect(self.page.locator(".collection-heading h1")).to_contain_text(
             {"design": "设计与创作", "travel": "旅行与探索", "home": "家居灵感"}.get(
                 group_id, ""
             )
@@ -221,8 +221,10 @@ class PrototypeUI(unittest.TestCase):
     def test_06_custom_sort_keeps_priority_until_recent_sort_restored(self):
         self.settings()
         self.action("sort-start").click()
-        self.action("sort-right", "design").click()
-        self.action("sort-left", "design").click()
+        self.action("group", "design").focus()
+        self.page.keyboard.press("ArrowRight")
+        self.action("group", "design").focus()
+        self.page.keyboard.press("ArrowLeft")
         self.action("sort-done").click()
         self.save_note("new3")
         ordered = self.page.locator("#smartShelf [data-action=group]").evaluate_all(
@@ -237,13 +239,16 @@ class PrototypeUI(unittest.TestCase):
 
     def test_07_hide_restore_and_disable_enable(self):
         self.settings()
-        self.action("sort-start").click()
-        self.action("hide", "design").click()
+        self.action("display-settings").click()
+        self.action("visibility-toggle", "design").click()
+        self.action("close").click()
         expect(self.action("group", "design")).to_have_count(0)
         self.page.reload(wait_until="networkidle")
         expect(self.action("group", "design")).to_have_count(0)
         self.settings()
-        self.action("restore", "design").click()
+        self.action("display-settings").click()
+        self.action("visibility-toggle", "design").click()
+        self.action("close").click()
         expect(self.action("group", "design")).to_have_count(1)
         self.settings()
         self.action("smart-toggle").click()

@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/avatar.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-version="0.8">
+<body data-version="0.9">
 <div class="stage">
   <aside class="brief" aria-labelledby="projectTitle">
     <div class="eyebrow">REDNOTE / AI × COMMUNITY / UED CONCEPT</div>
@@ -56,11 +56,13 @@ Object.assign(iconPaths, {
  'album-add':'<rect x="3" y="4" width="16" height="16" rx="2"/><path d="M3 8h16M7 6h1m4 6v7m-3-3.5h6"/>',
  'wifi':'<path d="M3 9a15 15 0 0 1 18 0M6 12a10 10 0 0 1 12 0m-9 3a5 5 0 0 1 6 0m-3 3h.01"/>',
  'signal':'<path d="M4 16v4m5-8v8m5-12v12m5-16v16" stroke-width="3"/>',
+ 'heart':'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',
  'battery':'<rect x="2" y="6" width="18" height="12" rx="3"/><path d="M22 10v4"/><rect x="5" y="9" width="12" height="6" rx="1" fill="currentColor" stroke="none"/>'
 });
 const ico=(name,cls='')=>`<svg class="icon ${cls}" viewBox="0 0 24 24" aria-hidden="true">${iconPaths[name]||iconPaths.folder}</svg>`;
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
 const E=id=>document.getElementById(id);
+const cloneData=value=>typeof globalThis.structuredClone==='function'?globalThis.structuredClone(value):JSON.parse(JSON.stringify(value));
 E('statusIcons').innerHTML=ico('signal')+ico('wifi')+ico('battery','battery-icon');
 E('publishIcon').innerHTML=ico('plus');
 E('resetDemo').innerHTML=ico('refresh','small')+'恢复初始体验';
@@ -96,61 +98,257 @@ const visibleGroups=()=>orderedGroups().filter(g=>S.smartOn&&!S.hidden.includes(
 function renderProfile(){return `<div class="coverbar"><div class="profile-actions"><button aria-label="菜单" data-action="notice" data-value="本次只呈现个人收藏体验">${ico('menu')}</button><div class="right"><button class="edit" data-action="notice" data-value="个人资料为概念示意">${ico('edit','small')}编辑主页</button><button aria-label="扫一扫" data-action="notice" data-value="此入口不在本次演示范围">${ico('scan')}</button><button aria-label="分享主页" data-action="notice" data-value="分享功能不在本次演示范围">${ico('share')}</button></div></div></div>
 <div class="profile-box"><div class="profile-main"><div class="avatar"><img src="assets/avatar.svg" alt="模拟用户头像"></div><div><div class="user-name">momo</div><div class="user-sub">小红书号：momo_demo</div><div class="user-sub">IP：北京</div></div></div><div class="user-stats"><span><b>771</b>关注</span><span><b>315</b>粉丝</span><span><b>4687</b>获赞与收藏</span></div><div class="user-bio">记录喜欢的生活和灵感</div><div class="user-tags"><span class="user-tag">${ico('female','tiny')}24岁</span><span class="user-tag">北京</span></div><div class="profile-utils"><button data-action="notice" data-value="个人售卖不在本次演示范围"><strong>${ico('store','small')}个人售卖</strong><small>出闲置搞副业</small></button><button data-action="notice" data-value="群聊不在本次演示范围"><strong>${ico('people','small')}群聊</strong><small>查看详情</small></button><button data-action="notice" data-value="浏览记录不在本次演示范围"><strong>${ico('history','small')}浏览记录</strong><small>看过的笔记</small></button></div></div>
 <div class="primary-tabs"><button data-action="notice" data-value="笔记标签非本次演示范围">笔记</button><button data-action="notice" data-value="评论标签非本次演示范围">${ico('lock','tiny')}评论</button><button class="active" aria-current="page" data-action="notice" data-value="当前为收藏页">${ico('lock','tiny')}收藏</button><button data-action="notice" data-value="赞过标签非本次演示范围">${ico('lock','tiny')}赞过</button><button aria-label="搜索收藏" data-action="notice" data-value="原生收藏搜索不在本次改版范围">${ico('search')}</button></div><div class="secondary-tabs"><button data-action="notice" data-value="笔记标签非本次演示范围">笔记 3900</button><button class="active" aria-current="page" data-action="notice" data-value="当前为专辑页">专辑 132</button>${['合集 1','话题 2','地点 39','音乐 1'].map(t=>`<button data-action="notice" data-value="此标签不在本次演示范围">${t}</button>`).join('')}</div>`}
-function smartTile(g){return `<div class="smart-tile ${S.dragId===g.id?'dragging':''}" data-id="${g.id}"><button data-action="group" data-id="${g.id}" aria-label="打开智能合集 ${esc(g.name)}"><span class="tile-image"><img draggable="false" src="${asset(g.cover)}" alt="${esc(g.name)}"></span><span class="tile-name">${esc(g.name)}</span></button>${S.editing?`<div class="sort-tools"><button data-action="sort-left" data-id="${g.id}" aria-label="前移${esc(g.name)}">←</button><button data-action="hide" data-id="${g.id}" aria-label="隐藏${esc(g.name)}">隐藏</button><button data-action="sort-right" data-id="${g.id}" aria-label="后移${esc(g.name)}">→</button></div>`:''}</div>`}
+function smartTile(g){return `<div class="smart-tile ${S.dragId===g.id?'dragging':''}" data-id="${g.id}"><button data-action="group" data-id="${g.id}" aria-label="${S.editing?'拖动排序，或使用左右方向键调整：':'打开智能合集 '}${esc(g.name)}"><span class="tile-image"><img draggable="false" src="${asset(g.cover)}" alt="${esc(g.name)}"></span><span class="tile-name">${esc(g.name)}</span></button></div>`}
 function albumCard(a){return `<div class="album"><button class="albumbutton" data-action="album" data-id="${esc(a.id)}"><div class="albumhead"><span>${esc(a.name)}</span>${a.locked?`<span class="tiny-lock" aria-label="私密专辑">${ico('lock','small')}</span>`:''}</div><div class="albummeta"><span>笔记 · ${allNotes().filter(n=>n.original===a.id).length}</span>${a.shared?`<span>共享人 · ${a.shared}</span><span class="shared-avatars" aria-hidden="true">${Array.from({length:Math.min(a.shared,3)},(_,i)=>`<img src="${i===2?'assets/avatar.svg':asset(['design_brand','life_fashion'][i])}" alt="">`).join('')}</span>`:''}</div><div class="albumthumbs">${a.covers.slice(0,4).map(c=>`<span class="albumthumb"><img src="${asset(c)}" alt="${esc(a.name)} 专辑封面"></span>`).join('')}</div></button></div>`}
 function renderHome(){const gs=visibleGroups();return `${renderProfile()}<div class="entryrow"><button data-action="create"><span class="entryico">${ico('album-add')}</span>创建新专辑<span class="chevron">${ico('chevron','small')}</span></button></div>${S.smartOn?`<section aria-label="为你整理"><div class="section-head"><strong>为你整理</strong><button data-action="settings" aria-label="智能合集设置">${ico('more','small')}</button></div>${gs.length?`${S.editing?'<div class="sort-banner"><span>拖动调整顺序</span><button data-action="sort-done">完成</button></div>':''}<div class="shelf ${S.editing?'editing':''}" id="smartShelf">${gs.map(smartTile).join('')}</div>`:'<div class="shelf"><div class="shelf-empty">暂无显示的智能合集，可在设置中恢复。</div></div>'}</section>`:`<div class="smart-disabled"><span>智能合集已关闭</span><button data-action="settings" aria-label="智能合集设置">${ico('more','small')}</button></div>`}<div class="section-head albums-label"><strong>我的专辑</strong></div><div class="collection-list">${[...ALBUMS,...S.extraAlbums].map(albumCard).join('')}</div><div class="footer-mock" hidden data-classification-mode="${AI.mode}" data-classification-source="${AI.source}">${esc(AI.label())}</div>`}
 function noteCard(n){return `<button class="notecard ${S.selection.includes(n.id)?'selected':''}" data-action="${S.managing?'select-note':'note'}" data-id="${n.id}" ${S.managing?`aria-pressed="${S.selection.includes(n.id)}"`:''}><span class="note-image" style="aspect-ratio:${Number(n.ratio)>0?Number(n.ratio):.75}"><img src="${asset(n.cover)}" alt="${esc(n.title)}">${S.managing?`<span class="check-circle">${S.selection.includes(n.id)?ico('check','small'):''}</span>`:''}</span><span class="note-caption"><strong>${esc(n.title)}</strong><small>${esc(n.author?.name||n.original)}</small></span></button>`}
 function noteFlow(notes){return `<div class="masonry">${[0,1].map(col=>`<div class="note-column">${notes.filter((_,i)=>i%2===col).map(noteCard).join('')}</div>`).join('')}</div>`}
 function header(title,right=''){return `<div class="pagehead"><button aria-label="返回" data-action="home">${ico('back','big')}</button><strong>${esc(title)}</strong>${right||'<span></span>'}</div>`}
-function renderGroup(){const g=GROUPS.find(x=>x.id===S.selectedGroup);if(!g)return renderHome();const notes=groupNotes(g.id);const all=notes.length&&S.selection.length===notes.length;return `${S.managing?`<div class="pagehead"><button data-action="manage-exit" aria-label="退出管理">${ico('close')}</button><strong>已选择 ${S.selection.length} 篇</strong><button data-action="select-all">${all?'取消全选':'全选'}</button></div>`:header(g.name,`<div class="head-actions"><button data-action="share" aria-label="分享合集">${ico('share')}</button><button data-action="manage">管理</button></div>`)}<p class="detail-stat">${notes.length} 篇笔记</p>${S.managing?'':`<div class="collection-tools"><button data-action="add-notes">${ico('plus','small')}添加笔记</button><button data-action="share-invite">${ico('people','small')}邀请好友</button></div>`}${notes.length?noteFlow(notes):'<div class="no-results">还没有笔记，添加一些喜欢的内容吧</div>'}${S.managing?`<div class="managebar"><button data-action="batch-remove" ${S.selection.length?'':'disabled'}>${ico('close')}移出本合集</button><button data-action="batch-add" ${S.selection.length?'':'disabled'}>${ico('folder-add')}加入其他合集</button><button data-action="batch-unsave" ${S.selection.length?'':'disabled'}>${ico('bookmark')}取消收藏</button></div>`:''}`}
+function renderGroup(){const g=GROUPS.find(x=>x.id===S.selectedGroup);if(!g)return renderHome();const notes=groupNotes(g.id);const all=notes.length&&S.selection.length===notes.length;const copies=S.copies.filter(c=>c.sourceGroup===g.id&&c.sharingEnabled!==false);const friends=[...new Set(copies.flatMap(c=>c.friends||[]))];return `${S.managing?`<div class="pagehead"><button data-action="manage-exit" aria-label="退出管理">${ico('close')}</button><strong>已选择 ${S.selection.length} 篇</strong><button data-action="select-all">${all?'取消全选':'全选'}</button></div>`:`<div class="pagehead collection-nav"><button data-action="home" aria-label="返回">${ico('back','big')}</button><span></span><button data-action="share" aria-label="分享合集">${ico('share')}</button></div><div class="collection-heading"><h1>${esc(g.name)}</h1><button class="manage-pill" data-action="manage">管理</button></div><div class="collection-description" aria-hidden="true"></div><div class="collection-members"><button class="member-invite" data-action="share-invite"><span class="member-avatars">${(friends.length?friends.slice(0,3):['self']).map((id,i)=>`<img src="${picture('assets/author-'+(['home','travel','life'][i])+'.svg')}" alt="${id==='self'?'自己':'虚构好友'}">`).join('')}</span><span>邀请好友共享</span>${ico('chevron','tiny')}</button><span class="collection-count">笔记 · ${notes.length}</span></div>`}${notes.length?noteFlow(notes):'<div class="no-results">还没有笔记，添加一些喜欢的内容吧</div>'}${S.managing?`<div class="managebar"><button data-action="batch-remove" ${S.selection.length?'':'disabled'}>${ico('close')}移出本合集</button><button data-action="batch-add" ${S.selection.length?'':'disabled'}>${ico('folder-add')}加入其他合集</button><button data-action="batch-unsave" ${S.selection.length?'':'disabled'}>${ico('bookmark')}取消收藏</button></div>`:''}`}
 function renderAlbum(){const a=[...ALBUMS,...S.extraAlbums].find(a=>a.id===S.selectedAlbum);if(!a)return renderHome();const notes=allNotes().filter(n=>n.original===a.id);return `${header(a.name)}<div class="original-detail-title"><img src="${asset(a.covers[0])}" alt="${esc(a.name)}"><div><h2>${esc(a.name)}</h2><p>笔记 ${notes.length} · ${a.locked?'私密':'公开'}</p></div></div>${notes.length?noteFlow(notes):'<div class="no-results">这个模拟专辑暂时没有可演示的笔记。</div>'}`}
 function similarAlbums(name){const x=name.trim();if(x.length<2)return [];const pats=[/设计|平面|字体|排版|视觉|海报|作品集|创作|ui/i,/旅行|英国|韩国|欧洲|新西兰|首尔|游玩|攻略|旅游/i,/面试|求职|简历|秋招|笔试|校招|作品集/i,/美食|餐厅|咖啡|探店/i,/家居|软装|装修|房间|居住/i];const words=['视觉设计灵感','韩国','求职准备','美食','家居'];const tokens=pats.map((r,i)=>r.test(x)?words[i]:null).filter(Boolean);return ALBUMS.filter(a=>tokens.includes(a.name)||a.name.includes(x)||x.includes(a.name)).slice(0,4)}
 function matchHtml(){const sims=similarAlbums(S.createTitle);return sims.length?`<div class="matchbox">${ico('spark','tiny')}<span>发现 ${sims.length} 个相似专辑</span><span>·</span><button data-action="show-similar">查看</button></div>`:''}
 function renderCreate(){return `${header('新建专辑',`<button class="action" data-action="save-album" ${S.createTitle.trim()?'':'disabled'}>保存</button>`)}<div class="createform"><div class="form-fields"><div class="form-row"><label for="albumTitle">标题</label><input id="albumTitle" maxlength="32" value="${esc(S.createTitle)}" placeholder="为你的专辑添加一个标题" autocomplete="off"></div><div id="matchWrap" aria-live="polite">${matchHtml()}</div><div class="form-textarea"><label for="albumDesc">简介</label><textarea id="albumDesc" aria-label="专辑简介">${esc(S.createDesc)}</textarea></div></div><div class="setting"><span>公开我的专辑</span><button aria-label="公开我的专辑" role="switch" aria-checked="${S.createPublic}" class="switch ${S.createPublic?'on':''}" data-action="toggle-public"></button></div><p class="setting-help">关闭后，他人将无法查看你的专辑内容</p><div class="setting"><span>和好友共享专辑</span><button aria-label="和好友共享专辑" role="switch" aria-checked="${S.createShared}" class="switch ${S.createShared?'on':''}" data-action="toggle-shared"></button></div><p class="setting-help">开启后，你可以邀请好友编辑专辑内容</p></div>`}
-function render(){const el=E('appScreen');const oldTop=el.scrollTop;const shelf=E('smartShelf');if(shelf)S.shelfScroll=shelf.scrollLeft;el.innerHTML=S.page==='home'?renderHome():S.page==='group'?renderGroup():S.page==='create'?renderCreate():S.page==='note'?renderNote():S.page==='picker'?renderPicker():S.page==='share-picker'?renderSharePicker():S.page==='shared'?renderShared():renderAlbum();document.querySelector('.phone').dataset.page=S.page;document.querySelector('.tabbar').hidden=S.page!=='home';if(S.page==='home'){const rail=E('smartShelf');if(rail)rail.scrollLeft=S.shelfScroll||0}el.scrollTop=oldTop}
-function go(page,id){const el=E('appScreen');if(S.page==='home'){S.homeScroll=el.scrollTop;S.shelfScroll=E('smartShelf')?.scrollLeft||0}S.managing=false;S.selection=[];S.editing=false;S.page=page;if(page==='group')S.selectedGroup=id;if(page==='album')S.selectedAlbum=id;closeModal();render();el.scrollTop=page==='home'?S.homeScroll||0:0}
-function closeModal(){const layer=E('modalLayer');if(!layer.firstChild)return;layer.innerHTML='';document.querySelector('.phone').classList.remove('modal-open');E('appScreen').inert=false;document.querySelector('.tabbar').inert=false;S.modalOpener?.focus({preventScroll:true});S.modalOpener=null}
-function sheet(inner){if(!E('modalLayer').firstChild)S.modalOpener=document.activeElement;E('modalLayer').innerHTML=`<div class="scrim" id="backdrop"><div class="sheet" role="dialog" aria-modal="true" aria-label="${S.selectedNote?'笔记与收藏操作':'收藏操作'}" tabindex="-1"><div class="handle"></div>${inner}<button class="close" data-action="close">关闭</button></div></div>`;document.querySelector('.phone').classList.add('modal-open');E('appScreen').inert=true;document.querySelector('.tabbar').inert=true;E('modalLayer').querySelector('.sheet').focus({preventScroll:true})}
+/* v0.9 ROUND 2 motion helpers. Insert before render() and keep the existing
+   rendering/data logic. See /tmp/v09-motion-integration.md. */
+const MOTION = { page:230, sheet:290, select:140, sort:200, ease:'cubic-bezier(.22,.74,.25,1)' };
+const reducedMotion = () => !!(globalThis.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+function animateNative(element, frames, options) {
+  if (!element || reducedMotion() || typeof element.animate !== 'function') return null;
+  try { return element.animate(frames, {easing:MOTION.ease,fill:'none',...options}); }
+  catch (_) { return null; }
+}
+let navigationMotion=null, previousMotionRoute=null, previousChoiceState=new Map();
+function motionRoute() {
+  const page=S.page;
+  const detail=page==='note'?S.selectedNote:page==='shared'?S.sharedNote||'':page==='group'?S.selectedGroup:page==='album'?S.selectedAlbum:'';
+  const depth=page==='home'?0:page==='group'||page==='album'||page==='create'||page==='shared'&&!S.sharedNote?1:page==='share-picker'?3:2;
+  return {key:page+':'+detail,depth};
+}
+function motionAfterRender() {
+  const screen=E('appScreen'), route=motionRoute(), changed=previousMotionRoute&&route.key!==previousMotionRoute.key;
+  navigationMotion?.cancel(); navigationMotion=null;
+  screen.classList.remove('page-enter','page-back');
+  if(changed&&!reducedMotion()) {
+    const backward=route.depth<previousMotionRoute.depth || (route.depth===previousMotionRoute.depth&&route.key==='home:');
+    navigationMotion=animateNative(screen,[{transform:`translate3d(${backward?-16:16}px,0,0)`,opacity:.9},{transform:'translate3d(0,0,0)',opacity:1}],{duration:MOTION.page});
+    if(!navigationMotion) {
+      screen.classList.add(backward?'page-back':'page-enter');
+      setTimeout(()=>screen.classList.remove('page-enter','page-back'),MOTION.page+30);
+    }
+  }
+  const current=new Map();
+  for(const button of screen.querySelectorAll('button[aria-pressed],button[role="switch"]')) {
+    const key=route.key+':'+button.dataset.action+':'+(button.dataset.id||button.getAttribute('aria-label')||'');
+    const selected=(button.getAttribute('aria-pressed')||button.getAttribute('aria-checked'))==='true';
+    current.set(key,selected);
+    if(!changed&&previousChoiceState.has(key)&&previousChoiceState.get(key)!==selected) {
+      const indicator=button.querySelector('.check-circle')||button;
+      animateNative(indicator,[{transform:'scale(.86)',opacity:.65},{transform:'scale(1)',opacity:1}],{duration:MOTION.select});
+    }
+  }
+  previousChoiceState=current;previousMotionRoute=route;
+}
+
+/* Keep an unanimated immediate close for page navigation/replacement, and a
+   guarded animated close for dismissing an existing sheet. */
+let modalMotionEpoch=0, modalClosing=null;
+function setModalBackgroundLock(locked) {
+  document.querySelector('.phone').classList.toggle('modal-open',locked);
+  for(const node of [E('appScreen'),document.querySelector('.tabbar')]) {
+    if(!node)continue;
+    if('inert' in node)node.inert=locked;
+    else {node.style.pointerEvents=locked?'none':'';node.toggleAttribute('data-modal-locked',locked);}
+    if(locked)node.setAttribute('aria-hidden','true');else node.removeAttribute('aria-hidden');
+  }
+}
+function motionPrepareSheet() {
+  const layer=E('modalLayer'), previous=layer.querySelector('.sheet');
+  const context={replacing:!!previous,height:previous?.getBoundingClientRect().height||0};
+  modalMotionEpoch++;
+  if(modalClosing){for(const animation of modalClosing.animations)animation?.cancel();modalClosing=null;}
+  return context;
+}
+function motionSheetOpen(context={}) {
+  const layer=E('modalLayer'),scrim=layer.firstElementChild,panel=layer.querySelector('.sheet');
+  if(!panel||!scrim)return;
+  panel.style.animation='none';scrim.classList.remove('sheet-closing');
+  setModalBackgroundLock(true);
+  if(reducedMotion())return;
+  if(context.replacing) {
+    const next=panel.getBoundingClientRect().height;
+    if(context.height&&Math.abs(next-context.height)>2) {
+      const animation=animateNative(panel,[{height:context.height+'px'},{height:next+'px'}],{duration:180});
+      if(animation){panel.style.overflowY='hidden';animation.finished.catch(()=>{}).then(()=>{if(panel.isConnected)panel.style.overflowY='';});}
+    }
+    return;
+  }
+  const animation=animateNative(panel,[{transform:'translate3d(0,100%,0)'},{transform:'translate3d(0,0,0)'}],{duration:MOTION.sheet});
+  animateNative(scrim,[{backgroundColor:'rgba(0,0,0,0)'},{backgroundColor:'rgba(0,0,0,.6)'}],{duration:MOTION.sheet});
+  if(!animation){scrim.classList.add('sheet-opening');setTimeout(()=>scrim.classList.remove('sheet-opening'),MOTION.sheet+30);}
+}
+function closeModal(immediate=false) {
+  const layer=E('modalLayer'),root=layer.firstElementChild;
+  if(!root)return;
+  if(modalClosing&&!immediate)return;
+  const panel=root.querySelector('.sheet'),opener=S.modalOpener,epoch=++modalMotionEpoch;
+  if(modalClosing){for(const animation of modalClosing.animations)animation?.cancel();modalClosing=null;}
+  function finish() {
+    if(epoch!==modalMotionEpoch||layer.firstElementChild!==root)return;
+    layer.replaceChildren();modalClosing=null;setModalBackgroundLock(false);S.modalOpener=null;
+    if(opener?.isConnected)opener.focus({preventScroll:true});
+  }
+  if(immediate||reducedMotion()||!panel){finish();return;}
+  root.classList.add('sheet-closing');root.setAttribute('data-closing','true');
+  // The mask continues to intercept clicks until the old sheet is removed.
+  panel.style.pointerEvents='none';
+  const distance=Math.max(0,Number(panel.dataset.dragOffset)||0);
+  const slide=animateNative(panel,[{transform:`translate3d(0,${distance}px,0)`},{transform:'translate3d(0,100%,0)'}],{duration:MOTION.sheet});
+  const fade=animateNative(root,[{backgroundColor:getComputedStyle(root).backgroundColor},{backgroundColor:'rgba(0,0,0,0)'}],{duration:MOTION.sheet});
+  modalClosing={root,animations:[slide,fade]};
+  if(slide)slide.finished.catch(()=>{}).then(finish);else setTimeout(finish,MOTION.sheet);
+}
+// Old Safari/WebViews without inert still keep focus inside the active dialog.
+document.addEventListener('focusin',event=>{
+  const layer=E('modalLayer');if(!layer.firstElementChild||layer.contains(event.target))return;
+  const dialog=layer.querySelector('[role="dialog"]');dialog?.focus({preventScroll:true});
+});
+
+/* Downward dismissal starts only on the handle or non-interactive sheet header.
+   Beginning a normal content scroll never arms this gesture. */
+let sheetDrag=null;
+document.addEventListener('pointerdown',event=>{
+  const panel=event.target.closest('.sheet'),handle=event.target.closest('.handle,.sheet-drag-handle,.share-head,.sheet-head');
+  if(!panel||!handle||event.target.closest('button,a,input,textarea,select')||event.button>0||panel.scrollTop>1)return;
+  if(E('modalLayer').firstElementChild?.hasAttribute('data-closing'))return;
+  sheetDrag={panel,root:panel.parentElement,pointer:event.pointerId,x:event.clientX,y:event.clientY,dy:0,started:false};
+  for(const animation of panel.getAnimations?.()||[])animation.cancel();
+});
+document.addEventListener('pointermove',event=>{
+  const drag=sheetDrag;if(!drag||event.pointerId!==drag.pointer)return;
+  const dx=event.clientX-drag.x,dy=event.clientY-drag.y;
+  if(!drag.started) {
+    if(Math.abs(dx)>8&&Math.abs(dx)>Math.abs(dy)){sheetDrag=null;return;}
+    if(dy< -8){sheetDrag=null;return;}
+    if(dy<7||dy<Math.abs(dx)*1.2)return;
+    drag.started=true;
+    try{drag.panel.setPointerCapture(event.pointerId);}catch(_){}
+  }
+  if(event.cancelable)event.preventDefault();
+  drag.dy=Math.max(0,dy);drag.panel.dataset.dragOffset=String(drag.dy);
+  drag.panel.style.transform=`translate3d(0,${drag.dy}px,0)`;
+  drag.root.style.backgroundColor=`rgba(0,0,0,${.6*(1-Math.min(.85,drag.dy/Math.max(drag.panel.offsetHeight,1)))})`;
+},{passive:false});
+document.addEventListener('touchmove',event=>{if(sheetDrag?.started&&event.cancelable)event.preventDefault();},{passive:false});
+function endSheetDrag(event) {
+  const drag=sheetDrag;if(!drag||event.pointerId!==drag.pointer)return;sheetDrag=null;
+  if(!drag.panel.isConnected)return;
+  if(event.type==='pointerup'&&drag.started&&drag.dy>Math.min(100,drag.panel.offsetHeight*.22)){closeModal();return;}
+  if(drag.started){
+    const animation=animateNative(drag.panel,[{transform:`translate3d(0,${drag.dy}px,0)`},{transform:'translate3d(0,0,0)'}],{duration:180});
+    drag.panel.style.transform='';delete drag.panel.dataset.dragOffset;
+    animateNative(drag.root,[{backgroundColor:drag.root.style.backgroundColor},{backgroundColor:'rgba(0,0,0,.6)'}],{duration:180});drag.root.style.backgroundColor='';
+  }
+}
+document.addEventListener('pointerup',endSheetDrag);document.addEventListener('pointercancel',endSheetDrag);
+
+
+function render(){const el=E('appScreen');const oldTop=el.scrollTop;const shelf=E('smartShelf');if(shelf)S.shelfScroll=shelf.scrollLeft;el.innerHTML=S.page==='home'?renderHome():S.page==='group'?renderGroup():S.page==='create'?renderCreate():S.page==='note'?renderNote():S.page==='picker'?renderPicker():S.page==='share-picker'?renderSharePicker():S.page==='shared'?renderShared():S.page==='friends'?renderFriendsSettings():renderAlbum();document.querySelector('.phone').dataset.page=S.page;document.querySelector('.tabbar').hidden=S.page!=='home';if(S.page==='home'){const rail=E('smartShelf');if(rail)rail.scrollLeft=S.shelfScroll||0}el.scrollTop=oldTop;motionAfterRender()}
+function go(page,id){const el=E('appScreen');if(S.page==='home'){S.homeScroll=el.scrollTop;S.shelfScroll=E('smartShelf')?.scrollLeft||0}S.managing=false;S.selection=[];S.editing=false;S.page=page;if(page==='group')S.selectedGroup=id;if(page==='album')S.selectedAlbum=id;closeModal(true);render();el.scrollTop=page==='home'?S.homeScroll||0:0}
+
+function sheet(inner,options={}){const motionContext=motionPrepareSheet();if(!E('modalLayer').firstChild)S.modalOpener=document.activeElement;E('modalLayer').innerHTML=`<div class="scrim" id="backdrop"><div class="sheet ${options.kind||''}" role="dialog" aria-modal="true" aria-label="${esc(options.label||(S.selectedNote?'笔记与收藏操作':'收藏操作'))}" tabindex="-1"><div class="handle" aria-label="向下滑动关闭"></div>${inner}${options.nativeClose?'':'<button class="close" data-action="close">关闭</button>'}</div></div>`;E('modalLayer').querySelector('.sheet').focus({preventScroll:true});motionSheetOpen(motionContext)}
 function toast(msg,undo=null){const t=E('toastLayer');t.innerHTML=`<div class="toast" role="status"><span>${esc(msg)}</span>${undo?'<button data-action="undo">撤销</button>':''}</div>`;S.toastUndo=undo;clearTimeout(S.toastTimer);S.toastTimer=setTimeout(()=>{t.innerHTML='';S.toastUndo=null},4400)}
 function groupMenu(){settingsSheet()}
 
 function simulateSheet(){sheet(`<h3>模拟收藏一篇新笔记</h3><p>选择一篇笔记，体验收藏后的变化。</p>${NEW_NOTES.map(n=>`<button class="choice" data-action="save-note" data-id="${n.id}" ${allNotes().some(x=>x.id===n.id)?'disabled':''}><img src="${asset(n.cover)}" alt=""/><span><strong>${esc(n.title)}</strong><small>${allNotes().some(x=>x.id===n.id)?'已在模拟收藏中':'收藏这篇笔记'}</small></span><span class="arrow">${ico(allNotes().some(x=>x.id===n.id)?'check':'plus','small')}</span></button>`).join('')}`)}
-function settingsSheet(){sheet(`<h3>为你整理</h3><button class="choice" data-action="sort-start">调整合集顺序</button><button class="choice" data-action="sort-auto">按最近收藏排序${S.order?'':' · 当前'}</button><button class="choice" data-action="smart-toggle">${S.smartOn?'关闭':'开启'}智能合集展示</button><h3>隐藏的合集</h3>${S.hidden.length?S.hidden.map(id=>{const g=GROUPS.find(g=>g.id===id);return g?`<button class="choice" data-action="restore" data-id="${id}">${esc(g.name)}<span class="arrow">恢复</span></button>`:''}).join(''):'<p>没有隐藏的合集</p>'}<button class="choice" data-action="simulate">模拟新收藏</button><button class="choice" data-action="about">关于原型</button>`)}
+function settingsSheet(){sheet(`<h3>为你整理</h3><button class="choice" data-action="sort-start">调整合集顺序</button><button class="choice" data-action="sort-auto">按最近收藏排序${S.order?'':' · 当前'}</button><button class="choice" data-action="display-settings">管理显示的合集</button><button class="choice" data-action="smart-toggle">${S.smartOn?'关闭':'开启'}智能合集展示</button><button class="choice" data-action="simulate">模拟新收藏</button><button class="choice" data-action="about">关于原型</button>`)}
+function displaySettings(){sheet(`<h3>管理显示的合集</h3><div class="visibility-list">${orderedGroups().map(g=>`<div class="visibility-row"><span>${esc(g.name)}</span><button data-action="visibility-toggle" data-id="${g.id}" class="switch ${S.hidden.includes(g.id)?'':'on'}" role="switch" aria-label="显示${esc(g.name)}" aria-checked="${!S.hidden.includes(g.id)}"></button></div>`).join('')}</div>`,{kind:'visibility-sheet',label:'管理显示的合集'})}
+function manageSheet(){sheet('<div class="action-sheet"><button class="action-row" data-action="add-notes">添加笔记</button><button class="action-row" data-action="manage-start">批量管理</button><button class="action-row action-cancel" data-action="close">取消</button></div>',{kind:'action-sheet-panel',label:'管理合集',nativeClose:true})}
 function similarSheet(){const sims=similarAlbums(S.createTitle);sheet(`<h3>已有的相似专辑</h3><p>AI 根据输入的标题识别相关主题。这些结果仅供参考，不会阻止你创建新的专辑。</p>${sims.map(a=>`<button class="choice" data-action="album" data-id="${esc(a.id)}"><img src="${asset(a.covers[0])}" alt=""/><span><strong>${esc(a.name)}</strong><small>${a.count} 篇收藏 · 原有专辑</small></span><span class="arrow">${ico('chevron','small')}</span></button>`).join('')}`)}
 function saveAlbum(){const name=S.createTitle.trim();if(!name){toast('请填写专辑名称');return}const id='user-'+Date.now();const x={id,name,count:0,locked:!S.createPublic,shared:S.createShared?1:0,covers:['design_grid','design_brand','travel_uk','food_cafe']};S.extraAlbums.unshift(x);commit();S.createTitle='';S.createDesc='';S.createPublic=true;S.createShared=false;go('home');toast(`「${name}」已创建，原有专辑保持不变`,()=>{S.extraAlbums=S.extraAlbums.filter(a=>a.id!==id);commit();render()})}
-function preferenceSnapshot(){return structuredClone({manual:S.manual,exclude:S.exclude,removed:S.removed,savedNew:S.savedNew,savedTimes:S.savedTimes})}
-function finishChange(before,message){S.managing=false;S.selection=[];commit();closeModal();render();toast(message,()=>{Object.assign(S,before);commit();render()})}
+function preferenceSnapshot(){return cloneData({manual:S.manual,exclude:S.exclude,removed:S.removed,savedNew:S.savedNew,savedTimes:S.savedTimes})}
+function finishChange(before,message){S.managing=false;S.selection=[];commit();closeModal(true);render();toast(message,()=>{Object.assign(S,before);commit();render()})}
 function removeFromGroup(ids,group){S.manual[group]=(S.manual[group]||[]).filter(id=>!ids.includes(id));S.exclude[group]=[...new Set([...(S.exclude[group]||[]),...ids])]}
 function addToGroups(ids,groups){for(const group of groups){S.manual[group]=[...new Set([...(S.manual[group]||[]),...ids])];S.exclude[group]=(S.exclude[group]||[]).filter(id=>!ids.includes(id))}}
 function targetSheet(ids){S.targetSource=S.page==='group'?S.selectedGroup:S.page==='note'&&S.noteReturn?.page==='group'?S.noteReturn.group:null;S.pendingIds=ids.slice();S.targets=[];drawTargets()}
-function drawTargets(){sheet(`<h3>加入其他智能合集</h3>${GROUPS.filter(g=>g.id!==S.targetSource).map(g=>`<button class="choice ${S.targets.includes(g.id)?'selected':''}" aria-pressed="${S.targets.includes(g.id)}" data-action="target-group" data-id="${g.id}"><span>${esc(g.name)}</span><span class="arrow">${S.targets.includes(g.id)?'✓':'○'}</span></button>`).join('')}<button class="primary-button" data-action="target-confirm" ${S.targets.length?'':'disabled'}>确认加入</button>`)}
-function startSort(preserveTouch=false){S.editing=true;closeModal();const rail=E('smartShelf');if(preserveTouch&&rail){rail.classList.add('editing');const banner=document.createElement('div');banner.className='sort-banner';banner.innerHTML='<span>拖动调整顺序</span><button data-action="sort-done">完成</button>';rail.before(banner);for(const tile of rail.querySelectorAll('.smart-tile')){const g=GROUPS.find(g=>g.id===tile.dataset.id);const temp=document.createElement('div');temp.innerHTML=smartTile(g);tile.append(temp.firstElementChild.querySelector('.sort-tools'));tile.classList.toggle('dragging',tile.dataset.id===S.dragId)}}else{render();E('smartShelf')?.scrollIntoView({block:'center'})}}
-function moveGroup(id,to,preserveTouch=false){const order=orderedGroups().map(g=>g.id);const from=order.indexOf(id);if(from<0||to<0||to>=order.length)return;order.splice(from,1);order.splice(to,0,id);S.order=order;commit();if(preserveTouch){for(const tile of E('smartShelf').querySelectorAll('.smart-tile')){tile.style.order=order.indexOf(tile.dataset.id);tile.classList.toggle('dragging',tile.dataset.id===id)}}else render()}
-let gesture=null,suppressClickUntil=0;
-document.addEventListener('pointerdown',ev=>{
- const rail=ev.target.closest('#smartShelf');const tile=ev.target.closest('.smart-tile');
- if(!rail||!tile||ev.button>0||ev.target.closest('.sort-tools'))return;
- suppressClickUntil=0;
- gesture={id:tile.dataset.id,x:ev.clientX,y:ev.clientY,left:rail.scrollLeft,pointer:ev.pointerId,type:ev.pointerType,moved:false,sorting:S.editing};
- if(!S.editing)gesture.timer=setTimeout(()=>{if(!gesture||gesture.moved)return;gesture.sorting=true;S.dragId=gesture.id;startSort(true);suppressClickUntil=Date.now()+800},450);
+function drawTargets(){sheet(`<h3>加入其他智能合集</h3>${GROUPS.filter(g=>g.id!==S.targetSource).map(g=>`<button class="choice ${S.targets.includes(g.id)?'selected':''}" aria-pressed="${S.targets.includes(g.id)}" data-action="target-group" data-id="${g.id}"><span>${esc(g.name)}</span><span class="arrow">${ico(S.targets.includes(g.id)?'check':'plus','small')}</span></button>`).join('')}<button class="primary-button" data-action="target-confirm" ${S.targets.length?'':'disabled'}>确认加入</button>`)}
+function startSort(preserveTouch=false){S.editing=true;closeModal(true);const rail=E('smartShelf');if(preserveTouch&&rail){rail.classList.add('editing');const banner=document.createElement('div');banner.className='sort-banner';banner.innerHTML='<span>拖动调整顺序</span><button data-action="sort-done">完成</button>';rail.before(banner);for(const tile of rail.querySelectorAll('.smart-tile'))tile.classList.toggle('dragging',tile.dataset.id===S.dragId)}else{render();E('smartShelf')?.scrollIntoView({block:'center'})}}
+let gesture=null,suppressClickUntil=0,settlingSort=null;
+function sortSource(gestureState){return E('smartShelf')?.querySelector(`.smart-tile[data-id="${gestureState.id}"]`);}
+function createSortGhost(g) {
+  const tile=sortSource(g);if(!tile||g.ghost)return;
+  const rect=tile.getBoundingClientRect();g.source=tile;g.grabX=g.lastX-rect.left;g.grabY=g.lastY-rect.top;
+  const ghost=tile.cloneNode(true);ghost.className='smart-tile sort-drag-ghost';ghost.removeAttribute('data-id');ghost.setAttribute('aria-hidden','true');
+  for(const node of ghost.querySelectorAll('[data-action]')){node.removeAttribute('data-action');node.removeAttribute('data-id');node.tabIndex=-1;}
+  Object.assign(ghost.style,{position:'fixed',left:'0',top:'0',width:rect.width+'px',height:rect.height+'px',pointerEvents:'none',zIndex:'1000',margin:'0',transformOrigin:'50% 50%'});
+  document.body.append(ghost);g.ghost=ghost;tile.classList.add('drag-source','dragging');tile.style.opacity='0';updateSortGhost(g);
+}
+function updateSortGhost(g) {
+  if(!g.ghost)return;g.ghostX=g.lastX-g.grabX;g.ghostY=g.lastY-g.grabY;
+  g.ghost.style.transform=`translate3d(${g.ghostX}px,${g.ghostY}px,0) scale(1.045)`;
+}
+function moveGroup(id,to,preserveTouch=false) {
+  const order=orderedGroups().map(g=>g.id),from=order.indexOf(id);if(from<0||to<0||to>=order.length||from===to)return;
+  const rail=E('smartShelf'),tiles=[...(rail?.querySelectorAll('.smart-tile')||[])],before=new Map(tiles.map(tile=>[tile.dataset.id,tile.getBoundingClientRect()]));
+  order.splice(from,1);order.splice(to,0,id);S.order=order;commit();
+  if(preserveTouch){
+    for(const tile of tiles){for(const animation of tile.getAnimations?.()||[])animation.cancel();tile.style.order=order.indexOf(tile.dataset.id);tile.classList.toggle('dragging',tile.dataset.id===id);}
+    for(const tile of tiles){if(tile.dataset.id===id)continue;const after=tile.getBoundingClientRect(),old=before.get(tile.dataset.id);const dx=old.left-after.left,dy=old.top-after.top;if(Math.abs(dx)+Math.abs(dy)>.5)animateNative(tile,[{transform:`translate3d(${dx}px,${dy}px,0)`},{transform:'translate3d(0,0,0)'}],{duration:MOTION.sort});}
+  }else{render();E('smartShelf')?.querySelector(`[data-action="group"][data-id="${id}"]`)?.focus({preventScroll:true});}
+}
+function reorderAtPointer(g) {
+  const rail=E('smartShelf');if(!rail)return;
+  const target=document.elementFromPoint(g.lastX,g.lastY)?.closest('.smart-tile');
+  if(target&&target.closest('#smartShelf')===rail&&target.dataset.id!==g.id)moveGroup(g.id,orderedGroups().findIndex(item=>item.id===target.dataset.id),true);
+}
+function sortEdgeFrame() {
+  const g=gesture,rail=E('smartShelf');if(!g?.sorting||!g.moved||!rail)return;
+  const box=rail.getBoundingClientRect(),speed=g.lastX>box.right-28?8:g.lastX<box.left+28?-8:0;
+  if(speed){rail.scrollLeft+=speed;reorderAtPointer(g);}g.edgeFrame=requestAnimationFrame(sortEdgeFrame);
+}
+function clearSettlingSort() {
+  if(!settlingSort)return;const settling=settlingSort;settlingSort=null;settling.animation?.cancel();settling.finish(false);
+}
+document.addEventListener('pointerdown',event=>{
+  const rail=event.target.closest('#smartShelf'),tile=event.target.closest('.smart-tile');if(!rail||!tile||event.button>0)return;
+  clearSettlingSort();suppressClickUntil=0;
+  gesture={id:tile.dataset.id,x:event.clientX,y:event.clientY,lastX:event.clientX,lastY:event.clientY,left:rail.scrollLeft,pointer:event.pointerId,type:event.pointerType,moved:false,sorting:S.editing};
+  if(S.editing){S.dragId=gesture.id;createSortGhost(gesture);}
+  else gesture.timer=setTimeout(()=>{if(!gesture||gesture.moved)return;gesture.sorting=true;S.dragId=gesture.id;startSort(true);createSortGhost(gesture);suppressClickUntil=Date.now()+800;},450);
 });
-document.addEventListener('pointermove',ev=>{
- const g=gesture;if(!g||ev.pointerId!==g.pointer)return;
- const dx=ev.clientX-g.x,dy=ev.clientY-g.y;const rail=E('smartShelf');if(!rail)return;
- if(Math.hypot(dx,dy)>8){g.moved=true;clearTimeout(g.timer)}
- if(g.sorting){
-  if(g.moved){ev.preventDefault();S.dragId=g.id;rail.classList.add('dragging');const target=document.elementFromPoint(ev.clientX,ev.clientY)?.closest('.smart-tile');if(target&&target.dataset.id!==g.id)moveGroup(g.id,orderedGroups().findIndex(x=>x.id===target.dataset.id),true);const rect=rail.getBoundingClientRect();if(ev.clientX>rect.right-28)rail.scrollLeft+=16;if(ev.clientX<rect.left+28)rail.scrollLeft-=16;suppressClickUntil=Date.now()+400}
- }else if(g.type==='mouse'&&g.moved&&Math.abs(dx)>Math.abs(dy)){ev.preventDefault();rail.scrollLeft=g.left-dx;suppressClickUntil=Date.now()+400}
+document.addEventListener('pointermove',event=>{
+  const g=gesture;if(!g||event.pointerId!==g.pointer)return;g.lastX=event.clientX;g.lastY=event.clientY;
+  const dx=g.lastX-g.x,dy=g.lastY-g.y,rail=E('smartShelf');if(!rail)return;
+  if(Math.hypot(dx,dy)>8){g.moved=true;clearTimeout(g.timer);}
+  if(g.sorting){if(g.moved){if(event.cancelable)event.preventDefault();createSortGhost(g);updateSortGhost(g);reorderAtPointer(g);if(!g.edgeFrame)g.edgeFrame=requestAnimationFrame(sortEdgeFrame);suppressClickUntil=Date.now()+400;}}
+  else if(g.type==='mouse'&&g.moved&&Math.abs(dx)>Math.abs(dy)){if(event.cancelable)event.preventDefault();try{document.documentElement.setPointerCapture(event.pointerId);}catch(_){}rail.scrollLeft=g.left-dx;suppressClickUntil=Date.now()+400;}
 },{passive:false});
-function endGesture(){if(!gesture)return;clearTimeout(gesture.timer);if(gesture.moved||gesture.sorting)suppressClickUntil=Date.now()+400;const wasSort=gesture.sorting;gesture=null;if(wasSort){S.dragId=null;render()}}
-document.addEventListener('touchmove',ev=>{if(gesture?.sorting&&ev.cancelable)ev.preventDefault()},{passive:false});
+function endGesture() {
+  const g=gesture;if(!g)return;clearTimeout(g.timer);cancelAnimationFrame(g.edgeFrame);gesture=null;
+  if(g.moved||g.sorting)suppressClickUntil=Date.now()+400;
+  if(!g.sorting)return;
+  S.dragId=null;const source=g.source||sortSource(g);source?.classList.remove('dragging');
+  function finish(repaint=true) {
+    g.ghost?.remove();if(source?.isConnected){source.style.opacity='';source.classList.remove('drag-source');}
+    if(settlingSort?.gesture===g)settlingSort=null;
+    if(repaint&&!gesture&&S.page==='home'&&S.editing)render();
+  }
+  if(g.ghost&&source?.isConnected){
+    const target=source.getBoundingClientRect();
+    const animation=animateNative(g.ghost,[{transform:g.ghost.style.transform,opacity:.92},{transform:`translate3d(${target.left}px,${target.top}px,0) scale(1)`,opacity:1}],{duration:MOTION.page});
+    if(animation){settlingSort={gesture:g,animation,finish};animation.finished.catch(()=>{}).then(()=>{if(settlingSort?.gesture===g)finish();});return;}
+  }
+  finish();
+}
+document.addEventListener('touchmove',event=>{if(gesture?.sorting&&event.cancelable)event.preventDefault();},{passive:false});
 document.addEventListener('pointerup',endGesture);document.addEventListener('pointercancel',endGesture);
-document.addEventListener('contextmenu',ev=>{if(ev.target.closest('#smartShelf'))ev.preventDefault()});
+document.addEventListener('contextmenu',event=>{if(event.target.closest('#smartShelf'))event.preventDefault();});
 
-function noteSheet(id){const n=AI.notes.find(n=>n.id===id);if(!n)return;S.noteReturn={page:S.page,group:S.selectedGroup,album:S.selectedAlbum,top:E('appScreen').scrollTop};S.selectedNote=id;S.page='note';closeModal();render();E('appScreen').scrollTop=0}
-function returnFromNote(){const back=S.noteReturn||{page:'home',top:0};S.page=back.page;S.selectedGroup=back.group;S.selectedAlbum=back.album;closeModal();render();E('appScreen').scrollTop=back.top}
+
+function noteSheet(id){const n=AI.notes.find(n=>n.id===id);if(!n)return;S.noteReturn={page:S.page,group:S.selectedGroup,album:S.selectedAlbum,top:E('appScreen').scrollTop};S.selectedNote=id;S.page='note';closeModal(true);render();E('appScreen').scrollTop=0}
+function returnFromNote(){const back=S.noteReturn||{page:'home',top:0};S.page=back.page;S.selectedGroup=back.group;S.selectedAlbum=back.album;closeModal(true);render();E('appScreen').scrollTop=back.top}
 function picture(path){if(globalThis.RE_INLINE_PICTURES?.[path])return globalThis.RE_INLINE_PICTURES[path];return path?.startsWith('assets/')&&path.endsWith('.webp')?asset(path.slice(7,-5)):path||'assets/avatar.svg'}
-function renderNote(){const n=AI.notes.find(n=>n.id===S.selectedNote);if(!n)return '';const saved=allNotes().some(x=>x.id===n.id);const liked=S.liked.includes(n.id);const images=n.images?.length?n.images:[`assets/${n.cover}.webp`];return `<article class="note-detail"><div class="pagehead"><button data-action="note-back" aria-label="返回">${ico('back')}</button><div class="note-author"><img src="${picture(n.author?.avatar)}" alt=""><strong>${esc(n.author?.name||'拾光手记')}</strong></div><button data-action="note-menu" aria-label="笔记操作">${ico('more')}</button></div><div class="note-gallery" aria-label="笔记图片，可左右滑动">${images.map((image,i)=>`<img src="${picture(image)}" alt="${esc(n.title)} · ${i+1}">`).join('')}</div><div class="note-body"><h1>${esc(n.title)}</h1>${(n.body||n.description).split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="note-tags">${n.tags.map(t=>`<span>#${esc(t)}</span>`).join('')}</div><div class="note-comments">${(S.comments[n.id]||[]).map(text=>`<p><strong>momo</strong> ${esc(text)}</p>`).join('')}</div><div class="note-meta">${esc((n.savedAt||'').slice(0,10))} · ${esc(n.author?.bio||'记录日常的小小发现')}</div><div class="note-interactions"><button data-action="note-like" class="${liked?'active':''}" aria-pressed="${liked}">♡ ${Number(n.likes||36)+(liked?1:0)}</button><button data-action="note-save" class="${saved?'saved':''}" aria-pressed="${saved}">${ico('bookmark','small')}${saved?'已收藏':'收藏'}</button><button data-action="note-comment">${ico('edit','small')}写评论</button></div></article>`}
+function renderNote(){const n=AI.notes.find(n=>n.id===S.selectedNote);if(!n)return '';const saved=allNotes().some(x=>x.id===n.id);const liked=S.liked.includes(n.id);const images=n.images?.length?n.images:[`assets/${n.cover}.webp`];return `<article class="note-detail"><div class="pagehead"><button data-action="note-back" aria-label="返回">${ico('back')}</button><div class="note-author"><img src="${picture(n.author?.avatar)}" alt=""><strong>${esc(n.author?.name||'拾光手记')}</strong></div><button data-action="note-menu" aria-label="笔记操作">${ico('more')}</button></div><div class="note-gallery" aria-label="笔记图片，可左右滑动">${images.map((image,i)=>`<img src="${picture(image)}" alt="${esc(n.title)} · ${i+1}">`).join('')}</div><div class="note-body"><h1>${esc(n.title)}</h1>${(n.body||n.description).split('\n\n').map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="note-tags">${n.tags.map(t=>`<span>#${esc(t)}</span>`).join('')}</div><div class="note-comments">${(S.comments[n.id]||[]).map(text=>`<p><strong>momo</strong> ${esc(text)}</p>`).join('')}</div><div class="note-meta">${esc((n.savedAt||'').slice(0,10))} · ${esc(n.author?.bio||'记录日常的小小发现')}</div><div class="note-interactions"><button data-action="note-like" class="${liked?'active':''}" aria-pressed="${liked}">${ico('heart','small')} ${Number(n.likes||36)+(liked?1:0)}</button><button data-action="note-save" class="${saved?'saved':''}" aria-pressed="${saved}">${ico('bookmark','small')}${saved?'已收藏':'收藏'}</button><button data-action="note-comment">${ico('edit','small')}写评论</button></div></article>`}
 function noteMenu(){const n=AI.notes.find(n=>n.id===S.selectedNote);if(!allNotes().some(x=>x.id===n.id)){sheet('<h3>笔记操作</h3><p>收藏这篇笔记后，可调整智能分类。</p>');return;}const group=S.noteReturn?.page==='group'?S.noteReturn.group:null;const member=group&&inGroup(n,group);sheet(`<h3>调整智能分类</h3>${member?`<button class="choice" data-action="note-exclude">移出当前合集</button>`:''}<button class="choice" data-action="note-add-other">加入其他智能合集</button><details class="classification"><summary>查看分类依据</summary><p>${esc(AI.reason(n.id,group))}</p></details><div class="note-source"><span>原收藏专辑</span><strong>${esc(n.originalAlbum)}</strong></div>`)}
 function renderPicker(){const notes=allNotes();const available=notes.filter(n=>!inGroup(n,S.selectedGroup));const all=available.length>0&&available.every(n=>S.pickerSelected.includes(n.id));return `<div class="pagehead"><button data-action="picker-close" aria-label="关闭选择器">${ico('close')}</button><strong>所有帖子</strong><button data-action="picker-all">${all?'取消全选':'全选'}</button></div><div class="picker-grid">${notes.map(n=>{const already=inGroup(n,S.selectedGroup),selected=S.pickerSelected.includes(n.id);return `<button class="picker-card ${already?'already':selected?'selected':''}" data-action="picker-toggle" data-id="${n.id}" aria-label="${esc(n.title)}" aria-pressed="${selected}" ${already?'disabled':''}><img src="${asset(n.cover)}" alt="${esc(n.title)}"><span class="check-circle">${already||selected?ico('check','small'):''}</span>${already?'<span class="already-label">已加入</span>':''}</button>`}).join('')}</div><div class="picker-footer"><button data-action="picker-confirm" ${S.pickerSelected.length?'':'disabled'}>加入当前合集${S.pickerSelected.length?`（${S.pickerSelected.length}）`:''}</button></div>`}
 function leavePicker(){S.page='group';S.pickerSelected=[];render();E('appScreen').scrollTop=S.pickerTop||0}
@@ -181,23 +379,12 @@ function initializeShare(){
   S.sharedSnapshot={name:payload.name,noteIds:ids};
  }catch(_){S.sharedSnapshot=null;S.shareError=true}
 }
-function shareSheet(){
- const group=GROUPS.find(g=>g.id===S.selectedGroup);if(!group)return;
- const copies=(S.copies||[]).filter(c=>c.sourceGroup===group.id&&knownShareIds(c.noteIds).length);
- sheet(`<h3>分享「${esc(group.name)}」</h3><p>个人智能合集仅自己可见。先选择要分享的笔记，未来新增收藏不会自动公开。</p><button class="choice" data-action="share-preview">分享合集预览</button><button class="choice" data-action="share-copy">复制演示链接</button><button class="choice" data-action="share-create">创建可共享副本</button><button class="choice" data-action="share-invite">邀请好友整理共享副本</button>${copies.length?`<h3>已创建的共享副本</h3>${copies.map(c=>`<button class="choice" data-action="share-open-copy" data-id="${esc(c.id)}"><span>${esc(c.name)}<small>${knownShareIds(c.noteIds).length} 篇 · ${(c.friends||[]).length} 位模拟好友</small></span><span class="arrow">${ico('chevron','small')}</span></button>`).join('')}`:''}`);
-}
-function startShareSelection(purpose){
- const group=GROUPS.find(g=>g.id===S.selectedGroup);if(!group)return;
- S.sharePurpose=purpose;S.shareSelected=[];S.shareCandidates=groupNotes(group.id).map(n=>n.id);
- S.shareReturn={page:S.page,group:S.selectedGroup,top:E('appScreen').scrollTop};
- closeModal();S.page='share-picker';S.managing=false;S.selection=[];render();E('appScreen').scrollTop=0;
-}
 function renderSharePicker(){
  const candidates=AI.notes.filter(n=>(S.shareCandidates||[]).includes(n.id));const selected=S.shareSelected||[];
  return `<div class="pagehead"><button data-action="share-cancel" aria-label="退出分享选择">${ico('close')}</button><strong>选择分享的笔记</strong><button data-action="share-all" ${candidates.length?'':'disabled'}>${selected.length===candidates.length&&candidates.length?'取消全选':'全选'}</button></div><p class="copy-note">仅分享本次勾选的内容，不包含未来新增收藏</p><div class="picker-grid">${candidates.map(n=>`<button class="picker-card ${selected.includes(n.id)?'selected':''}" data-action="share-select" data-id="${n.id}" aria-label="分享 ${esc(n.title)}" aria-pressed="${selected.includes(n.id)}"><img src="${asset(n.cover)}" alt="${esc(n.title)}"><span class="check-circle">${selected.includes(n.id)?ico('check','small'):''}</span></button>`).join('')}</div>${candidates.length?'':'<div class="no-results">当前合集没有可分享的笔记</div>'}<div class="picker-footer"><button class="primary-button" data-action="share-confirm" ${selected.length?'':'disabled'}>确认分享 ${selected.length} 篇</button></div>`;
 }
 function cancelShareSelection(){
- const back=S.shareReturn;S.shareSelected=[];closeModal();S.page=back?.page||'group';render();E('appScreen').scrollTop=back?.top||0;
+ const back=S.shareReturn;S.shareSelected=[];closeModal(true);S.page=back?.page||'group';render();E('appScreen').scrollTop=back?.top||0;
 }
 function createShareSnapshot(){
  const ids=knownShareIds((S.shareSelected||[]).filter(id=>(S.shareCandidates||[]).includes(id)));if(!ids.length)return null;
@@ -206,14 +393,9 @@ function createShareSnapshot(){
  S.copies=[...(S.copies||[]),copy];S.activeCopy=copy.id;commit();cancelShareSelection();return copy;
 }
 function activeSharedCopy(){return (S.copies||[]).find(c=>c.id===S.activeCopy)}
-function copySheet(copy){
- if(!copy)return;
- const friends=DEMO_FRIENDS.filter(f=>(copy.friends||[]).includes(f.id));
- sheet(`<h3>${esc(copy.name)}</h3><p>${knownShareIds(copy.noteIds).length} 篇已确认的笔记 · 后续收藏不会自动加入</p><div class="share-link"><input aria-label="演示分享链接" readonly value="${esc(shareURL(copy))}"><a href="${esc(shareURL(copy))}" target="_blank" rel="noopener">打开预览</a></div><button class="choice" data-action="copy-preview">查看共享预览</button><button class="choice" data-action="copy-link">复制演示链接</button><button class="choice" data-action="copy-invite">${friends.length?'管理模拟共享好友':'邀请好友一起整理'}</button><p class="share-status">${friends.length?'本地模拟共享给：'+friends.map(f=>esc(f.name)).join('、'):'尚未邀请好友'}</p><p>这是本地演示副本，不会公开你的个人合集，也不会发送真实消息。</p>`);
-}
 function showSharedPreview(copy){
  S.sharedSnapshot=sharePayload(copy);S.sharedNote=null;S.sharedTop=0;
- closeModal();S.page='shared';render();E('appScreen').scrollTop=0;
+ closeModal(true);S.page='shared';render();E('appScreen').scrollTop=0;
 }
 function closeSharedPreview(){
  if(S.incomingShare){location.hash='';location.reload();return}
@@ -228,35 +410,120 @@ function renderShared(){
  }
  return `<div class="pagehead"><button data-action="share-exit" aria-label="关闭共享预览">${ico('back')}</button><strong>${esc(snapshot.name)}</strong><span></span></div><section class="share-preview"><p class="detail-stat">${notes.length} 篇笔记 · 共享预览</p><p class="copy-note">这是已确认内容的静态副本，不会随个人收藏更新</p><div class="masonry">${[0,1].map(col=>`<div class="note-column">${notes.filter((_,i)=>i%2===col).map(n=>`<button class="notecard" data-action="shared-note" data-id="${n.id}"><span class="note-image" style="aspect-ratio:${Number(n.ratio)>0?Number(n.ratio):.75}"><img src="${asset(n.cover)}" alt="${esc(n.title)}"></span><span class="note-caption"><strong>${esc(n.title)}</strong><small>${esc(n.author?.name||'RE 模拟作者')}</small></span></button>`).join('')}</div>`).join('')}</div><div class="share-link"><input aria-label="演示分享链接" readonly value="${esc(shareURL(snapshot))}"><a href="${esc(shareURL(snapshot))}" target="_blank" rel="noopener">在新页面打开</a></div></section>`;
 }
+/* v0.9: native share surface, scoped snapshots and local-only collaborators. */
+Object.assign(iconPaths, {
+ 'copy':'<rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>',
+ 'link':'<path d="m10 14 4-4m-6 7-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 8a4 4 0 0 0 6 0l4-4a4 4 0 0 0-6-6l-1 1"/>',
+ 'wechat':'<path d="M14 13c-1.5 2-4.8 3-7 1.8L4 16v-3A6 6 0 1 1 14 13Z"/><path d="M13 9a5 5 0 1 1 6 8.5L21 20l-4-1.5a5 5 0 0 1-4-9.5Z"/><path d="M6.5 7h.1m4.8 0h.1M16 13h.1m3 0h.1"/>',
+ 'moments':'<circle cx="12" cy="12" r="3"/><path d="M12 2v7m7-4-5 5m8 2h-7m4 7-5-5m-2 8v-7m-7 4 5-5m-8-2h7M5 5l5 5"/>',
+ 'qq':'<path d="M8 8a4 4 0 0 1 8 0v2c3 2 4 6 2 7l-2-2v4H8v-4l-2 2c-2-1-1-5 2-7V8Zm1 11-2 2m8-2 2 2"/><path d="M10 7h.1m3.8 0h.1M8 11h8"/>',
+ 'weibo':'<path d="M19 10c4 2 3 7-3 9-5 2-11 0-12-3-1-3 3-7 6-8 3-1 3 1 2 2 2-1 4-2 5-1 1 0 1 1 0 2"/><ellipse cx="10" cy="15" rx="4" ry="3"/><path d="M17 3c4 0 6 3 6 6m-6-3c2 0 3 1 3 3"/>',
+ 'share-system':'<path d="M12 16V3m-5 5 5-5 5 5M7 12H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2"/>'
+});
+const FRIEND_AVATARS={lin:'author-home',qiao:'author-travel',an:'author-life',he:'author-design',yu:'author-food'};
+if(!DEMO_FRIENDS.some(f=>f.id==='he'))DEMO_FRIENDS.push({id:'he',name:'阿禾手记'},{id:'yu',name:'小鱼的周末'});
+const SHARE_CHANNELS=[{id:'native',name:'系统分享',icon:'share-system',color:'system'},{id:'wechat',name:'微信',icon:'wechat',color:'wechat'},{id:'moments',name:'朋友圈',icon:'moments',color:'moments'},{id:'qq',name:'QQ',icon:'qq',color:'qq'},{id:'weibo',name:'微博',icon:'weibo',color:'weibo'}];
+function friendAvatar(friend){return picture('assets/'+(FRIEND_AVATARS[friend.id]||'author-life')+'.svg')}
+function latestGroupCopy(){const copies=(S.copies||[]).filter(c=>c.sourceGroup===S.selectedGroup&&knownShareIds(c.noteIds).length);return copies[copies.length-1]}
+function confirmedShareCopy(){const copy=activeSharedCopy();return copy?.sourceGroup===S.selectedGroup&&knownShareIds(copy.noteIds).length?copy:null}
+function shareSheet(){
+ const group=GROUPS.find(g=>g.id===S.selectedGroup);if(!group)return;
+ sheet(`<section class="native-share"><div class="share-head"><h3>分享至</h3><button class="share-close" data-action="close" aria-label="关闭分享">${ico('close')}</button></div><div class="share-friend-row" aria-label="虚构好友，横向滑动">${DEMO_FRIENDS.map(f=>`<button class="share-person" data-action="share-friend" data-id="${f.id}"><img class="share-avatar" src="${friendAvatar(f)}" alt=""><span>${esc(f.name)}</span><small>演示好友</small></button>`).join('')}</div><div class="share-channel-row" aria-label="分享渠道">${SHARE_CHANNELS.map(c=>`<button class="share-channel" data-action="share-channel" data-id="${c.id}"><span class="channel-icon ${c.color}">${ico(c.icon)}</span><span>${c.name}</span><small>${c.id==='native'?'系统菜单':'本地演示'}</small></button>`).join('')}</div><div class="share-actions"><button class="share-tool" data-action="share-channel" data-id="edit"><span class="channel-icon">${ico('edit')}</span><span>编辑分享内容</span></button><button class="share-tool" data-action="share-channel" data-id="copy"><span class="channel-icon">${ico('copy')}</span><span>复制链接</span></button><button class="share-tool" data-action="share-channel" data-id="save"><span class="channel-icon">${ico('folder-add')}</span><span>共享副本</span></button></div><p class="share-scope-note">${confirmedShareCopy()?`当前范围：${knownShareIds(confirmedShareCopy().noteIds).length} 篇已确认笔记`:'选择分享操作后，确认要分享的笔记范围'}</p></section>`,{kind:'native-share-sheet',label:'分享至',nativeClose:true});
+}
+function startShareSelection(purpose){
+ const group=GROUPS.find(g=>g.id===S.selectedGroup);if(!group)return;
+ S.sharePurpose=purpose;S.shareSelected=[];S.shareCandidates=groupNotes(group.id).map(n=>n.id);
+ S.shareReturn={page:S.page,group:S.selectedGroup,top:E('appScreen').scrollTop};
+ closeModal(true);S.page='share-picker';S.managing=false;S.selection=[];render();E('appScreen').scrollTop=0;
+}
+function requestShareAction(action,friendId=null){
+ const copy=confirmedShareCopy();S.shareRequest={action,friendId};
+ if(action==='edit'){
+  startShareSelection('native-action');
+  if(copy){S.shareSelected=knownShareIds(copy.noteIds).filter(id=>S.shareCandidates.includes(id));render()}
+  return;
+ }
+ if(copy){performShareAction(copy,action,friendId);return}
+ startShareSelection('native-action');
+}
+function copySheet(copy){
+ if(!copy)return;S.activeCopy=copy.id;
+ sheet(`<section class="snapshot-sheet"><h3>${esc(copy.name)}</h3><p>${knownShareIds(copy.noteIds).length} 篇已确认笔记 · 不包含后续新增收藏</p><div class="share-link" data-copy-status="idle"><input aria-label="演示分享链接" readonly value="${esc(shareURL(copy))}"><a href="${esc(shareURL(copy))}" target="_blank" rel="noopener">打开演示链接</a></div><div class="snapshot-actions"><button class="choice" data-action="copy-preview">${ico('share')}预览副本</button><button class="choice" data-action="copy-link">${ico('copy')}复制链接</button><button class="choice" data-action="copy-invite">${ico('people')}共享专辑设置</button><button class="choice" data-action="share-edit-copy">${ico('edit')}编辑分享范围</button></div><p class="share-status">${copy.sharingEnabled===false||!(copy.friends||[]).length?'暂未与好友共同整理':'本地模拟共享给：'+DEMO_FRIENDS.filter(f=>(copy.friends||[]).includes(f.id)).map(f=>esc(f.name)).join('、')}</p><p>静态演示副本，好友操作仅在本机模拟，不发送消息。</p></section>`,{kind:'native-snapshot-sheet',label:'已确认的共享副本'});
+}
+function markCopyStatus(status){S.lastCopyStatus=status;document.querySelector('.phone').dataset.copyStatus=status;document.querySelector('.share-link')?.setAttribute('data-copy-status',status)}
 async function copyShareLink(copy){
- if(!copy)return;const link=shareURL(copy);copySheet(copy);
- try{if(!navigator.clipboard?.writeText)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText(link);toast('演示链接已复制，仅包含已确认的笔记')}
- catch(_){const input=document.querySelector('.share-link input');input?.focus();input?.select();toast('请长按链接复制，或直接打开预览')}
+ if(!copy)return;const link=shareURL(copy);markCopyStatus('pending');
+ try{
+  if(!navigator.clipboard?.writeText)throw new Error('Clipboard unavailable');
+  await navigator.clipboard.writeText(link);markCopyStatus('copied');closeModal();toast('链接已复制，仅包含已确认的笔记');return;
+ }catch(_){/* Keep an honest selectable fallback if clipboard permissions are unavailable. */}
+ copySheet(copy);const input=document.querySelector('.share-link input');input?.focus();input?.select();input?.setSelectionRange(0,link.length);
+ let copied=false;try{copied=!!document.execCommand?.('copy')}catch(_){}
+ if(copied){markCopyStatus('copied');closeModal();toast('链接已复制，仅包含已确认的笔记')}
+ else{markCopyStatus('manual');toast('浏览器未允许自动复制，请长按链接复制或打开预览')}
 }
-function friendSheet(copy){
- if(!copy)return;S.activeCopy=copy.id;S.friendSelection=[...(copy.friends||[])];drawFriends();
+async function systemShare(copy){
+ if(!copy)return;
+ const data={title:copy.name,text:'RE 智能收藏 · 已确认内容的静态副本',url:shareURL(copy)};
+ let supported=typeof navigator.share==='function';
+ if(supported&&typeof navigator.canShare==='function'){try{supported=navigator.canShare(data)}catch(_){supported=false}}
+ if(!supported){await copyShareLink(copy);return}
+ try{await navigator.share(data);closeModal(true);toast('已交由系统处理分享')}
+ catch(error){if(error?.name==='AbortError'){toast('已取消系统分享');return}await copyShareLink(copy)}
 }
-function drawFriends(){
- const copy=activeSharedCopy();if(!copy)return;
- sheet(`<h3>邀请好友共同整理</h3><p>${esc(copy.name)} · ${knownShareIds(copy.noteIds).length} 篇已确认笔记</p><div class="friend-list">${DEMO_FRIENDS.map(f=>`<button class="friend ${S.friendSelection.includes(f.id)?'selected':''}" data-action="friend-toggle" data-id="${f.id}" aria-pressed="${S.friendSelection.includes(f.id)}"><span class="friend-avatar">${f.initial}</span><span>${esc(f.name)}</span><span class="check-circle">${S.friendSelection.includes(f.id)?ico('check','small'):''}</span></button>`).join('')}</div><p>演示操作：好友均为虚构，只保存在本机，不会发送真实邀请或消息。</p><button class="primary-button" data-action="friend-confirm">确认本地模拟共享（${S.friendSelection.length}）</button>`);
+function performShareAction(copy,action,friendId){
+ S.activeCopy=copy.id;
+ if(action==='copy'){copyShareLink(copy);return}
+ if(action==='native'){systemShare(copy);return}
+ if(action==='edit'||action==='save'){copySheet(copy);return}
+ const friend=DEMO_FRIENDS.find(f=>f.id===friendId),channel=SHARE_CHANNELS.find(c=>c.id===action);
+ if(action!=='friend'&&!channel)return;
+ S.demoShare={copyId:copy.id,action,friendId:friend?.id||null};
+ const destination=friend?.name||channel.name;
+ sheet(`<h3>本地分享演示</h3><p>将 ${knownShareIds(copy.noteIds).length} 篇已确认笔记的副本分享至「${esc(destination)}」。</p><p>这是本地模拟演示，不连接${friend?'真实好友':'第三方平台'}，不会发送邀请或消息。</p><button class="primary-button" data-action="share-demo-confirm">确认本地演示</button>`,{kind:'native-demo-sheet',label:'确认本地分享演示'});
 }
+function openFriendsSettings(copy){
+ const group=GROUPS.find(g=>g.id===S.selectedGroup);if(!group)return;
+ copy=copy||latestGroupCopy();S.friendsReturn={page:S.page==='friends'?'group':S.page,top:E('appScreen').scrollTop};S.friendBaseline=cloneData(S.copies||[]);
+ S.friendCopyId=copy?.id||null;S.activeCopy=copy?.id||S.activeCopy;S.friendSelection=[...(copy?.friends||[])];S.friendEnabled=copy?copy.sharingEnabled!==false:false;
+ closeModal(true);S.page='friends';render();E('appScreen').scrollTop=0;
+}
+function renderFriendsSettings(){
+ const group=GROUPS.find(g=>g.id===S.selectedGroup);const copy=(S.copies||[]).find(c=>c.id===S.friendCopyId);const selection=S.friendSelection||[];
+ return `<section class="friends-settings"><div class="friends-head"><button data-action="friends-cancel">取消</button><strong>共享专辑</strong><button class="done" data-action="friends-done">完成</button></div><div class="friends-album-name"><span>专辑名称</span><strong>${esc(group?.name||'共享副本')}</strong></div><div class="friends-switch-row"><span>和好友共享专辑</span><button class="switch ${S.friendEnabled?'on':''}" role="switch" aria-label="和好友共享专辑" aria-checked="${S.friendEnabled}" data-action="friends-toggle"></button></div><p class="friends-status">${copy?`共享范围：${knownShareIds(copy.noteIds).length} 篇已确认笔记`:'完成设置时，将先确认共享的笔记范围'}</p><div class="native-friend-list" aria-label="虚构好友">${DEMO_FRIENDS.map(f=>`<button class="native-friend ${S.friendEnabled&&selection.includes(f.id)?'selected':''}" data-action="friend-toggle" data-id="${f.id}" aria-pressed="${S.friendEnabled&&selection.includes(f.id)}" ${S.friendEnabled?'':'disabled'}><img src="${friendAvatar(f)}" alt=""><span>${esc(f.name)}</span><span class="check-circle">${S.friendEnabled&&selection.includes(f.id)?ico('check','small'):''}</span></button>`).join('')}</div><p class="friends-disclaimer">个人 AI 合集保持私密。只共享你确认的静态副本，后续收藏不会自动加入。<br>好友均为虚构，完成后仅保存本地模拟结果，不会发送真实消息。</p>${copy?'<button class="friends-range" data-action="friends-edit-scope">编辑共享笔记范围</button>':''}</section>`;
+}
+function cancelFriendsSettings(){const back=S.friendsReturn;S.friendSelection=[];S.page=back?.page||'group';render();E('appScreen').scrollTop=back?.top||0}
+function finishFriendsSettings(copy){
+ const baseline=cloneData(S.friendBaseline||S.copies||[]);
+ if(copy){copy.sharingEnabled=!!S.friendEnabled;copy.friends=S.friendEnabled?DEMO_FRIENDS.filter(f=>S.friendSelection.includes(f.id)).map(f=>f.id):[];S.activeCopy=copy.id;commit()}
+ const enabled=S.friendEnabled,count=copy?.friends?.length||0;cancelFriendsSettings();
+ toast(enabled?`已保存 ${count} 位好友的本地模拟共享 · 未发送消息`:'已关闭本地好友共享 · 个人合集保持私密',()=>{const original=baseline.find(c=>c.id===copy?.id);S.copies=S.copies.filter(c=>c.id!==copy?.id);if(original)S.copies.push(original);commit();render()});
+}
+function friendSheet(copy){openFriendsSettings(copy)}
+function drawFriends(){render()}
 
 function onAction(a,id,node){switch(a){
  case 'share':shareSheet();break;
- case 'share-preview':startShareSelection('preview');break;
- case 'share-copy':startShareSelection('copy');break;
- case 'share-create':startShareSelection('create');break;
- case 'share-invite':startShareSelection('invite');break;
+ case 'share-close':closeModal();break;
+ case 'share-channel':if(['native','wechat','moments','qq','weibo','copy','edit','save'].includes(id))requestShareAction(id);break;
+ case 'share-friend':if(DEMO_FRIENDS.some(f=>f.id===id))requestShareAction('friend',id);break;
+ case 'share-invite':openFriendsSettings();break;
  case 'share-select':{if(!(S.shareCandidates||[]).includes(id))return;S.shareSelected=S.shareSelected.includes(id)?S.shareSelected.filter(x=>x!==id):[...S.shareSelected,id];render();break}
  case 'share-all':S.shareSelected=S.shareSelected.length===S.shareCandidates.length?[]:S.shareCandidates.slice();render();break;
  case 'share-cancel':cancelShareSelection();break;
- case 'share-confirm':{const purpose=S.sharePurpose,copy=createShareSnapshot();if(!copy)return;if(purpose==='preview')showSharedPreview(copy);else if(purpose==='copy')copyShareLink(copy);else if(purpose==='invite')friendSheet(copy);else copySheet(copy);toast(`已创建包含 ${copy.noteIds.length} 篇笔记的共享副本`);break}
+ case 'share-confirm':{const purpose=S.sharePurpose,request=S.shareRequest,copy=createShareSnapshot();if(!copy)return;if(purpose==='friends-save'){S.friendCopyId=copy.id;finishFriendsSettings(copy)}else if(purpose==='friends-range'){S.friendCopyId=copy.id;render();toast('共享范围已确认，点击完成保存设置')}else if(purpose==='native-action'){performShareAction(copy,request?.action||'save',request?.friendId)}else copySheet(copy);break}
+ case 'share-edit-copy':requestShareAction('edit');break;
  case 'share-open-copy':{const copy=(S.copies||[]).find(c=>c.id===id);if(copy){S.activeCopy=id;copySheet(copy)}break}
  case 'copy-preview':showSharedPreview(activeSharedCopy());break;
  case 'copy-link':copyShareLink(activeSharedCopy());break;
- case 'copy-invite':friendSheet(activeSharedCopy());break;
- case 'friend-toggle':if(DEMO_FRIENDS.some(f=>f.id===id)){S.friendSelection=S.friendSelection.includes(id)?S.friendSelection.filter(x=>x!==id):[...S.friendSelection,id];drawFriends()}break;
- case 'friend-confirm':{const copy=activeSharedCopy();if(!copy)return;const before=(copy.friends||[]).slice();copy.friends=DEMO_FRIENDS.filter(f=>S.friendSelection.includes(f.id)).map(f=>f.id);commit();copySheet(copy);toast('本地模拟共享状态已保存，未发送真实消息',()=>{copy.friends=before;commit();copySheet(copy)});break}
+ case 'copy-invite':openFriendsSettings(activeSharedCopy());break;
+ case 'share-demo-confirm':{const pending=S.demoShare,copy=(S.copies||[]).find(c=>c.id===pending?.copyId);if(!copy)return;copy.demoShares=[...(copy.demoShares||[]),{channel:pending.action,friendId:pending.friendId,at:new Date().toISOString()}];S.demoShare=null;commit();closeModal(true);toast('已记录本地模拟分享 · 未发送真实消息');break}
+ case 'friends-cancel':cancelFriendsSettings();break;
+ case 'friends-toggle':S.friendEnabled=!S.friendEnabled;render();break;
+ case 'friend-toggle':if(S.friendEnabled&&DEMO_FRIENDS.some(f=>f.id===id)){S.friendSelection=S.friendSelection.includes(id)?S.friendSelection.filter(x=>x!==id):[...S.friendSelection,id];render()}break;
+ case 'friends-done':{const copy=(S.copies||[]).find(c=>c.id===S.friendCopyId);if(S.friendEnabled&&!copy){startShareSelection('friends-save')}else finishFriendsSettings(copy);break}
+ case 'friends-edit-scope':startShareSelection('friends-range');break;
+ case 'friend-confirm':{const copy=(S.copies||[]).find(c=>c.id===S.friendCopyId);if(S.friendEnabled&&!copy)startShareSelection('friends-save');else finishFriendsSettings(copy);break}
  case 'share-exit':closeSharedPreview();break;
  case 'shared-note':if(S.sharedSnapshot?.noteIds.includes(id)){S.sharedTop=E('appScreen').scrollTop;S.sharedNote=id;render();E('appScreen').scrollTop=0}break;
  case 'shared-note-back':S.sharedNote=null;render();E('appScreen').scrollTop=S.sharedTop||0;break;
@@ -266,20 +533,23 @@ function onAction(a,id,node){switch(a){
  case 'note-add-other':targetSheet([S.selectedNote]);break;
  case 'note-like':S.liked=S.liked.includes(S.selectedNote)?S.liked.filter(x=>x!==S.selectedNote):[...S.liked,S.selectedNote];commit();render();break;
  case 'note-comment':sheet(`<h3>写评论</h3><p>评论仅保存在当前设备。</p><textarea id="noteComment" aria-label="评论内容" maxlength="300" placeholder="说点什么…"></textarea><button class="primary-button" data-action="comment-save">发布演示评论</button>`);break;
- case 'comment-save':{const text=E('noteComment').value.trim();if(!text){toast('先写点内容吧');return}S.comments[S.selectedNote]=[...(S.comments[S.selectedNote]||[]),text];commit();closeModal();toast('演示评论已保存在本机');break}
+ case 'comment-save':{const text=E('noteComment').value.trim();if(!text){toast('先写点内容吧');return}S.comments[S.selectedNote]=[...(S.comments[S.selectedNote]||[]),text];commit();closeModal(true);toast('演示评论已保存在本机');break}
  case 'note-save':{if(allNotes().some(n=>n.id===S.selectedNote)){sheet(`<h3>取消收藏这篇笔记？</h3><p>将同步从全部收藏、智能合集和原专辑中移除。</p><button class="choice danger" data-action="note-unsave-confirm">确认取消收藏</button>`)}else{const before=preferenceSnapshot();S.removed=S.removed.filter(id=>id!==S.selectedNote);if(NEW_NOTES.some(n=>n.id===S.selectedNote)&&!S.savedNew.includes(S.selectedNote)){S.savedNew.push(S.selectedNote);S.savedTimes[S.selectedNote]=new Date().toISOString()}finishChange(before,'已收藏')}break}
  case 'note-unsave-confirm':{const before=preferenceSnapshot();S.removed=[...new Set([...S.removed,S.selectedNote])];finishChange(before,'已取消收藏');break}
- case 'add-notes':S.pickerTop=E('appScreen').scrollTop;S.pickerSelected=[];S.page='picker';render();E('appScreen').scrollTop=0;break;
+ case 'add-notes':closeModal(true);S.pickerTop=E('appScreen').scrollTop;S.pickerSelected=[];S.page='picker';render();E('appScreen').scrollTop=0;break;
  case 'picker-close':leavePicker();break;
  case 'picker-toggle':{const n=allNotes().find(n=>n.id===id);if(!n||inGroup(n,S.selectedGroup))return;S.pickerSelected=S.pickerSelected.includes(id)?S.pickerSelected.filter(x=>x!==id):[...S.pickerSelected,id];render();break}
  case 'picker-all':{const ids=allNotes().filter(n=>!inGroup(n,S.selectedGroup)).map(n=>n.id);S.pickerSelected=ids.every(id=>S.pickerSelected.includes(id))?[]:ids;render();break}
  case 'picker-confirm':{if(!S.pickerSelected.length)return;const before=preferenceSnapshot(),count=S.pickerSelected.length;addToGroups(S.pickerSelected,[S.selectedGroup]);leavePicker();finishChange(before,`已加入 ${count} 篇笔记`);break}
  case 'sort-start':startSort();break;
- case 'sort-done':S.editing=false;S.dragId=null;render();toast('顺序已保存');break;
- case 'sort-auto':S.order=null;S.pins=[];commit();closeModal();render();toast('已按最近收藏排序');break;
+ case 'sort-done':clearSettlingSort();S.editing=false;S.dragId=null;render();toast('顺序已保存');break;
+ case 'sort-auto':S.order=null;S.pins=[];commit();closeModal(true);render();toast('已按最近收藏排序');break;
  case 'sort-left':moveGroup(id,orderedGroups().findIndex(g=>g.id===id)-1);break;
  case 'sort-right':moveGroup(id,orderedGroups().findIndex(g=>g.id===id)+1);break;
- case 'manage':S.managing=true;S.selection=[];render();break;
+ case 'manage':manageSheet();break;
+ case 'manage-start':closeModal(true);S.managing=true;S.selection=[];render();break;
+ case 'display-settings':displaySettings();break;
+ case 'visibility-toggle':{const before=S.hidden.slice();S.hidden=S.hidden.includes(id)?S.hidden.filter(x=>x!==id):[...S.hidden,id];commit();render();displaySettings();break;}
  case 'manage-exit':S.managing=false;S.selection=[];render();break;
  case 'select-note':S.selection=S.selection.includes(id)?S.selection.filter(x=>x!==id):[...S.selection,id];render();break;
  case 'select-all':{const ids=groupNotes(S.selectedGroup).map(n=>n.id);S.selection=S.selection.length===ids.length?[]:ids;render();break}
@@ -305,20 +575,20 @@ function onAction(a,id,node){switch(a){
  case 'save-album':saveAlbum();break;
  case 'toggle-public':S.createPublic=!S.createPublic;render();break;
  case 'toggle-shared':S.createShared=!S.createShared;render();break;
- case 'smart-toggle':S.smartOn=!S.smartOn;commit();closeModal();go('home');toast(S.smartOn?'已开启智能合集':'已关闭智能合集展示');break;
- case 'hide':{S.hidden=[...new Set([...S.hidden,id])];commit();closeModal();go('home');toast('已隐藏，可在首页设置中恢复',()=>{S.hidden=S.hidden.filter(x=>x!==id);commit();render()});break}
- case 'restore':{S.hidden=S.hidden.filter(x=>x!==id);commit();closeModal();render();toast('已恢复显示智能合集');break}
- case 'exclude':{const group=node.dataset.group;S.exclude[group]=[...new Set([...(S.exclude[group]||[]),id])];commit();closeModal();render();toast('已从智能合集移除 · 原收藏未变',()=>{S.exclude[group]=S.exclude[group].filter(x=>x!==id);commit();render()});break}
- case 'save-note':{if(allNotes().some(n=>n.id===id)){toast('这篇笔记已经收藏过了');return}const n=NEW_NOTES.find(x=>x.id===id);if(!n)return;const before=preferenceSnapshot();S.savedNew=[...new Set([...S.savedNew,id])];S.removed=S.removed.filter(x=>x!==id);S.savedTimes[id]=new Date().toISOString();commit();closeModal();go('home');const rail=E('smartShelf');if(rail)rail.scrollLeft=0;S.shelfScroll=0;toast(`已收藏「${n.title}」`,()=>{Object.assign(S,before);commit();render()});break}
+ case 'smart-toggle':S.smartOn=!S.smartOn;commit();closeModal(true);go('home');toast(S.smartOn?'已开启智能合集':'已关闭智能合集展示');break;
+ case 'hide':{S.hidden=[...new Set([...S.hidden,id])];commit();closeModal(true);go('home');toast('已隐藏，可在首页设置中恢复',()=>{S.hidden=S.hidden.filter(x=>x!==id);commit();render()});break}
+ case 'restore':{S.hidden=S.hidden.filter(x=>x!==id);commit();closeModal(true);render();toast('已恢复显示智能合集');break}
+ case 'exclude':{const group=node.dataset.group;S.exclude[group]=[...new Set([...(S.exclude[group]||[]),id])];commit();closeModal(true);render();toast('已从智能合集移除 · 原收藏未变',()=>{S.exclude[group]=S.exclude[group].filter(x=>x!==id);commit();render()});break}
+ case 'save-note':{if(allNotes().some(n=>n.id===id)){toast('这篇笔记已经收藏过了');return}const n=NEW_NOTES.find(x=>x.id===id);if(!n)return;const before=preferenceSnapshot();S.savedNew=[...new Set([...S.savedNew,id])];S.removed=S.removed.filter(x=>x!==id);S.savedTimes[id]=new Date().toISOString();commit();closeModal(true);go('home');const rail=E('smartShelf');if(rail)rail.scrollLeft=0;S.shelfScroll=0;toast(`已收藏「${n.title}」`,()=>{Object.assign(S,before);commit();render()});break}
  case 'undo':{if(S.toastUndo){const fn=S.toastUndo;S.toastUndo=null;fn();E('toastLayer').innerHTML=''}break}
  default:break
 }}
 document.addEventListener('click',ev=>{const target=ev.target.closest('[data-action]');if(target){ev.preventDefault();if(target.dataset.action==='group'&&Date.now()<suppressClickUntil)return;onAction(target.dataset.action,target.dataset.id,target)}else if(ev.target.id==='backdrop')closeModal()});
 E('appScreen').addEventListener('input',ev=>{if(ev.target.id==='albumTitle'){S.createTitle=ev.target.value;E('matchWrap').innerHTML=matchHtml();const btn=E('appScreen').querySelector('[data-action="save-album"]');if(btn)btn.disabled=!S.createTitle.trim()}if(ev.target.id==='albumDesc')S.createDesc=ev.target.value});
-document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeModal();if(ev.key==='Tab'&&E('modalLayer').firstChild){const controls=[...E('modalLayer').querySelectorAll('button:not(:disabled),summary')];const first=controls[0],last=controls.at(-1);if(ev.shiftKey&&(document.activeElement===first||document.activeElement.classList.contains('sheet'))){ev.preventDefault();last?.focus()}else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first?.focus()}}});
+document.addEventListener('keydown',ev=>{if(S.editing&&ev.target.closest('[data-action="group"]')&&['ArrowLeft','ArrowRight'].includes(ev.key)){ev.preventDefault();const id=ev.target.closest('[data-action="group"]').dataset.id;moveGroup(id,orderedGroups().findIndex(g=>g.id===id)+(ev.key==='ArrowRight'?1:-1));document.querySelector(`[data-action="group"][data-id="${id}"]`)?.focus();return;}if(ev.key==='Escape')closeModal();if(ev.key==='Tab'&&E('modalLayer').firstChild){const controls=[...E('modalLayer').querySelectorAll('button:not(:disabled),summary')];const first=controls[0],last=controls.at(-1);if(ev.shiftKey&&(document.activeElement===first||document.activeElement.classList.contains('sheet'))){ev.preventDefault();last?.focus()}else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first?.focus()}}});
 document.querySelectorAll('[data-demo]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.demo;if(k==='shelf'){go('home');setTimeout(()=>E('smartShelf')?.scrollIntoView({behavior:'smooth',block:'center'}),70)}else if(k==='detail')go('group','design');else if(k==='save')simulateSheet();else if(k==='create')go('create')}));
 E('resetDemo').addEventListener('click',()=>{if(S.incomingShare)return;try{localStorage.removeItem(KEY)}catch(_){}S.hidden=[];S.pins=[];S.order=null;S.manual={};S.removed=[];S.copies=[];S.liked=[];S.comments={};S.exclude={};S.savedNew=[];S.savedTimes={};S.extraAlbums=[];S.smartOn=true;S.createTitle='';S.createDesc='';S.homeScroll=0;S.shelfScroll=0;go('home');E('appScreen').scrollTop=0;toast('已重置为初始模拟数据')});
-window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#share=')){initializeShare();closeModal();S.managing=false;S.selection=[];E('resetDemo').hidden=true;render();E('appScreen').scrollTop=0}else if(S.incomingShare)location.reload()});
+window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#share=')){initializeShare();closeModal(true);S.managing=false;S.selection=[];E('resetDemo').hidden=true;render();E('appScreen').scrollTop=0}else if(S.incomingShare)location.reload()});
 initializeShare();
 if(S.incomingShare)E('resetDemo').hidden=true;
 render();

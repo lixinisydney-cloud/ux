@@ -302,3 +302,128 @@ svg.icon { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.7; f
 .note-image { position: relative; }
 .phone.modal-open .toast { top: calc(58px + env(safe-area-inset-top)); bottom: auto; }
 @media (min-width: 900px) { .phone.modal-open .toast { top: 94px; } }
+
+/* v0.9 round 1: native collection hierarchy and restrained selection. */
+.collection-nav { position: sticky; top: 0; z-index: 3; display: flex; justify-content: space-between; align-items: center; min-height: 50px; padding: 0 11px; background: var(--bg); }
+.collection-nav button { display: grid; place-items: center; width: 40px; height: 44px; padding: 0; border: 0; background: none; color: var(--text); }
+.collection-nav .icon { width: 23px; height: 23px; }
+.collection-heading { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 13px 17px 0; }
+.collection-heading h1 { min-width: 0; margin: 0; font-size: 25px; line-height: 1.35; letter-spacing: -.02em; font-weight: 600; overflow-wrap: anywhere; }
+.manage-pill { display: flex; align-items: center; justify-content: center; flex: none; min-width: 66px; min-height: 31px; padding: 4px 18px; border: 1px solid #545459; border-radius: 18px; background: none; color: var(--text); font-size: 13px; line-height: 20px; }
+.collection-description { min-height: 28px; padding: 7px 17px 3px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.collection-members { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 6px 17px 21px; }
+.member-invite { display: flex; align-items: center; gap: 6px; min-width: 0; min-height: 30px; border: 0; padding: 0; background: none; color: #aaaab1; font-size: 12px; }
+.member-invite .icon { width: 15px; height: 15px; }
+.member-invite .member-avatars { display: inline-flex; align-items: center; padding-right: 2px; }
+.member-invite .member-avatars img { display: block; width: 23px; height: 23px; object-fit: cover; border: 1px solid var(--bg); border-radius: 50%; margin-right: -5px; }
+.collection-count { flex: none; color: #a2a2a9; font-size: 12px; line-height: 20px; }
+.notecard.selected { outline: 0; outline-offset: 0; box-shadow: none; }
+.notecard.selected .note-image::after { background: #00000012; }
+.check-circle { border-color: #e8e8ed; background: #45454c66; box-shadow: 0 1px 3px #0003; }
+.selected .check-circle { border-color: var(--red); background: var(--red); }
+.shelf.editing .tile-image { outline: 0; }
+.smart-tile.dragging .tile-image { outline: 0; box-shadow: 0 8px 22px #0007; }
+.sort-tools { display: none; }
+.sheet.action-sheet-panel { padding: 9px 0 calc(8px + env(safe-area-inset-bottom)); border-radius: 14px 14px 0 0; background: #222226; }
+.action-sheet { margin: 0 -16px; }
+.action-sheet-panel .action-sheet { margin: 0; }
+.action-sheet .action-row { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 57px; padding: 15px 20px; border: 0; border-bottom: 1px solid #ffffff0b; border-radius: 0; background: none; color: #eeeef0; font-size: 16px; line-height: 24px; }
+.action-sheet .action-cancel { display: block; width: 100%; min-height: 58px; padding: 16px; border: 0; border-top: 7px solid #17171b; border-radius: 0; background: none; color: #eeeef0; font-size: 16px; }
+.visibility-list { display: grid; gap: 0; }
+.visibility-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 63px; padding: 10px 0; border-bottom: 1px solid #ffffff09; font-size: 14px; }
+.visibility-row > span { display: flex; align-items: center; gap: 10px; }
+.visibility-row img { display: block; width: 37px; height: 37px; border-radius: 4px; object-fit: cover; }
+.switch { width: 48px; height: 28px; padding: 2px; }
+.switch::before { width: 24px; height: 24px; }
+@media (max-width: 899px) { .collection-nav { min-height: 48px; } }
+
+/* Direct share panel: friends, channels, then utility actions. */
+.sheet.native-share-sheet { padding: 8px 0 calc(16px + env(safe-area-inset-bottom)); border-radius: 15px 15px 0 0; background: #232327; }
+.native-share { margin: 0 -16px; }
+.native-share-sheet .native-share { margin: 0; }
+.native-share .share-head { position: relative; display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 46px; }
+.native-share .share-head h3 { margin: 0; font-size: 14px; font-weight: 500; line-height: 22px; }
+.native-share .share-close { position: absolute; right: 9px; top: 0; display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 0; background: none; color: #b4b4bc; }
+.native-share .share-close .icon { width: 20px; height: 20px; }
+.share-friend-row, .share-channel-row { display: flex; align-items: flex-start; gap: 15px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding: 15px 18px 17px; }
+.share-friend-row::-webkit-scrollbar, .share-channel-row::-webkit-scrollbar { display: none; }
+.share-person, .share-channel, .share-tool { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 0 0 60px; min-width: 0; width: 60px; padding: 0; border: 0; background: none; color: #d8d8de; text-align: center; font-size: 11px; line-height: 17px; }
+.share-person > span:not(.share-avatar), .share-channel > span:not(.channel-icon), .share-tool > span:not(.channel-icon) { width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.share-person small, .share-channel small { margin-top: -6px; font-size: 9px; line-height: 13px; color: #888890; }
+.share-avatar { display: block; width: 55px; height: 55px; border-radius: 50%; overflow: hidden; background: #d7c6bb; }
+.share-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.share-channel-row { border-top: 1px solid #ffffff09; padding-top: 18px; padding-bottom: 18px; }
+.channel-icon { display: grid; place-items: center; width: 53px; height: 53px; border-radius: 50%; background: #34343b; color: #ededf1; }
+.channel-icon .icon { width: 26px; height: 26px; stroke-width: 1.7; }
+.channel-icon.green, .channel-icon.wechat { background: #2ebf64; color: #fff; }
+.channel-icon.moments { background: #f3f3f4; color: #23b45e; }
+.channel-icon.blue, .channel-icon.qq { background: #4ba6e8; color: #fff; }
+.channel-icon.yellow, .channel-icon.weibo { background: #f5c645; color: #dd404b; }
+.channel-icon.red, .channel-icon.native { background: #eb425b; color: #fff; }
+.share-actions { display: flex; gap: 15px; align-items: flex-start; padding: 18px 18px 4px; border-top: 1px solid #ffffff09; overflow-x: auto; scrollbar-width: none; }
+.share-tool .channel-icon { background: #34343b; }
+.native-share .share-note { margin: 10px 18px 0; color: #85858f; font-size: 10px; line-height: 16px; }
+
+/* Full-page local shared album setup. */
+.friends-settings { min-height: 100%; background: var(--bg); }
+.friends-head { position: sticky; top: 0; z-index: 3; display: grid; grid-template-columns: 65px minmax(0,1fr) 65px; align-items: center; height: 55px; padding: 0 10px; background: var(--bg); }
+.friends-head strong, .friends-head h2 { margin: 0; text-align: center; font-size: 16px; font-weight: 500; }
+.friends-head button { min-height: 42px; padding: 0 6px; border: 0; background: none; color: #cacad0; font-size: 14px; }
+.friends-head button:first-child { justify-self: start; }
+.friends-head button:last-child { justify-self: end; color: var(--red); font-weight: 500; }
+.friends-album-name { display: flex; align-items: center; gap: 12px; min-height: 76px; margin: 7px 17px 15px; padding: 8px 0 20px; border-bottom: 1px solid #ffffff09; font-size: 17px; font-weight: 500; }
+.friends-album-name img { display: block; flex: none; width: 48px; height: 48px; border-radius: 5px; object-fit: cover; }
+.friends-switch-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 47px; margin: 0 17px; font-size: 14px; }
+.friends-status { margin: 0 !important; padding: 8px 17px 18px; color: #85858d; font-size: 11px; line-height: 1.8; }
+.native-friend-list { padding: 0 17px; }
+.native-friend { position: relative; display: flex; align-items: center; gap: 11px; width: 100%; min-height: 72px; padding: 12px 39px 12px 0; border: 0; border-bottom: 1px solid #ffffff08; border-radius: 0; background: none; color: #e5e5e9; text-align: left; font-size: 14px; }
+.native-friend > img, .native-friend .friend-avatar { width: 43px; height: 43px; border-radius: 50%; object-fit: cover; }
+.native-friend .check-circle { top: calc(50% - 11px); right: 2px; }
+.native-friend.selected { background: none; }
+.native-friend.selected .check-circle { border-color: var(--red); background: var(--red); }
+.native-friend-list[aria-disabled="true"] { opacity: .4; }
+
+.native-share .share-avatar { object-fit: cover; flex: none; }
+.native-share .share-scope-note { margin: 12px 18px 0; font-size: 10px; line-height: 17px; color: #96969f; }
+.channel-icon.system { background: #eeeeef; color: #2d2d31; }
+.friends-album-name strong { margin-left: auto; font-size: 15px; }
+.friends-disclaimer { margin: 20px 17px; color: #93939b; font-size: 11px; line-height: 1.85; }
+.friends-range { margin: 0 17px; border: 0; background: none; padding: 10px 0; font-size: 13px; color: #ccc; }
+[hidden] { display: none !important; }
+
+.native-share .share-tool { flex-basis: 82px; width: 82px; }
+.native-share .share-actions { gap: 18px; }
+
+/* v0.9 round 2: one restrained motion vocabulary, with reliable fallbacks. */
+:root { --motion-page: 230ms; --motion-sheet: 290ms; --motion-control: 140ms; --motion-ease: cubic-bezier(.22,.74,.25,1); }
+button { transition: background-color var(--motion-control), color var(--motion-control), opacity var(--motion-control), transform 110ms; }
+button:active:not(:disabled) { transform: scale(.975); }
+.check-circle { transition: background-color var(--motion-control), border-color var(--motion-control), color var(--motion-control); }
+.check-circle svg { transition: opacity var(--motion-control), transform var(--motion-control); }
+.switch, .switch.on { justify-content: flex-start; transition: background-color var(--motion-control); }
+.switch::before { transform: translateX(0); transition: transform var(--motion-control) var(--motion-ease); }
+.switch.on::before { transform: translateX(20px); }
+.sheet { animation: none; }
+.handle { height: 5px; position: relative; cursor: grab; touch-action: none; }
+.handle::before { content: ''; position: absolute; inset: -9px -25px; }
+.share-head, .sheet-head { touch-action: none; }
+.scrim[data-closing] { pointer-events: auto; }
+.sort-drag-ghost { pointer-events: none; opacity: .93; will-change: transform; filter: drop-shadow(0 9px 14px #0008); }
+.sort-drag-ghost .tile-image { box-shadow: 0 0 0 1px #ffffff25; }
+.smart-tile.drag-source { pointer-events: auto; }
+.page-enter { animation: nativePageEnter var(--motion-page) var(--motion-ease); }
+.page-back { animation: nativePageBack var(--motion-page) var(--motion-ease); }
+.sheet-opening .sheet { animation: nativeSheetIn var(--motion-sheet) var(--motion-ease) !important; }
+.sheet-opening { animation: nativeMaskIn var(--motion-sheet) var(--motion-ease); }
+.sheet-closing .sheet { animation: nativeSheetOut var(--motion-sheet) var(--motion-ease) forwards !important; }
+.sheet-closing { animation: nativeMaskOut var(--motion-sheet) var(--motion-ease) forwards; }
+@keyframes nativePageEnter { from { opacity: .9; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes nativePageBack { from { opacity: .9; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes nativeSheetIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes nativeSheetOut { from { transform: translateY(0); } to { transform: translateY(100%); } }
+@keyframes nativeMaskIn { from { background-color: #0000; } to { background-color: #0009; } }
+@keyframes nativeMaskOut { from { background-color: #0009; } to { background-color: #0000; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  button:active:not(:disabled) { transform: none; }
+}

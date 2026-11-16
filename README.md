@@ -1,73 +1,68 @@
-# RE｜智能收藏 v0.9
+# RE｜智能收藏 v0.9.1
 
-基于现有 HTML / CSS / JavaScript 的 REDNOTE 收藏交互原型，保持桌面双栏介绍与手机展示，无框架、无构建依赖。站点：<https://lixinisydney-cloud.github.io/ux/>。
+现有 HTML / CSS / JavaScript 静态原型，保留桌面双栏和手机展示，无前端框架、无后端、无付费API。
 
-## v0.9 原生交互与动效精修
+网站：<https://lixinisydney-cloud.github.io/ux/>。
 
-分享箭头直接打开“分享至”；邀请好友打开完整共享专辑设置。合集使用大标题、管理胶囊与共享成员行；管理菜单只保留添加、批量管理、取消。排序仅拖动与完成，隐藏设置集中管理，多选仅使用圆圈与轻遮罩。
+## 这一版的减法
 
-页面、弹层、控件和排序采用统一轻量动效，支持下拉关闭、手指/鼠标跟随拖动、减少动态效果偏好及API降级。分享仍先确认静态范围，复制为真实可打开链接，虚构好友和第三方渠道明确仅本地模拟。两轮实现与验收详见[记录](reports/v09-validation.md)。
+- 分享当前合集：点击好友、渠道或复制链接，直接生成当前全部笔记的静态快照，不再选择笔记或二次确认。后续新收藏不进入旧快照；虚构好友仅本地模拟，系统分享不可用时复制链接。
+- 邀请好友：共享专辑设置中开启、选好友、完成，即保存新副本并返回。历史副本和v1链接保留；取消或关闭本地共享不改变个人合集。
+- 首页菜单：调整顺序、管理显示、关闭/开启、取消。恢复默认位于排序模式；模拟新收藏和关于说明位于桌面左侧。
+- 原生阅读：作者、静态关注、大图/轮播、页码、标题正文、标签时间及固定底部互动展示。没有无意义的互动提示；返回真实可用，分类纠错保留在合集管理。
+- 首页“为你整理”只有一个原创薄荷绿AI概念图标，未接入官方点点服务。
 
-## 保留的体验
+保留触控/鼠标横滑、长按拖动排序、自定义/最近收藏排序、隐藏恢复、手动添加、批量移出、全局取消确认/撤销、原专辑保护和localStorage。详情见[本轮验证记录](reports/v091-validation.md)。
 
-- 首页保留单条横向合集区域，390px 显示三张完整卡片并露出第四张约20px。触控横滑、鼠标拖动、450ms长按排序与点击互不冲突。
-- 首页设置统一管理自定义顺序、最近收藏排序、隐藏/恢复和展示开关；旧版固定状态迁移为自定义顺序，封面不随新增收藏切换。
-- 合集支持多选管理：虚拟移出、加入其他合集、二次确认后取消收藏。操作有反馈与撤销，取消收藏同步影响原专辑。
-- “添加笔记”打开三列已有收藏选择器，手动关联和移出偏好优先于预生成分类，刷新保留。
-- 笔记打开完整虚构社区页面，含作者、图片、原创正文、标签和本地互动；分类调整位于次级菜单，返回恢复滚动位置。
-- 分享前明确勾选笔记，生成静态共享副本和可打开链接。后续收藏不自动共享。虚构好友可多选、确认、撤销和查看状态，全部仅本机模拟，不发送消息。
-- 移动端隐藏模拟系统状态栏；桌面保留手机框与9:41。技术边界集中于桌面介绍和“关于原型”。
+## 数据与历史
 
-## 数据与素材
+38篇原创模拟笔记，使用已有Codex语义预分类。不实时调用模型，不分析照片。本轮笔记、图片来源、分类答案、数据hash和预分类机制均未改变。
 
-38篇原创模拟笔记：35篇已有、3篇模拟新增。已有笔记34篇获得分类、1篇未分类、4篇双主题。分类保存在 `data/classifications.precomputed.json`，由 Codex 任务预先完成，不是实时 AI，不调用付费 API，不需要 API Key，不分析照片。
+沿用 `refold-v05-experience-data`，保留旧纠错、隐藏、排序、收藏、专辑与共享副本。新增groupSharing仅保存当前本地共享状态；旧copies与链接不重写。快照冻结笔记ID范围，静态原型不提供真实用户数据的访问控制。
 
-v0.8内容补全时仅增加作者、正文、图片和展示信息，没有改动分类输入的 `id/title/description/tags`，语义hash仍为 `32ac1b6352714ff4be765cd2e08f47dd1bfc108cb37071f0803508368d011df7`。旧结果通过完整校验后继续使用，没有静默套用过期结果。
+素材均位于本地assets，来源及许可见[记录](docs/ASSET_SOURCES_V08.md)、[逐文件清单](docs/asset-sources-v08.json)和docs/licenses。照片为授权氛围配图，作者和内容均为虚构。
 
-按笔记计，摄影65.8%、原创设计26.3%、原创界面示意7.9%。所有图片存于本地 `assets/`，详情见[素材来源](docs/ASSET_SOURCES_V08.md)、[逐文件记录](docs/asset-sources-v08.json)和 `docs/licenses/`。照片是授权氛围配图，不代表虚构作者本人或所述目的地实拍。
+## 开发与验证
 
-沿用 `refold-v05-experience-data`；保留旧版纠错、隐藏、模拟收藏及专辑。新增字段见[实现与验证记录](reports/v08-validation.md)。分享链接只包含主动选择的模拟笔记ID及标题，是静态原型，不能用来承载真实私人数据或真实权限控制。
-
-## 本地运行与验证
+仓库根目录启动：
 
 ```bash
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-另一个终端在仓库根目录运行（Python Playwright与Chromium需已安装）：
+另一个终端执行（需已有Python Playwright与Chromium）：
 
 ```bash
-python3 -m unittest discover -s tests -p test_classifier.py -v
-python3 -m unittest discover -s tests -p test_precomputed.py -v
+python3 -m unittest discover -s tests -p test_classifier.py
+python3 -m unittest discover -s tests -p test_precomputed.py
 python3 tests/test_ui.py --base-url http://127.0.0.1:4173
 python3 tests/test_ai_ui.py --base-url http://127.0.0.1:4173
 python3 tests/test_precomputed_ui.py --base-url http://127.0.0.1:4173
 python3 tests/test_v08.py --phase all --base-url http://127.0.0.1:4173
 python3 tests/test_v09.py --round all --base-url http://127.0.0.1:4173
+python3 tests/test_v091.py --base-url http://127.0.0.1:4173
 ```
 
-共86项测试通过，包括59项浏览器测试与27项数据/管线测试。浏览器检查375/390/430px、1440×900，支持 `--chromium /path/to/chromium`。触控手势通过Chromium CDP真实触控事件验证；未声称已在实体iPhone/Safari验收。
+98项通过，含71项浏览器检查。布局覆盖375/390/430px与1440×900；实体iOS/Safari未验证。浏览器脚本支持 `--chromium /path/to/chromium`。
 
-生成截图：
-
-```bash
-python3 tests/capture_screenshots.py --base-url http://127.0.0.1:4173 --output-dir screenshots/v09/final
-```
-
-`screenshots/v09/final/` 包含主页、合集、完整笔记、管理、多选添加、分享与好友选择等移动端截图及桌面截图。
-
-## 维护静态产物
+截图与离线导出：
 
 ```bash
-python3 scripts/build_data_bundle.py
+python3 tests/capture_screenshots.py --base-url http://127.0.0.1:4173 --output-dir screenshots/v091
 python3 tests/export_standalone.py
+```
+
+`screenshots/v091/`含菜单、阅读、分享、共享设置、排序、管理及桌面Demo截图。`RE_FOLD_v06_Demo.html`保留旧下载文件名，内容已同步v0.9.1，内嵌图片、数据和许可。
+
+预分类恢复/校验仍使用原有命令；不生成新分类：
+
+```bash
+python3 scripts/restore_precomputed.py
 python3 scripts/classify_notes.py --validate-existing data/classifications.precomputed.json
 ```
 
-`RE_FOLD_v06_Demo.html` 保留旧下载文件名，内容已同步v0.9，内嵌图片、数据和素材许可通知。仅恢复已有预分类时可运行 `python3 scripts/restore_precomputed.py`；它不会重新分类或调用模型。
-
-修改分类输入文本后必须重新完成语义预分类并更新hash及数据包。原独立API分类流程与Windows说明保留在 `docs/AI_CLASSIFICATION.md` 和 `docs/WINDOWS_QUICKSTART.md`；本轮没有执行该可选流程。
+修改分类输入文本时才需要更新语义结果、hash及bundle。原可选API脚本的说明保留在docs/AI_CLASSIFICATION.md；本轮没有执行。
 
 ## 发布
 
-GitHub Pages使用 `main` 分支仓库根目录，入口 `index.html`，`.nojekyll` 直接提供静态资源。发布前完成测试，推送后核对对应提交的Pages部署和线上交互。不存在新增后端或真实好友服务。
+GitHub Pages使用main分支根目录与.nojekyll。先完成代码、浏览器验证和导出，再推送；发布后核对对应提交、Pages部署及线上交互。

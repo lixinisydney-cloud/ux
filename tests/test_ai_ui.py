@@ -135,6 +135,26 @@ class AIClassificationUI(unittest.TestCase):
     def ids(self):
         return self.action("note").evaluate_all("els => els.map(el => el.dataset.id)")
 
+    def save_note(self, note_id):
+        viewport=self.page.viewport_size.copy()
+        self.page.set_viewport_size({'width':1440,'height':900})
+        if not self.page.locator('#demoPanel').is_visible():
+            self.page.locator('#simulateDemo').click()
+        self.action('save-note',note_id).click()
+        self.page.set_viewport_size(viewport)
+
+    def restore_default(self):
+        self.settings()
+        self.action('sort-start').click()
+        self.action('sort-auto').click()
+        self.action('sort-done').click()
+
+    def exclude_note(self,note_id):
+        self.action('manage').click()
+        self.action('manage-start').click()
+        self.action('select-note',note_id).click()
+        self.action('batch-remove').click()
+
     def cache(self):
         return self.page.evaluate(
             "key => JSON.parse(localStorage.getItem(key) || 'null')", RESULT_CACHE_KEY
@@ -179,9 +199,8 @@ class AIClassificationUI(unittest.TestCase):
         self.group("travel")
         self.assertIn("d1", self.ids())
         self.action("note", "d1").click()
-        self.action("note-menu").click()
-        expect(self.page.locator(".note-source")).to_contain_text("视觉设计灵感")
-        self.action("close").click()
+        expect(self.page.locator(".native-note h1")).to_have_text("实验字体与海报排版")
+        expect(self.action("note-menu")).to_have_count(0)
         original_note = next(note for note in self.notes if note["id"] == "d1")
         expect(self.page.locator(".note-gallery img").first).to_have_attribute(
             "src", f'assets/{original_note["cover"]}.webp'
@@ -197,10 +216,7 @@ class AIClassificationUI(unittest.TestCase):
         self.group("design")
         before = self.ids()
         self.assertIn("d1", before)
-        self.action("note", "d1").click()
-        self.action("note-menu").click()
-        self.action("note-exclude").click()
-        self.action("note-back").click()
+        self.exclude_note("d1")
         self.assertNotIn("d1", self.ids())
         self.assertIn("d1", self.user_state()["exclude"]["design"])
         self.page.reload(wait_until="networkidle")
@@ -317,10 +333,7 @@ class AIClassificationUI(unittest.TestCase):
     def test_07_mode_change_keeps_custom_order_hidden_groups_and_corrections(self):
         self.goto()
         self.group("design")
-        self.action("note", "d1").click()
-        self.action("note-menu").click()
-        self.action("note-exclude").click()
-        self.action("note-back").click()
+        self.exclude_note("d1")
         self.home()
         self.action("settings").click()
         self.action("sort-start").click()
@@ -353,10 +366,7 @@ class AIClassificationUI(unittest.TestCase):
         self.assert_mode("offline")
         self.group("design")
         self.assertIn("d1", self.ids())
-        self.action("note", "d1").click()
-        self.action("note-menu").click()
-        self.action("note-exclude").click()
-        self.action("note-back").click()
+        self.exclude_note("d1")
         self.assertNotIn("d1", self.ids())
         self.action("undo").click()
         self.assertIn("d1", self.ids())

@@ -427,3 +427,51 @@ button:active:not(:disabled) { transform: scale(.975); }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   button:active:not(:disabled) { transform: none; }
 }
+
+/* v0.9.1: fewer steps, a focused reading surface and isolated home actions. */
+.ai-mark { display: inline-flex; width: 17px; height: 17px; margin-right: 3px; flex: none; }
+.ai-mark svg { width: 100%; height: 100%; }
+.sheet.home-settings-sheet { padding: 0 0 env(safe-area-inset-bottom); border-radius: 14px 14px 0 0; background: #222226; }
+.home-settings-sheet .action-sheet { margin: 0; }
+.home-settings-sheet .action-row { min-height: 57px; }
+.home-settings-sheet .action-cancel { border-top-width: 8px; }
+.sort-banner-actions { display: flex; align-items: center; gap: 9px; }
+.sort-banner .sort-default { background: none; color: #ababaf; padding-inline: 5px; font-size: 11px; }
+.demo-controls { margin-top: 12px; }
+.demo-label { margin: 0 0 8px; font-size: 10px; color: #958b90; letter-spacing: .05em; }
+.brief-actions { display: flex; gap: 19px; flex-wrap: wrap; }
+.desktop-demo-picker { max-height: 190px; overflow-y: auto; margin-top: 12px; border-top: 1px solid #e5dedb; }
+.demo-note { display: flex; align-items: center; gap: 9px; width: 100%; background: none; border: 0; border-bottom: 1px solid #e5dedb; color: #655c62; padding: 8px 0; text-align: left; }
+.demo-note img { width: 34px; height: 34px; border-radius: 4px; object-fit: cover; }
+.demo-note > span { flex: 1; font-size: 11px; }
+.demo-note small { font-size: 10px; color: #9d858b; }
+.prototype-about { margin-top: 13px; font-size: 10px; color: #a0949a; line-height: 1.9; }
+.prototype-about summary { cursor: pointer; width: fit-content; }
+.prototype-about p { margin: 7px 0 0; max-width: 420px; }
+.native-note { min-height: 100%; }
+.phone[data-page="note"] .note-native-head, .note-native-head { display: flex; gap: 8px; height: 55px; min-height: 55px; padding: 0 10px 0 7px; background: var(--surface); }
+.note-native-head > button:first-child { min-width: 30px; width: 30px; }
+.note-native-head .note-author { flex: 1; justify-self: auto; padding: 0; overflow: hidden; }
+.note-native-head .note-author strong { min-width: 0; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.note-native-head .note-author img { width: 31px; height: 31px; flex: none; }
+.note-follow { display: inline-flex; align-items: center; justify-content: center; height: 28px; min-width: 53px; border: 1px solid #bd344a; border-radius: 16px; color: #ff526c; font-size: 12px; }
+.note-share-display { display: grid; place-items: center; flex: none; width: 31px; height: 40px; }
+.note-share-display .icon { width: 23px; height: 23px; }
+.note-media { position: relative; background: #242428; }
+.native-note .note-gallery { align-items: flex-start; }
+.native-note .note-gallery img { width: 100%; height: auto; max-height: 560px; object-fit: contain; }
+.gallery-pagination { position: absolute; right: 13px; bottom: 12px; padding: 3px 8px; background: #0008; color: #fff; border-radius: 14px; font-size: 10px; font-variant-numeric: tabular-nums; pointer-events: none; }
+.native-note .note-body { padding: 17px 15px 1px; font-size: 15px; line-height: 1.85; }
+.native-note .note-body h1 { font-size: 18px; line-height: 1.5; margin-bottom: 11px; }
+.native-note .note-body p { margin-bottom: 13px; }
+.native-note .note-tags { padding: 0 15px 15px; font-size: 13px; }
+.native-note .note-meta { padding: 0 15px 24px; color: #7e7e87; font-size: 11px; }
+#noteReadBar { position: relative; z-index: 5; flex: none; background: var(--surface); }
+.reading-interactions { display: flex; align-items: center; gap: 11px; height: calc(58px + env(safe-area-inset-bottom)); padding: 10px 13px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid #ffffff0b; }
+.reading-comment { width: 0; flex: 1; min-width: 70px; height: 34px; border: 0; outline: none; border-radius: 18px; padding: 7px 12px; background: #29292e; color: #a3a3ac; font-size: 12px; cursor: default; }
+.reading-comment::placeholder { color: #8d8d96; }
+.reading-metric { display: inline-flex; align-items: center; gap: 4px; flex: none; color: #dddde1; font-size: 11px; font-variant-numeric: tabular-nums; }
+.reading-metric .icon { width: 22px; height: 22px; stroke-width: 1.6; }
+.reading-metric.active { color: var(--red); }
+.collection-nav button:disabled { opacity: .3; }
+@media (max-width: 389px) { .reading-interactions { gap: 8px; padding-inline: 10px; } .reading-metric { gap: 3px; } }

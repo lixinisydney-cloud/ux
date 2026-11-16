@@ -58,10 +58,30 @@ class PrecomputedUI(unittest.TestCase):
     def home(self):
         self.page.locator('.pagehead [data-action="home"]').click()
 
+    def save_note(self, note_id):
+        viewport=self.page.viewport_size.copy()
+        self.page.set_viewport_size({'width':1440,'height':900})
+        if not self.page.locator('#demoPanel').is_visible():
+            self.page.locator('#simulateDemo').click()
+        self.action('save-note',note_id).click()
+        self.page.set_viewport_size(viewport)
+
+    def restore_default(self):
+        self.settings()
+        self.action('sort-start').click()
+        self.action('sort-auto').click()
+        self.action('sort-done').click()
+
+    def exclude_note(self,note_id):
+        self.action('manage').click()
+        self.action('manage-start').click()
+        self.action('select-note',note_id).click()
+        self.action('batch-remove').click()
+
     def ids(self):
         return self.action('note').evaluate_all('els=>els.map(el=>el.dataset.id)')
 
-    def test_01_all_group_memberships_and_reasons_use_shipped_result(self):
+    def test_01_all_group_memberships_and_native_notes_use_shipped_dataset(self):
         self.goto()
         initial = {n['id'] for n in self.notes if n['availability'] == 'initial'}
         for group in ('design', 'career', 'travel', 'food', 'home', 'life'):
@@ -72,27 +92,21 @@ class PrecomputedUI(unittest.TestCase):
                 for membership in row['memberships']:
                     if row['noteId'] in initial and membership['groupId'] == group:
                         self.action('note', row['noteId']).click()
-                        self.action('note-menu').click()
-                        self.page.locator('details.classification summary').click()
-                        expect(self.page.locator('details.classification p')).to_have_text(membership['reason'])
-                        self.action('close').click()
+                        original=next(n for n in self.notes if n['id']==row['noteId'])
+                        expect(self.page.locator('.native-note h1')).to_have_text(original['title'])
+                        expect(self.page.locator('.note-body')).to_contain_text(original['body'].split('\n\n')[0])
+                        expect(self.action('note-menu')).to_have_count(0)
                         self.action('note-back').click()
             self.home()
 
     def test_02_correction_undo_reload_original_and_three_new_saves(self):
         self.goto()
         self.action('group', 'design').click()
-        self.action('note', 'd1').click()
-        self.action('note-menu').click()
-        self.action('note-exclude').click()
-        self.action('note-back').click()
+        self.exclude_note('d1')
         self.assertNotIn('d1', self.ids())
         self.action('undo').click()
         self.assertIn('d1', self.ids())
-        self.action('note', 'd1').click()
-        self.action('note-menu').click()
-        self.action('note-exclude').click()
-        self.action('note-back').click()
+        self.exclude_note('d1')
         self.page.reload(wait_until='networkidle')
         self.action('group', 'design').click()
         self.assertNotIn('d1', self.ids())
@@ -101,9 +115,7 @@ class PrecomputedUI(unittest.TestCase):
         self.assertIn('d1', self.ids())
         self.home()
         for note, group in (('new1', 'home'), ('new2', 'design'), ('new3', 'travel')):
-            self.action('settings').click()
-            self.action('simulate').click()
-            self.action('save-note', note).click()
+            self.save_note(note)
             self.action('group', group).click()
             self.assertIn(note, self.ids())
             self.home()
